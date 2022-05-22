@@ -1,28 +1,39 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from '../../Components/Loading';
-import auth from '../../Hooks/Firebase.Init';
 import { toast } from 'react-toastify';
 import SocialLogin from '../../Components/SocialLogin';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../../Hooks/Firebase.Init';
 
 const Signup = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const [
         createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
+        eUser,
+        eLoading,
+        eError,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-    if (loading) {
+    const [
+        signInWithGoogle,
+        gUser,
+        gLoading,
+        gError
+    ] = useSignInWithGoogle(auth);
+
+    if (eLoading || gLoading) {
         return <Loading />;
     };
-    if (user) {
-        toast.success(`Welcome ${user}`);
+
+    if (eUser || gUser) {
+        toast.success(`Welcome ${eUser?.displayName || eUser?.email || gUser?.user?.displayName} `);
     };
+
+    console.log(eUser)
+    console.log(gUser)
 
     const onSubmit = async data => {
         createUserWithEmailAndPassword(data?.email, data?.password);
@@ -106,10 +117,7 @@ const Signup = () => {
                             </label>
                         </div>
 
-                        <p className='text-center text-red-500 mb-4'>{ }</p>
-                        <p className='text-center text-red-500 mb-4'>{ }</p>
-
-                        <p className='text-center text-red-500 mb-4'>{error?.message.slice(10)}</p>
+                        <p className='text-center text-red-500 mb-4'>{eError?.message.slice(10)}</p>
 
                         <input className='btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary w-full' type='submit' value='Signup' />
 
@@ -118,7 +126,11 @@ const Signup = () => {
                         <p className='text-lg mt-3 text-center'><small>Already have an account? <Link className='text-secondary' to='/login'>Login</Link></small></p>
                     </form>
 
-                    <SocialLogin />
+                    <div className='divider'>OR</div>
+
+                    <p className='text-center text-red-500 mb-3'>{gError}</p>
+
+                    <button onClick={() => signInWithGoogle()} className='btn btn-active text-white uppercase w-full' > Continue With Google</button >
                 </div>
             </div>
         </div>
