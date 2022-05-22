@@ -1,9 +1,32 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { BsCartCheck, BsSearch } from 'react-icons/bs';
 import { FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import auth from '../Hooks/Firebase.Init';
+import Loading from './Loading';
 
 const Navbar = ({ logo }) => {
+    const [user, loading, error] = useAuthState(auth);
+
+    if (loading) {
+        return <Loading />;
+    };
+
+    if (error) {
+        toast(error);
+    };
+
+    const logout = () => {
+        toast(`See You Soon ${user?.displayName || user?.email.split('@')[0]}`);
+        signOut(auth);
+    };
+
+    console.log(user?.displayName)
+    console.log(user?.email.split('@')[0])
+
     return (
         <header className="border-b border-gray-100">
             <div
@@ -36,54 +59,76 @@ const Navbar = ({ logo }) => {
                     <nav
                         className="hidden lg:uppercase lg:text-gray-500 lg:tracking-wide lg:font-bold lg:text-xs lg:space-x-4 lg:flex"
                     >
-                        <a
-                            href="/"
+
+                        <Link
+                            to="/"
                             className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
                         >
                             Home
-                        </a>
+                        </Link>
 
-                        <a
-                            href="/about"
+                        <Link
+                            to="/about"
                             className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
                         >
                             About
-                        </a>
+                        </Link>
 
-                        <a
-                            href="/blogs"
+                        <Link
+                            to="/blogs"
                             className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
                         >
                             Blogs
-                        </a>
+                        </Link>
 
-                        <a
-                            href="/contact"
+                        <Link
+                            to="/contact"
                             className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
                         >
                             Contact
-                        </a>
+                        </Link>
 
-                        <a
-                            href="/my-portfolio"
+                        <Link
+                            to="/my-portfolio"
                             className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
                         >
                             My Portfolio
-                        </a>
+                        </Link>
 
-                        <a
-                            href="/my-orders"
-                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
-                        >
-                            My Orders
-                        </a>
+                        {
+                            !user ?
+                                <>
+                                    <Link
+                                        to="/login"
+                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
+                                    >
+                                        Login
+                                    </Link>
+                                </>
+                                :
+                                <>
+                                    <Link
+                                        to="/my-orders"
+                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
+                                    >
+                                        My Orders
+                                    </Link>
 
-                        <a
-                            href="/my-profile"
-                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
-                        >
-                            My Profile
-                        </a>
+                                    <Link
+                                        to="/my-profile"
+                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
+                                    >
+                                        My Profile
+                                    </Link>
+
+                                    <Link onClick={() => logout()}
+                                        to="/"
+                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
+                                    >
+                                        Logout
+                                    </Link>
+                                </>
+                        }
                     </nav>
 
                     <div className="flex items-center ml-8">
@@ -91,37 +136,40 @@ const Navbar = ({ logo }) => {
                             className="flex items-center border-gray-100 divide-x divide-gray-100 border-x"
                         >
                             <span>
-                                <a
-                                    href="/search"
+                                <Link
+                                    to="/search"
                                     className="block p-5 border-b-4 border-transparent hover:border-red-700"
                                 >
                                     <BsSearch className='text-lg' />
 
                                     <span className="sr-only"> Search </span>
-                                </a>
+                                </Link>
                             </span>
 
                             <span>
-                                <a
-                                    href="/cart"
+                                <Link
+                                    to="/cart"
                                     className="block p-5 border-b-4 border-transparent hover:border-red-700"
                                 >
                                     <BsCartCheck className='text-xl' />
 
                                     <span className="sr-only">Cart</span>
-                                </a>
+                                </Link>
                             </span>
 
-                            <span>
-                                <a
-                                    href="/login"
-                                    className="block p-5 border-b-4 border-transparent hover:border-red-700"
-                                >
-                                    <FiUser className='text-xl' />
+                            {
+                                !user &&
+                                <span>
+                                    <Link
+                                        to="/login"
+                                        className="block p-5 border-b-4 border-transparent hover:border-red-700"
+                                    >
+                                        <FiUser className='text-xl' />
 
-                                    <span className="sr-only"> Login </span>
-                                </a>
-                            </span>
+                                        <span className="sr-only"> Login </span>
+                                    </Link>
+                                </span>
+                            }
                         </div>
                     </div>
                 </div>

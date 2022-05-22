@@ -32,9 +32,6 @@ const Signup = () => {
         toast.success(`Welcome ${eUser?.displayName || eUser?.email || gUser?.user?.displayName} `);
     };
 
-    console.log(eUser)
-    console.log(gUser)
-
     const onSubmit = async data => {
         createUserWithEmailAndPassword(data?.email, data?.password);
     };
