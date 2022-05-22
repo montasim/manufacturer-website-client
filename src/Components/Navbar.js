@@ -48,7 +48,7 @@ const Navbar = ({ logo }) => {
                     </button>
 
                     <Link to='/' className="flex">
-                        <h5 className='text-4xl font-bold text-gray-700'>Jan<span className='text-blue-600'>Trik</span></h5>
+                        <h5 className='font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-secondary to-primary'>JanTrik</h5>
                     </Link>
                 </div>
 
