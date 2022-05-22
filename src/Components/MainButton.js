@@ -1,8 +1,8 @@
 import React from 'react';
 
-const MainButton = ({ design }) => {
+const MainButton = ({ design, text }) => {
     return (
-        <button className={design} > Continue With Google</button >
+        <button className={design} > {text}</button >
     );
 };
 

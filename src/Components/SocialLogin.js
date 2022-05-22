@@ -7,7 +7,7 @@ const SocialLogin = () => {
             <div className='divider'>OR</div>
 
             <p className='text-center text-red-500 mb-3'>{ }</p>
-            <MainButton design={'btn btn-active text-white uppercase w-full'} />
+            <MainButton design={'btn btn-active text-white uppercase w-full'} text={'Continue With Google'} />
         </div>
     );
 };
