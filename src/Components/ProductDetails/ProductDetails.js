@@ -138,7 +138,7 @@ const ProductDetails = () => {
 
                                 <div className='flow-root'>
                                     <div className='flex flex-wrap -m-0.5'>
-                                        <label for='color_tt' className='cursor-pointer p-0.5'>
+                                        <label htmlFor='color_tt' className='cursor-pointer p-0.5'>
                                             <input type='radio' name='color' id='color_tt' className='sr-only peer' />
 
                                             <span className='inline-block px-3 py-1 text-xs font-medium border rounded-full group peer-checked:bg-black peer-checked:text-white'>
@@ -146,7 +146,7 @@ const ProductDetails = () => {
                                             </span>
                                         </label>
 
-                                        <label for='color_fr' className='cursor-pointer p-0.5'>
+                                        <label htmlFor='color_fr' className='cursor-pointer p-0.5'>
                                             <input type='radio' name='color' id='color_fr' className='sr-only peer' />
 
                                             <span className='inline-block px-3 py-1 text-xs font-medium border rounded-full group peer-checked:bg-black peer-checked:text-white'>
@@ -154,7 +154,7 @@ const ProductDetails = () => {
                                             </span>
                                         </label>
 
-                                        <label for='color_cb' className='cursor-pointer p-0.5'>
+                                        <label htmlFor='color_cb' className='cursor-pointer p-0.5'>
                                             <input type='radio' name='color' id='color_cb' className='sr-only peer' />
 
                                             <span className='inline-block px-3 py-1 text-xs font-medium border rounded-full group peer-checked:bg-black peer-checked:text-white'>
@@ -170,7 +170,7 @@ const ProductDetails = () => {
 
                                 <div className='flow-root'>
                                     <div className='flex flex-wrap -m-0.5'>
-                                        <label for='size_xs' className='cursor-pointer p-0.5'>
+                                        <label htmlFor='size_xs' className='cursor-pointer p-0.5'>
                                             <input type='radio' name='size' id='size_xs' className='sr-only peer' />
 
                                             <span className='inline-flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full group peer-checked:bg-black peer-checked:text-white'>
@@ -178,7 +178,7 @@ const ProductDetails = () => {
                                             </span>
                                         </label>
 
-                                        <label for='size_s' className='cursor-pointer p-0.5'>
+                                        <label htmlFor='size_s' className='cursor-pointer p-0.5'>
                                             <input type='radio' name='size' id='size_s' className='sr-only peer' />
 
                                             <span className='inline-flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full group peer-checked:bg-black peer-checked:text-white'>
@@ -186,7 +186,7 @@ const ProductDetails = () => {
                                             </span>
                                         </label>
 
-                                        <label for='size_m' className='cursor-pointer p-0.5'>
+                                        <label htmlFor='size_m' className='cursor-pointer p-0.5'>
                                             <input type='radio' name='size' id='size_m' className='sr-only peer' />
 
                                             <span className='inline-flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full group peer-checked:bg-black peer-checked:text-white'>
@@ -194,7 +194,7 @@ const ProductDetails = () => {
                                             </span>
                                         </label>
 
-                                        <label for='size_l' className='cursor-pointer p-0.5'>
+                                        <label htmlFor='size_l' className='cursor-pointer p-0.5'>
                                             <input type='radio' name='size' id='size_l' className='sr-only peer' />
 
                                             <span className='inline-flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full group peer-checked:bg-black peer-checked:text-white'>
@@ -202,7 +202,7 @@ const ProductDetails = () => {
                                             </span>
                                         </label>
 
-                                        <label for='size_xl' className='cursor-pointer p-0.5'>
+                                        <label htmlFor='size_xl' className='cursor-pointer p-0.5'>
                                             <input type='radio' name='size' id='size_xl' className='sr-only peer' />
 
                                             <span className='inline-flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full group peer-checked:bg-black peer-checked:text-white'>
@@ -215,7 +215,7 @@ const ProductDetails = () => {
 
                             <div className='flex mt-8'>
                                 <div>
-                                    <label for='quantity' className='sr-only'>Qty</label>
+                                    <label htmlFor='quantity' className='sr-only'>Qty</label>
 
                                     <input
                                         type='number'
