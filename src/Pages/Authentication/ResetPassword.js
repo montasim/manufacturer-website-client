@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import auth from '../../Hooks/Firebase.Init';
 import Loading from '../../Components/Loading';
+import { toast } from 'react-toastify';
 
 const ResetPassword = () => {
     const navigate = useNavigate();
@@ -18,6 +19,7 @@ const ResetPassword = () => {
 
     const onSubmit = async (data) => {
         await sendPasswordResetEmail(data?.email);
+        toast(`Email verification sent to ${data?.email}`);
     };
 
     if (rSending) {
@@ -62,7 +64,7 @@ const ResetPassword = () => {
                         <input className='btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary w-full' type='submit' value='Reset Password' />
                     </form>
 
-                    <button onClick={() => navigate('/')} className='btn btn-active text-white font-semibold uppercase'>Cancel</button>
+                    <button onClick={() => navigate('/login')} className='btn btn-active text-white font-semibold uppercase'>Cancel</button>
                 </div>
             </div>
         </div>
