@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Product = () => {
     return (
-        <a
-            href='/product/simple-watch'
+        <Link
+            to='/product/simple-watch'
             className='block'
         >
             <div className='aspect-w-1 aspect-h-1'>
@@ -24,7 +25,7 @@ const Product = () => {
                     $150
                 </p>
             </div>
-        </a>
+        </Link>
     );
 };
 

@@ -13,12 +13,12 @@ const DiscountOffer = () => {
                     <span className='block mt-2 text-sm'>On your next order over $50</span>
                 </h5>
 
-                <a
+                <Link
                     className='inline-block w-full py-4 mt-8 text-sm font-bold tracking-widest text-white uppercase bg-black '
-                    href=''
+                    to=''
                 >
                     Get Discount
-                </a>
+                </Link>
 
                 <p className='mt-12 text-xs font-medium text-gray-400 uppercase'>
                     Offer valid until 24th March, 2021 *

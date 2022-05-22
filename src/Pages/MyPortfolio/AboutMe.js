@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AboutMe = () => {
     return (
@@ -15,12 +16,12 @@ const AboutMe = () => {
                         I want to make difference and willing to work hard for skillful career rather than regular career that I can be satisfied for. I want to work hard, be responsible and improve my profession and skills with a reputed organization in an ethical way in order to accept challenges.
                     </p>
 
-                    <a
-                        href='https://www.linkedin.com/in/montasim'
+                    <Link
+                        to='https://www.linkedin.com/in/montasim'
                         className='inline-block px-5 py-3 mt-8 text-sm font-medium text-white bg-indigo-500 rounded-lg hover:bg-indigo-600'
                     >
                         Contact Me
-                    </a>
+                    </Link>
                 </div>
             </div>
 

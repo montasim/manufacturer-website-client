@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AcceptCookies = () => {
     return (
@@ -7,7 +8,7 @@ const AcceptCookies = () => {
                 <p className='text-sm font-medium text-left sm:text-center'>
                     Love Alpine JS? Check out this new course!
 
-                    <a className='underline' href='/alpinejs'> Learn More &rarr; </a>
+                    <Link className='underline' to='/alpinejs'> Learn More &rarr; </Link>
                 </p>
 
                 <button

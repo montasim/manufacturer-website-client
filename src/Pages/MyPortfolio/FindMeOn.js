@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const FindMeOn = () => {
     return (
@@ -41,12 +42,12 @@ const FindMeOn = () => {
                         </p>
 
                         <div className='mt-6 sm:text-right'>
-                            <a
+                            <Link
                                 className='inline-block px-5 py-3 text-sm font-medium text-white bg-indigo-500 rounded-lg '
-                                href='https://www.linkedin.com/in/montasim'
+                                to='https://www.linkedin.com/in/montasim'
                             >
                                 Contact with LinkedIn
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

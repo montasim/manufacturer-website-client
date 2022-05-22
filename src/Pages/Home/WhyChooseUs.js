@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const WhyChooseUs = () => {
     return (
@@ -17,9 +18,9 @@ const WhyChooseUs = () => {
                             Obcaecati, autem.
                         </p>
 
-                        <a
+                        <Link
                             className='inline-flex items-center px-8 py-3 mt-8 text-white bg-indigo-600 border border-indigo-600 rounded hover:bg-transparent hover:text-indigo-600 active:text-indigo-500 focus:outline-none focus:ring'
-                            href='/get-started'
+                            to='/get-started'
                         >
                             <span className='text-sm font-medium'> Get Started </span>
 
@@ -37,13 +38,13 @@ const WhyChooseUs = () => {
                                     d='M17 8l4 4m0 0l-4 4m4-4H3'
                                 />
                             </svg>
-                        </a>
+                        </Link>
                     </div>
 
                     <div className='grid grid-cols-2 gap-4 sm:grid-cols-3'>
-                        <a
+                        <Link
                             className='block p-4 border border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200'
-                            href='/accountant'
+                            to='/accountant'
                         >
                             <span className='inline-block p-3 rounded-lg bg-gray-50'>
                                 <svg
@@ -71,11 +72,11 @@ const WhyChooseUs = () => {
                             <p className='hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block'>
                                 Lorem ipsum dolor sit amet consectetur.
                             </p>
-                        </a>
+                        </Link>
 
-                        <a
+                        <Link
                             className='block p-4 border border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200'
-                            href='/accountant'
+                            to='/accountant'
                         >
                             <span className='inline-block p-3 rounded-lg bg-gray-50'>
                                 <svg
@@ -103,11 +104,11 @@ const WhyChooseUs = () => {
                             <p className='hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block'>
                                 Lorem ipsum dolor sit amet consectetur.
                             </p>
-                        </a>
+                        </Link>
 
-                        <a
+                        <Link
                             className='block p-4 border border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200'
-                            href='/accountant'
+                            to='/accountant'
                         >
                             <span className='inline-block p-3 rounded-lg bg-gray-50'>
                                 <svg
@@ -135,11 +136,11 @@ const WhyChooseUs = () => {
                             <p className='hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block'>
                                 Lorem ipsum dolor sit amet consectetur.
                             </p>
-                        </a>
+                        </Link>
 
-                        <a
+                        <Link
                             className='block p-4 border border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200'
-                            href='/accountant'
+                            to='/accountant'
                         >
                             <span className='inline-block p-3 rounded-lg bg-gray-50'>
                                 <svg
@@ -167,11 +168,11 @@ const WhyChooseUs = () => {
                             <p className='hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block'>
                                 Lorem ipsum dolor sit amet consectetur.
                             </p>
-                        </a>
+                        </Link>
 
-                        <a
+                        <Link
                             className='block p-4 border border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200'
-                            href='/accountant'
+                            to='/accountant'
                         >
                             <span className='inline-block p-3 rounded-lg bg-gray-50'>
                                 <svg
@@ -199,11 +200,11 @@ const WhyChooseUs = () => {
                             <p className='hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block'>
                                 Lorem ipsum dolor sit amet consectetur.
                             </p>
-                        </a>
+                        </Link>
 
-                        <a
+                        <Link
                             className='block p-4 border border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200'
-                            href='/accountant'
+                            to='/accountant'
                         >
                             <span className='inline-block p-3 rounded-lg bg-gray-50'>
                                 <svg
@@ -231,7 +232,7 @@ const WhyChooseUs = () => {
                             <p className='hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block'>
                                 Lorem ipsum dolor sit amet consectetur.
                             </p>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

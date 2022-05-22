@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Product from './Product';
 
 const Products = () => {
@@ -16,20 +17,20 @@ const Products = () => {
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, cupiditate mollitia saepe vitae libero nobis.
                             </p>
 
-                            <a
-                                href='/collections/watches'
+                            <Link
+                                to='/collections/watches'
                                 className='inline-block px-6 py-3 mt-6 text-sm text-white bg-black rounded'
                             >
                                 View the Range
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
                     <div className='grid grid-cols-2 gap-4 lg:col-span-2 lg:grid-cols-3 lg:py-12'>
                         <Product />
 
-                        <a
-                            href='/product/simple-watch'
+                        <Link
+                            to='/product/simple-watch'
                             className='block'
                         >
                             <div className='aspect-w-1 aspect-h-1'>
@@ -50,10 +51,10 @@ const Products = () => {
                                     $150
                                 </p>
                             </div>
-                        </a>
+                        </Link>
 
-                        <a
-                            href='/product/simple-watch'
+                        <Link
+                            to='/product/simple-watch'
                             className='block'
                         >
                             <div className='aspect-w-1 aspect-h-1'>
@@ -74,7 +75,7 @@ const Products = () => {
                                     $150
                                 </p>
                             </div>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

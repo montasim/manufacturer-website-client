@@ -3,6 +3,7 @@ import { BiDesktop } from 'react-icons/bi';
 import { FaReact, FaNodeJs } from 'react-icons/fa';
 import { MdSecurity } from 'react-icons/md';
 import { SiMongodb, SiHackthebox } from 'react-icons/si';
+import { Link } from 'react-router-dom';
 
 const Skills = () => {
     return (
@@ -19,9 +20,9 @@ const Skills = () => {
                 </div>
 
                 <div className='grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3'>
-                    <a
+                    <Link
                         className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-indigo-500/10 hover:border-indigo-500/10'
-                        href='/services/digital-campaigns'
+                        to='/services/digital-campaigns'
                     >
                         <BiDesktop className='text-indigo-500 text-4xl' />
 
@@ -30,11 +31,11 @@ const Skills = () => {
                         <p className='mt-1 text-sm text-gray-300'>
                             Modern and clean looking UI.
                         </p>
-                    </a>
+                    </Link>
 
-                    <a
+                    <Link
                         className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-indigo-500/10 hover:border-indigo-500/10'
-                        href='/services/digital-campaigns'
+                        to='/services/digital-campaigns'
                     >
                         <SiHackthebox className='text-indigo-500 text-4xl' />
 
@@ -43,11 +44,11 @@ const Skills = () => {
                         <p className='mt-1 text-sm text-gray-300'>
                             Smooth user experience.
                         </p>
-                    </a>
+                    </Link>
 
-                    <a
+                    <Link
                         className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-indigo-500/10 hover:border-indigo-500/10'
-                        href='/services/digital-campaigns'
+                        to='/services/digital-campaigns'
                     >
                         <SiMongodb className='text-indigo-500 text-4xl' />
                         <h3 className='mt-4 text-xl font-bold text-white'>MongoDB Database</h3>
@@ -55,11 +56,11 @@ const Skills = () => {
                         <p className='mt-1 text-sm text-gray-300'>
                             Modern and secure database.
                         </p>
-                    </a>
+                    </Link>
 
-                    <a
+                    <Link
                         className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-indigo-500/10 hover:border-indigo-500/10'
-                        href='/services/digital-campaigns'
+                        to='/services/digital-campaigns'
                     >
                         <FaNodeJs className='text-indigo-500 text-4xl' />
 
@@ -68,11 +69,11 @@ const Skills = () => {
                         <p className='mt-1 text-sm text-gray-300'>
                             Advance backend server.
                         </p>
-                    </a>
+                    </Link>
 
-                    <a
+                    <Link
                         className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-indigo-500/10 hover:border-indigo-500/10'
-                        href='/services/digital-campaigns'
+                        to='/services/digital-campaigns'
                     >
                         <FaReact className='text-indigo-500 text-4xl' />
 
@@ -81,11 +82,11 @@ const Skills = () => {
                         <p className='mt-1 text-sm text-gray-300'>
                             World's most popular front end framework
                         </p>
-                    </a>
+                    </Link>
 
-                    <a
+                    <Link
                         className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-indigo-500/10 hover:border-indigo-500/10'
-                        href='/services/digital-campaigns'
+                        to='/services/digital-campaigns'
                     >
                         <MdSecurity className='text-indigo-500 text-4xl' />
 
@@ -94,13 +95,13 @@ const Skills = () => {
                         <p className='mt-1 text-sm text-gray-300'>
                             Ensure security with JWT.
                         </p>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className='mt-12 text-center'>
-                    <a
+                    <Link
                         className='inline-flex items-center px-8 py-3 mt-8 text-white bg-indigo-600 border border-indigo-600 rounded hover:bg-transparent active:text-indigo-500 focus:outline-none focus:ring'
-                        href='https://www.linkedin.com/in/montasim'
+                        to='https://www.linkedin.com/in/montasim'
                     >
                         <span className='text-sm font-medium'> Hire Me </span>
 
@@ -118,7 +119,7 @@ const Skills = () => {
                                 d='M17 8l4 4m0 0l-4 4m4-4H3'
                             />
                         </svg>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </aside>
