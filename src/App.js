@@ -36,6 +36,7 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/my-portfolio' element={<MyPortfolio />} />
         <Route path='/purchase' element={<Purchase />} />
+        <Route path='/product-details/:id' element={<Purchase />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/my-orders' element={<MyOrders />} />
         <Route path='/add-a-review' element={<AddAReview />} />
