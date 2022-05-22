@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 const ResetPassword = () => {
+    const navigate = useNavigate();
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const onSubmit = data => {
@@ -43,10 +45,10 @@ const ResetPassword = () => {
 
                         <p className='text-center text-red-500 mb-4'></p>
 
-                        <input className='btn w-full max-w-xs text-white' type='submit' value='Reset Password' />
+                        <input className='btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary w-full' type='submit' value='Reset Password' />
                     </form>
 
-                    <button className='btn btn-outline'>Cancel</button>
+                    <button onClick={() => navigate('/')} className='btn btn-active text-white font-semibold uppercase'>Cancel</button>
                 </div>
             </div>
         </div>

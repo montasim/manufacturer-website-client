@@ -11,10 +11,10 @@ const Signup = () => {
     };
 
     return (
-        <div className='flex h-screen items-center justify-center'>
+        <div className='flex h-screen items-center justify-center my-16'>
             <div className='card w-96 bg-base-100 shadow-xl'>
                 <div className='card-body'>
-                    <h2 className='text-center text-2xl font-bold'>Register</h2>
+                    <h2 className='text-center text-2xl font-bold'>Signup</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -92,7 +92,7 @@ const Signup = () => {
                         <p className='text-center text-red-500 mb-4'>{ }</p>
                         <p className='text-center text-red-500 mb-4'>{ }</p>
 
-                        <input className='btn w-full max-w-xs text-white' type='submit' value='Register' />
+                        <input className='btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary w-full' type='submit' value='Signup' />
 
                         <p className='mt-3 text-center'><small>Forgot password? <Link className='text-secondary' to='/reset-password'>Reset Password</Link></small></p>
 
@@ -102,7 +102,7 @@ const Signup = () => {
                     <div className='divider'>OR</div>
 
                     <p className='text-center text-red-500 mb-3'>{ }</p>
-                    <button className='btn btn-outline'>Continue With Google</button>
+                    <button className='btn btn-active text-white uppercase'>Continue With Google</button>
                 </div>
             </div>
         </div>
