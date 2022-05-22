@@ -21,10 +21,10 @@ const Skills = () => {
 
                 <div className='grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3'>
                     <Link
-                        className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-indigo-500/10 hover:border-indigo-500/10'
+                        className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-secondary/10 hover:border-secondary/10'
                         to='/services/digital-campaigns'
                     >
-                        <BiDesktop className='text-indigo-500 text-4xl' />
+                        <BiDesktop className='text-secondary text-4xl' />
 
                         <h3 className='mt-4 text-xl font-bold text-white'>UI Design</h3>
 
@@ -34,10 +34,10 @@ const Skills = () => {
                     </Link>
 
                     <Link
-                        className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-indigo-500/10 hover:border-indigo-500/10'
+                        className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-secondary/10 hover:border-secondary/10'
                         to='/services/digital-campaigns'
                     >
-                        <SiHackthebox className='text-indigo-500 text-4xl' />
+                        <SiHackthebox className='text-secondary text-4xl' />
 
                         <h3 className='mt-4 text-xl font-bold text-white'>UX Design</h3>
 
@@ -47,10 +47,10 @@ const Skills = () => {
                     </Link>
 
                     <Link
-                        className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-indigo-500/10 hover:border-indigo-500/10'
+                        className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-secondary/10 hover:border-secondary/10'
                         to='/services/digital-campaigns'
                     >
-                        <SiMongodb className='text-indigo-500 text-4xl' />
+                        <SiMongodb className='text-secondary text-4xl' />
                         <h3 className='mt-4 text-xl font-bold text-white'>MongoDB Database</h3>
 
                         <p className='mt-1 text-sm text-gray-300'>
@@ -59,10 +59,10 @@ const Skills = () => {
                     </Link>
 
                     <Link
-                        className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-indigo-500/10 hover:border-indigo-500/10'
+                        className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-secondary/10 hover:border-secondary/10'
                         to='/services/digital-campaigns'
                     >
-                        <FaNodeJs className='text-indigo-500 text-4xl' />
+                        <FaNodeJs className='text-secondary text-4xl' />
 
                         <h3 className='mt-4 text-xl font-bold text-white'>NodeJs Backend</h3>
 
@@ -72,10 +72,10 @@ const Skills = () => {
                     </Link>
 
                     <Link
-                        className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-indigo-500/10 hover:border-indigo-500/10'
+                        className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-secondary/10 hover:border-secondary/10'
                         to='/services/digital-campaigns'
                     >
-                        <FaReact className='text-indigo-500 text-4xl' />
+                        <FaReact className='text-secondary text-4xl' />
 
                         <h3 className='mt-4 text-xl font-bold text-white'>Popular frontend framework </h3>
 
@@ -85,10 +85,10 @@ const Skills = () => {
                     </Link>
 
                     <Link
-                        className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-indigo-500/10 hover:border-indigo-500/10'
+                        className='block p-8 transition border border-gray-800 shadow-xl rounded-xl hover:shadow-secondary/10 hover:border-secondary/10'
                         to='/services/digital-campaigns'
                     >
-                        <MdSecurity className='text-indigo-500 text-4xl' />
+                        <MdSecurity className='text-secondary text-4xl' />
 
                         <h3 className='mt-4 text-xl font-bold text-white'>World class security</h3>
 
@@ -100,7 +100,7 @@ const Skills = () => {
 
                 <div className='mt-12 text-center'>
                     <Link
-                        className='inline-flex items-center px-8 py-3 mt-8 text-white bg-indigo-600 border border-indigo-600 rounded hover:bg-transparent active:text-indigo-500 focus:outline-none focus:ring'
+                        className='inline-flex items-center px-8 py-3 mt-8 text-white bg-gradient-to-r from-secondary to-primary'
                         to='https://www.linkedin.com/in/montasim'
                     >
                         <span className='text-sm font-medium'> Hire Me </span>

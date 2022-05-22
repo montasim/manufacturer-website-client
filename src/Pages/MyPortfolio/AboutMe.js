@@ -18,7 +18,7 @@ const AboutMe = () => {
 
                     <Link
                         to='https://www.linkedin.com/in/montasim'
-                        className='inline-block px-5 py-3 mt-8 text-sm font-medium text-white bg-indigo-500 rounded-lg hover:bg-indigo-600'
+                        className='inline-block px-5 py-3 mt-8 text-sm font-medium text-white bg-secondary rounded-lg'
                     >
                         Contact Me
                     </Link>

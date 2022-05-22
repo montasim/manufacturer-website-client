@@ -41,7 +41,7 @@ const FindMeOn = () => {
 
                         <div className='mt-6 sm:text-right'>
                             <Link
-                                className='inline-block px-5 py-3 text-sm font-medium text-white bg-indigo-500 rounded-lg '
+                                className='inline-block px-5 py-3 text-sm font-medium text-white bg-gradient-to-r from-secondary to-primary rounded-lg '
                                 to='https://www.linkedin.com/in/montasim'
                             >
                                 Contact with LinkedIn
