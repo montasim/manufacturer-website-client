@@ -1,4 +1,5 @@
 import React from 'react';
+import MainButton from './MainButton';
 
 const SocialLogin = () => {
     return (
@@ -6,7 +7,7 @@ const SocialLogin = () => {
             <div className='divider'>OR</div>
 
             <p className='text-center text-red-500 mb-3'>{ }</p>
-            <button className='btn btn-active text-white uppercase w-full'>Continue With Google</button>
+            <MainButton design={'btn btn-active text-white uppercase w-full'} />
         </div>
     );
 };
