@@ -2,21 +2,21 @@ import React from 'react';
 
 const AcceptCookies = () => {
     return (
-        <div class="fixed inset-x-0 bottom-0">
-            <div class="relative px-4 py-3 text-white bg-indigo-600 pr-14">
-                <p class="text-sm font-medium text-left sm:text-center">
+        <div className="fixed inset-x-0 bottom-0">
+            <div className="relative px-4 py-3 text-white bg-indigo-600 pr-14">
+                <p className="text-sm font-medium text-left sm:text-center">
                     Love Alpine JS? Check out this new course!
 
-                    <a class="underline" href="/alpinejs"> Learn More &rarr; </a>
+                    <a className="underline" href="/alpinejs"> Learn More &rarr; </a>
                 </p>
 
                 <button
                     aria-label="Close"
-                    class="absolute p-1 transition -translate-y-1/2 rounded-lg top-1/2 right-4 bg-black/10 hover:bg-black/20"
+                    className="absolute p-1 transition -translate-y-1/2 rounded-lg top-1/2 right-4 bg-black/10 hover:bg-black/20"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="w-5 h-5"
+                        className="w-5 h-5"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                     >

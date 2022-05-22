@@ -3,24 +3,24 @@ import React from 'react';
 const Message = () => {
     return (
         <aside
-            class="fixed z-50 flex items-center justify-center px-5 py-3 text-white bg-black rounded-lg bottom-4 right-4"
+            className="fixed z-50 flex items-center justify-center px-5 py-3 text-white bg-black rounded-lg bottom-4 right-4"
         >
             <a
                 href="/new-thing"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-sm font-medium hover:opacity-75"
+                className="text-sm font-medium hover:opacity-75"
             >
                 Hey! Come Check This Out 👋
             </a>
 
             <button
-                class="p-1 ml-3 rounded bg-white/20 hover:bg-white/10"
+                className="p-1 ml-3 rounded bg-white/20 hover:bg-white/10"
                 aria-label="Dismiss Popup"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4"
+                    className="w-4 h-4"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                 >
