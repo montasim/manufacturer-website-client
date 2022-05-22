@@ -30,7 +30,7 @@ const Footer = ({ logo }) => {
                                 <div className='p-2 border sm:flex sm:items-center border-white/10 rounded-lg'>
                                     <input className='w-full h-12 p-3 text-sm font-medium tracking-widest placeholder-gray-400 uppercase bg-transparent border-none' type='email' id='email' placeholder='Enter your email' />
 
-                                    <button className='w-full h-12 px-6 py-3 mt-1 rounded-lg text-sm font-bold tracking-wide uppercase bg-red-700 sm:ml-4 sm:flex-shrink-0 sm:w-auto sm:mt-0' type='submit'>
+                                    <button className='w-full h-12 px-6 py-3 mt-1 rounded-lg text-sm font-bold tracking-wide uppercase bg-secondary sm:ml-4 sm:flex-shrink-0 sm:w-auto sm:mt-0' type='submit'>
                                         Subscribe
                                     </button>
                                 </div>
