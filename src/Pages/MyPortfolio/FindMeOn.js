@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 
 const FindMeOn = () => {
     return (
-        <div data-aos='fade-down'
-            data-aos-easing='linear'
-            data-aos-duration='1500' className='fixed inset-x-0 bottom-0 p-4 alert alert-dismissible'>
+        <div className='fixed inset-x-0 bottom-0 p-4 alert alert-dismissible'>
             <div className='relative max-w-xl p-6 bg-gray-100 rounded-lg shadow-sm'>
                 <button
                     type='button'

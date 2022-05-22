@@ -1,6 +1,6 @@
 import React from 'react';
+import ContactUs from '../../Components/ContactUs';
 import Banner from './Banner';
-import ContactUs from './ContactUs';
 import FAQS from './FAQS';
 import Products from './Products';
 import Reviews from './Reviews';

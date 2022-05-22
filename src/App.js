@@ -20,6 +20,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import Login from './Pages/Authentication/Login';
 import ResetPassword from './Pages/Authentication/ResetPassword';
 import Signup from './Pages/Authentication/Signup';
+import Contact from './Pages/Contact/Contact';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/blogs' element={<Blogs />} />
+        <Route path='/contact' element={<Contact />} />
         <Route path='/my-portfolio' element={<MyPortfolio />} />
         <Route path='/purchase' element={<Purchase />} />
         <Route path='/dashboard' element={<Dashboard />} />

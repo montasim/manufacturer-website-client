@@ -1,14 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const AcceptCookies = () => {
     return (
         <div className='fixed inset-x-0 bottom-0'>
             <div className='relative px-4 py-3 text-white bg-indigo-600 pr-14'>
                 <p className='text-sm font-medium text-left sm:text-center'>
-                    Love Alpine JS? Check out this new course!
-
-                    <Link className='underline' to='/alpinejs'> Learn More &rarr; </Link>
+                    Accept Cookies  &rarr;
                 </p>
 
                 <button

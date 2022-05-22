@@ -2,6 +2,7 @@ import React from 'react';
 
 const ContactUs = () => {
     return (
+
         <div className='container my-24 px-6 mx-auto'>
             <h2 className='text-3xl font-bold text-center mb-6 flex justify-center items-center'>
                 Contact
