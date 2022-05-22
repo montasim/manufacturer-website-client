@@ -54,40 +54,40 @@ const Navbar = ({ logo }) => {
 
                 <div className="flex items-center justify-end flex-1">
                     <nav
-                        className="hidden lg:uppercase lg:text-gray-500 lg:tracking-wide lg:font-bold lg:text-xs lg:space-x-4 lg:flex"
+                        className="hidden lg:uppercase lg:text-gray-800 lg:tracking-wide lg:font-bold lg:text-xs lg:space-x-4 lg:flex"
                     >
 
                         <Link
                             to="/"
-                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
+                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
                         >
                             Home
                         </Link>
 
                         <Link
                             to="/about"
-                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
+                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
                         >
                             About
                         </Link>
 
                         <Link
                             to="/blogs"
-                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
+                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
                         >
                             Blogs
                         </Link>
 
                         <Link
                             to="/contact"
-                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
+                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
                         >
                             Contact
                         </Link>
 
                         <Link
                             to="/my-portfolio"
-                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
+                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
                         >
                             My Portfolio
                         </Link>
@@ -97,7 +97,7 @@ const Navbar = ({ logo }) => {
                                 <>
                                     <Link
                                         to="/login"
-                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
+                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
                                     >
                                         Login
                                     </Link>
@@ -106,21 +106,21 @@ const Navbar = ({ logo }) => {
                                 <>
                                     <Link
                                         to="/my-orders"
-                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
+                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
                                     >
                                         My Orders
                                     </Link>
 
                                     <Link
                                         to="/my-profile"
-                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
+                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
                                     >
                                         My Profile
                                     </Link>
 
                                     <Link onClick={() => logout()}
                                         to="/"
-                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
+                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
                                     >
                                         Logout
                                     </Link>
@@ -135,7 +135,7 @@ const Navbar = ({ logo }) => {
                             <span>
                                 <Link
                                     to="/search"
-                                    className="block p-5 border-b-4 border-transparent hover:border-red-700"
+                                    className="block p-5 border-b-4 border-transparent hover:border-secondary"
                                 >
                                     <BsSearch className='text-lg' />
 
@@ -146,7 +146,7 @@ const Navbar = ({ logo }) => {
                             <span>
                                 <Link
                                     to="/cart"
-                                    className="block p-5 border-b-4 border-transparent hover:border-red-700"
+                                    className="block p-5 border-b-4 border-transparent hover:border-secondary"
                                 >
                                     <BsCartCheck className='text-xl' />
 
@@ -159,7 +159,7 @@ const Navbar = ({ logo }) => {
                                 <span>
                                     <Link
                                         to="/login"
-                                        className="block p-5 border-b-4 border-transparent hover:border-red-700"
+                                        className="block p-5 border-b-4 border-transparent hover:border-secondary"
                                     >
                                         <FiUser className='text-xl' />
 
