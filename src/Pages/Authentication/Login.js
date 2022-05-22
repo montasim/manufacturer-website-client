@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loading from '../../Components/Loading';
 import auth from '../../Hooks/Firebase.Init';
 
 const Login = () => {
     const navigate = useNavigate();
+    let location = useLocation();
 
     const [
         signInWithEmailAndPassword,
@@ -35,7 +36,7 @@ const Login = () => {
 
     if (eUser || gUser) {
         toast.success(`Welcome ${eUser?.user?.displayName || eUser?.user?.email.split('@')[0] || gUser?.user?.displayName} `);
-        navigate('/');
+        <Navigate to="/login" state={{ from: location }} replace />;
     };
 
     return (
