@@ -2,8 +2,8 @@ import React from 'react';
 
 const Loading = () => {
     return (
-        <div>
-            <progress className='progress progress-info w-56' value='40' max='100'></progress>
+        <div className='flex h-screen items-center justify-center my-16'>
+            <progress className='progress progress-secondary w-56' value='40' max='100'></progress>
         </div>
     );
 };

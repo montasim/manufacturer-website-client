@@ -1,13 +1,30 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import Loading from '../../Components/Loading';
+import auth from '../../Hooks/Firebase.Init';
+import { toast } from 'react-toastify';
 
 const Signup = () => {
-
     const { register, formState: { errors }, handleSubmit } = useForm();
 
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    if (loading) {
+        return <Loading />;
+    };
+    if (user) {
+        toast.success(`Welcome ${user}`);
+    };
+
     const onSubmit = async data => {
-        console.log(data?.email, data?.password);
+        createUserWithEmailAndPassword(data?.email, data?.password);
     };
 
     return (
@@ -90,7 +107,8 @@ const Signup = () => {
 
                         <p className='text-center text-red-500 mb-4'>{ }</p>
                         <p className='text-center text-red-500 mb-4'>{ }</p>
-                        <p className='text-center text-red-500 mb-4'>{ }</p>
+
+                        <p className='text-center text-red-500 mb-4'>{error?.message.slice(10)}</p>
 
                         <input className='btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary w-full' type='submit' value='Signup' />
 

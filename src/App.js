@@ -1,3 +1,5 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
 import logo from './Assets/Logo/logo.png';
@@ -49,6 +51,7 @@ function App() {
       </Routes>
       <Footer logo={logo} />
       <AcceptCookies />
+      <ToastContainer />
     </div>
   );
 }
