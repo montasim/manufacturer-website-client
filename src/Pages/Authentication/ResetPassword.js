@@ -1,13 +1,27 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import auth from '../../Hooks/Firebase.Init';
+import Loading from '../../Components/Loading';
 
 const ResetPassword = () => {
     const navigate = useNavigate();
+
+    const [
+        sendPasswordResetEmail,
+        rSending,
+        rError
+    ] = useSendPasswordResetEmail(auth);
+
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const onSubmit = data => {
-        console.log(data?.email);
+    const onSubmit = async (data) => {
+        await sendPasswordResetEmail(data?.email);
+    };
+
+    if (rSending) {
+        return <Loading />;
     };
 
     return (
@@ -43,7 +57,7 @@ const ResetPassword = () => {
                             </label>
                         </div>
 
-                        <p className='text-center text-red-500 mb-4'></p>
+                        <p className='text-center text-red-500 mb-4'>{rError}</p>
 
                         <input className='btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary w-full' type='submit' value='Reset Password' />
                     </form>

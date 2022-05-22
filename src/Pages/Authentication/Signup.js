@@ -30,7 +30,7 @@ const Signup = () => {
         gError
     ] = useSignInWithGoogle(auth);
 
-    if (eLoading || gLoading) {
+    if (eLoading || gLoading || vSending) {
         return <Loading />;
     };
 
@@ -124,7 +124,7 @@ const Signup = () => {
                             </label>
                         </div>
 
-                        <p className='text-center text-red-500 mb-4'>{eError?.message.slice(10)}</p>
+                        <p className='text-center text-red-500 mb-4'>{eError?.message.slice(10) || vError}</p>
 
                         <input className='btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary w-full' type='submit' value='Signup' />
 
