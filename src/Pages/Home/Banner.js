@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MainButton from '../../Components/MainButton';
 
 const Banner = () => {
     return (
@@ -16,7 +17,7 @@ const Banner = () => {
                 <div className='max-w-xl text-center sm:text-left'>
                     <h1 className='text-3xl font-extrabold sm:text-5xl'>
                         Let us find your
-                        <strong className='font-extrabold text-rose-700 sm:block'>
+                        <strong className='font-extrabold text-primary sm:block'>
                             Forever Home.
                         </strong>
                     </h1>
@@ -26,13 +27,9 @@ const Banner = () => {
                     </p>
 
                     <div className='flex flex-wrap gap-4 mt-8 text-center'>
-                        <Link className='block w-full px-12 py-3 text-sm font-medium text-white rounded shadow bg-rose-600 sm:w-auto active:bg-rose-500 hover:bg-rose-700 focus:outline-none focus:ring' to='/get-started'>
-                            Get Started
-                        </Link>
+                        <MainButton design={'block w-full px-12 py-3 text-sm font-medium text-white rounded shadow bg-secondary sm:w-auto active:bg-rose-500 hover:bg-primary focus:outline-none focus:ring'} text={'Get Started'} />
 
-                        <Link className='block w-full px-12 py-3 text-sm font-medium bg-white rounded shadow text-rose-600 sm:w-auto hover:text-rose-700 active:text-rose-500 focus:outline-none focus:ring' to='/about'>
-                            Learn More
-                        </Link>
+                        <MainButton design={'block  w-full px-12 py-3 text-sm font-medium bg-white rounded shadow text-primary sm:w-auto hover:bg-primary hover:text-white active:text-secondary focus:outline-none focus:ring'} text={'Learn More'} />
                     </div>
                 </div>
             </div>
