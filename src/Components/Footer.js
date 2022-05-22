@@ -7,7 +7,7 @@ const Footer = ({ logo }) => {
             <div className='max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8'>
                 <div className='lg:flex lg:gap-8'>
                     <div>
-                        <img className='block h-12' src={logo} alt='' />
+                        <h5 className='font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-secondary to-primary'>JanTrik</h5>
                     </div>
 
                     <div className='grid grid-cols-2 gap-8 mt-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16'>
