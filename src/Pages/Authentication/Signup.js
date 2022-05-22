@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../../Components/Loading';
 import { toast } from 'react-toastify';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../Hooks/Firebase.Init';
 
 const Signup = () => {
@@ -16,6 +16,12 @@ const Signup = () => {
         eLoading,
         eError,
     ] = useCreateUserWithEmailAndPassword(auth);
+
+    const [
+        sendEmailVerification,
+        vSending,
+        vError
+    ] = useSendEmailVerification(auth);
 
     const [
         signInWithGoogle,
@@ -34,8 +40,10 @@ const Signup = () => {
         navigate('/');
     };
 
-    const onSubmit = async data => {
+    const onSubmit = async (data) => {
         createUserWithEmailAndPassword(data?.email, data?.password);
+        await sendEmailVerification();
+        toast(`Email verification sent to ${data?.email}`);
     };
 
     return (
