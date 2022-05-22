@@ -1,14 +1,41 @@
 import React from 'react';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import SocialLogin from '../../Components/SocialLogin';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import Loading from '../../Components/Loading';
+import auth from '../../Hooks/Firebase.Init';
 
 const Login = () => {
+    const navigate = useNavigate();
+
+    const [
+        signInWithEmailAndPassword,
+        eUser,
+        eLoading,
+        eError,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const [
+        signInWithGoogle,
+        gUser,
+        gLoading,
+        gError
+    ] = useSignInWithGoogle(auth);
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        console.log(data.email, data.password);
+        signInWithEmailAndPassword(data.email, data.password);
+    };
+
+    if (eLoading || gLoading) {
+        return <Loading />;
+    };
+
+    if (eUser || gUser) {
+        toast.success(`Welcome ${eUser?.user?.displayName || eUser?.user?.email.split('@')[0] || gUser?.user?.displayName} `);
+        navigate('/');
     };
 
     return (
@@ -68,7 +95,7 @@ const Login = () => {
                             </label>
                         </div>
 
-                        <p className='text-center text-red-500 mb-4'></p>
+                        <p className='text-center text-red-500 mb-4'>{eError}</p>
 
                         <input className='btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary w-full' type='submit' value='Login' />
 
@@ -77,7 +104,11 @@ const Login = () => {
                         <p className='text-lg mt-3 text-center'><small>New to Doctors Portal? <Link className='text-secondary' to='/signup'>Signup</Link></small></p>
                     </form>
 
-                    <SocialLogin/>
+                    <div className='divider'>OR</div>
+
+                    <p className='text-center text-red-500 mb-3'>{gError}</p>
+
+                    <button onClick={() => signInWithGoogle()} className='btn btn-active text-white uppercase w-full' > Continue With Google</button >
                 </div>
             </div>
         </div>

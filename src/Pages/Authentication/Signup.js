@@ -1,13 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../../Components/Loading';
 import { toast } from 'react-toastify';
-import SocialLogin from '../../Components/SocialLogin';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../Hooks/Firebase.Init';
 
 const Signup = () => {
+    const navigate = useNavigate();
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const [
@@ -30,6 +30,8 @@ const Signup = () => {
 
     if (eUser || gUser) {
         toast.success(`Welcome ${eUser?.displayName || eUser?.email || gUser?.user?.displayName} `);
+
+        navigate('/');
     };
 
     const onSubmit = async data => {

@@ -24,9 +24,6 @@ const Navbar = ({ logo }) => {
         signOut(auth);
     };
 
-    console.log(user?.displayName)
-    console.log(user?.email.split('@')[0])
-
     return (
         <header className="border-b border-gray-100">
             <div
