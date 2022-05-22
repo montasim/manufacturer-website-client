@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from '../../Components/Loading';
 import auth from '../../Hooks/Firebase.Init';
 import { toast } from 'react-toastify';
+import SocialLogin from '../../Components/SocialLogin';
 
 const Signup = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -117,10 +118,7 @@ const Signup = () => {
                         <p className='mt-3 text-center'><small>Already have an account? <Link className='text-secondary' to='/login'>Login</Link></small></p>
                     </form>
 
-                    <div className='divider'>OR</div>
-
-                    <p className='text-center text-red-500 mb-3'>{ }</p>
-                    <button className='btn btn-active text-white uppercase'>Continue With Google</button>
+                    <SocialLogin />
                 </div>
             </div>
         </div>
