@@ -17,6 +17,9 @@ import ManageProducts from "./Pages/Dashboard/ManageProducts";
 import Blogs from "./Pages/Blogs/Blogs";
 import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 import NotFound from "./Pages/NotFound/NotFound";
+import Login from "./Pages/Authentication/Login";
+import ResetPassword from "./Pages/Authentication/ResetPassword";
+import Signup from "./Pages/Authentication/Signup";
 
 function App() {
   return (
@@ -37,6 +40,9 @@ function App() {
         <Route path="/add-a-product" element={<AddAProduct />} />
         <Route path="/make-admin" element={<MakeAdmin />} />
         <Route path="/manage-products" element={<ManageProducts />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer logo={logo} />
