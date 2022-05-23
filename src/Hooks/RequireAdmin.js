@@ -11,14 +11,14 @@ const RequireAdmin = ({ children }) => {
     const [admin, adminLoading] = useAdmin(user);
     const location = useLocation();
 
-    if (loading || adminLoading) {
-        return <Loading />;
-    };
+    // if (loading || adminLoading) {
+    //     return <Loading />;
+    // };
 
-    if (!user || !admin) {
-        signOut(auth);
-        return <Navigate to="/login" state={{ from: location }} replace />;
-    };
+    // if (!user || !admin) {
+    //     signOut(auth);
+    //     return <Navigate to="/login" state={{ from: location }} replace />;
+    // };
 
     return children;
 };

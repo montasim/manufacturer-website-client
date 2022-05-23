@@ -45,8 +45,11 @@ function App() {
         } />
         <Route path='/product-details/:id' element={<Purchase />} />
 
-
-        <Route path="/dashboard" element={<Dashboard />}>
+        <Route path="/dashboard" element={
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        }>
           <Route path="my-orders" element={<MyOrders />} />
           <Route path="add-a-review" element={<AddAReview />} />
           <Route path="my-profile" element={<MyProfile />} />
