@@ -9,7 +9,7 @@ const ManageProduct = ({ index, product }) => {
         const confirm = window.confirm('Are You Sure?');
 
         if (confirm) {
-            const url = `https://posdash-server.herokuapp.com/my-items/${_id}`;
+            const url = `https://tools-manufacturer-server.herokuapp.com/delete-product/${_id}`;
             fetch(url, {
                 method: 'DELETE'
             })
