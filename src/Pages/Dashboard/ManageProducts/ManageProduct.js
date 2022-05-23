@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AiFillDelete, AiFillEdit, AiFillPlusSquare } from 'react-icons/ai';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../Hooks/Firebase.Init';
+import auth from '../../../Hooks/Firebase.Init';
 
 const Product = ({ index, product }) => {
     const { _id, name, category, supplierName, img, description, price, inStock, totalSold } = product;

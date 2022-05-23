@@ -14,7 +14,7 @@ import AddAReview from './Pages/Dashboard/AddAReview';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import AddAProduct from './Pages/Dashboard/AddAProduct';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin';
-import ManageProducts from './Pages/Dashboard/ManageProducts';
+import ManageProducts from './Pages/Dashboard/ManageProducts/ManageProducts';
 import Blogs from './Pages/Blogs/Blogs';
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 import NotFound from './Pages/NotFound/NotFound';
@@ -23,9 +23,10 @@ import ResetPassword from './Pages/Authentication/ResetPassword';
 import Signup from './Pages/Authentication/Signup';
 import Contact from './Pages/Contact/Contact';
 import RequireAuth from './Hooks/RequireAuth';
-import Users from './Pages/Dashboard/Users';
+import Users from './Pages/Dashboard/Users/Users';
 import RequireAdmin from './Hooks/RequireAdmin';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders/ManageAllOrders';
+import Admins from './Pages/Dashboard/Admins/Admins';
 
 function App() {
   return (
@@ -80,7 +81,7 @@ function App() {
           } />
           <Route path='all-admin' element={
             <RequireAdmin>
-              <MakeAdmin />
+              <Admins />
             </RequireAdmin>
           } />
           <Route path='add-admin' element={

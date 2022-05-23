@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { get } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import Loading from '../../Components/Loading';
-import auth from '../../Hooks/Firebase.Init';
+import Loading from '../../../Components/Loading';
+import auth from '../../../Hooks/Firebase.Init';
 import ManageProduct from './ManageProduct';
 
 const ManageProducts = () => {
