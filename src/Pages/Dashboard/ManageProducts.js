@@ -7,28 +7,13 @@ import auth from '../../Hooks/Firebase.Init';
 import ManageProduct from './ManageProduct';
 
 const ManageProducts = () => {
-    const [myItems, setMyItems] = useState([]);
-    const navigate = useNavigate();
-    const [user] = useAuthState(auth);
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        const getMyItems = async () => {
-            const email = user?.email;
-            const url = `https://posdash-server.herokuapp.com/my-items?email=${email}`;
-            try {
-                const { data } = await get(url);
-                setMyItems(data);
-            }
-            catch (error) {
-                console.log(error.message);
-                if (error.response.status === 401 || error.response.status === 403) {
-                    signOut(auth);
-                    navigate('/login')
-                }
-            }
-        }
-        getMyItems();
-    }, [myItems]);
+        fetch('https://tools-manufacturer-server.herokuapp.com/products')
+            .then(res => res.json())
+            .then(data => setProducts(data));
+    }, [products]);
 
     return (
         <div className='mx-10 my-12'>
@@ -73,7 +58,7 @@ const ManageProducts = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        myItems.map((product, index) => <ManageProduct key={index} product={product} index={index} />)
+                                        products.map((product, index) => <ManageProduct key={index} product={product} index={index} />)
                                     }
                                 </tbody>
                             </table>

@@ -8,7 +8,7 @@ const Products = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('https://posdash-server.herokuapp.com/inventory')
+        fetch('https://tools-manufacturer-server.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, []);

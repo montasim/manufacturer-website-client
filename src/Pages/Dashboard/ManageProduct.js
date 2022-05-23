@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { AiFillDelete } from 'react-icons/ai';
 
 const ManageProduct = ({ index, product }) => {
-    const { _id, name, category, supplierName, img, price, stock, shipping: shipping = 0 } = product;
+    const { _id, name, category, supplierName, img, price, inStock, shipping: shipping = 0 } = product;
 
     const deleteMyItems = _id => {
         const confirm = window.confirm('Are You Sure?');
@@ -34,7 +34,7 @@ const ManageProduct = ({ index, product }) => {
                 <img className='rounded-md w-16 lg:w-20' src={img} alt="" />
             </td>
             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                {name}
+                {name.slice(0, 15)}
             </td>
             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 {category}
@@ -46,13 +46,13 @@ const ManageProduct = ({ index, product }) => {
                 $ {price}
             </td>
             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                {stock}
+                {inStock}
             </td>
             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 {shipping}
             </td>
             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                $ {stock * price}
+                $ {inStock * price}
             </td>
             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 <AiFillDelete onClick={() => deleteMyItems(_id)} className='text-2xl text-red-500 mr-3' />
