@@ -40,7 +40,7 @@ const Product = ({ index, product }) => {
         }
     }
 
-    const addMyItems = () => {
+    const addToCart = () => {
 
         const item = { name, category, supplierName, img, description, price, inStock, totalSold, email };
 
@@ -65,36 +65,57 @@ const Product = ({ index, product }) => {
     }
 
     return (
-        <tr className="border-b hover:bg-indigo-100 hover:text-grey-700 justify-center">
-            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{index + 1}</td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                <img className='rounded-md w-16 lg:w-20' src={img} alt="" />
+        <tr class="hover">
+            <th>
+                <label>{index + 1}</label>
+            </th>
+            <td>
+                <div class="flex items-center space-x-1">
+                    <div class="avatar">
+                        <div class="mask mask-squircle w-12 h-12">
+                            <img src={img} alt={name + 'img'} />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-bold">{name}</div>
+                        <div class="text-sm opacity-50">{category}</div>
+                    </div>
+                </div>
             </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                {name.length > 25 ? name.slice(0, 21) + '...' : name}
-            </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                {category}
-            </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                {supplierName}
-            </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                $ {price}
-            </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                {inStock}
-            </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                {totalSold}
-            </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                $ {inStock * price}
-            </td>
-            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap flex lg:mt-7 mt-2">
-                <AiFillEdit onClick={() => navigate(`/inventory/${_id}`)} className='text-2xl text-indigo-500 mr-3' />
-                <AiFillPlusSquare onClick={() => addMyItems(_id)} className='text-2xl text-gray-600 mr-3' />
-                <AiFillDelete onClick={() => itemDelete(_id)} className='text-2xl text-red-500 mr-3' />
+            <td>{inStock}</td>
+            <td>{price}</td>
+            <td>${inStock * price}</td>
+            <td>{totalSold}</td>
+            <td>
+                <div class="flex items-center gap-1">
+                    <button
+                        class="z-10 block p-2 text-blue-700 transition-all bg-blue-100 border-2 border-white rounded-full active:bg-blue-50 hover:scale-110 focus:outline-none focus:ring"
+                        type="button"
+                    >
+                        <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                    </button>
+
+                    <button
+                        onClick={() => addToCart()}
+                        class="z-20 block p-2 text-green-700 transition-all bg-green-100 border-2 border-white rounded-full active:bg-green-50 hover:scale-110 focus:outline-none focus:ring"
+                        type="button"
+                    >
+                        <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </button>
+
+                    <button onClick={() => itemDelete(_id)}
+                        class="z-30 block p-2 text-red-700 transition-all bg-red-100 border-2 border-white rounded-full hover:scale-110 focus:outline-none focus:ring active:bg-red-50"
+                        type="button"
+                    >
+                        <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                    </button>
+                </div>
             </td>
         </tr>
     );

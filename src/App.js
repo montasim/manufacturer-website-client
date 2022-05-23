@@ -58,17 +58,17 @@ function App() {
               <ManageAllOrders />
             </RequireAdmin>
           } />
-          <Route path='manage-all-products' element={
+          <Route path='all-products' element={
             <RequireAdmin>
               <ManageProducts />
             </RequireAdmin>
           } />
-          <Route path='add-a-product' element={
+          <Route path='add-product' element={
             <RequireAdmin>
               <AddAProduct />
             </RequireAdmin>
           } />
-          <Route path='manage-all-users' element={
+          <Route path='all-users' element={
             <RequireAdmin>
               <Users />
             </RequireAdmin>
@@ -78,7 +78,12 @@ function App() {
               <AddAProduct />
             </RequireAdmin>
           } />
-          <Route path='make-admin' element={
+          <Route path='all-admin' element={
+            <RequireAdmin>
+              <MakeAdmin />
+            </RequireAdmin>
+          } />
+          <Route path='add-admin' element={
             <RequireAdmin>
               <MakeAdmin />
             </RequireAdmin>

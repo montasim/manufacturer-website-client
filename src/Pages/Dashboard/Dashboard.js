@@ -11,7 +11,6 @@ const Dashboard = () => {
         <div class="drawer drawer-mobile">
             <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
-                <h2 className='text-2xl font-bold text-purple-500'>Welcome to your Dashboard</h2>
                 <Outlet></Outlet>
             </div>
             <div class="drawer-side">
@@ -45,7 +44,7 @@ const Dashboard = () => {
                     </Link>
 
                     <Link
-                        to='/dashboard/add-a-review'
+                        to='/dashboard/add-review'
                         className='flex items-center px-4 py-2 text-gray-700  rounded-lg'
                     >
                         <svg
@@ -99,7 +98,7 @@ const Dashboard = () => {
                     </Link>
 
                     <Link
-                        to='/dashboard/manage-all-orders'
+                        to='/dashboard/all-orders'
                         className='flex items-center px-4 py-2 text-gray-700  rounded-lg'
                     >
                         <svg
@@ -126,7 +125,7 @@ const Dashboard = () => {
                     </Link>
 
                     <Link
-                        to='/dashboard/add-a-product'
+                        to='/dashboard/add-product'
                         className='flex items-center px-4 py-2 text-gray-700  rounded-lg'
                     >
                         <svg
@@ -153,7 +152,7 @@ const Dashboard = () => {
                     </Link>
 
                     <Link
-                        to='/dashboard/manage-all-products'
+                        to='/dashboard/all-products'
                         className='flex items-center px-4 py-2 text-gray-700  rounded-lg'
                     >
                         <svg
@@ -207,7 +206,7 @@ const Dashboard = () => {
                     </Link>
 
                     <Link
-                        to='/dashboard/manage-all-users'
+                        to='/dashboard/all-users'
                         className='flex items-center px-4 py-2 text-gray-700  rounded-lg'
                     >
                         <svg
@@ -234,7 +233,7 @@ const Dashboard = () => {
                     </Link>
 
                     <Link
-                        to='/dashboard/make-admin'
+                        to='/dashboard/add-admin'
                         className='flex items-center px-4 py-2 text-gray-700  rounded-lg'
                     >
                         <svg
@@ -261,7 +260,7 @@ const Dashboard = () => {
                     </Link>
 
                     <Link
-                        to='/dashboard/manage-all-admin'
+                        to='/dashboard/all-admin'
                         className='flex items-center px-4 py-2 text-gray-700 rounded-lg'
                     >
                         <svg

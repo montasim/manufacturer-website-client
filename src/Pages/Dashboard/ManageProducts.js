@@ -16,56 +16,35 @@ const ManageProducts = () => {
     }, [products]);
 
     return (
-        <div className='mx-10 my-12'>
-            <div className="flex flex-col">
-                <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                        <div className="overflow-hidden">
-                            <table className="min-w-full">
-                                <thead className="bg-secondary text-white rounded-lg">
-                                    <tr>
-                                        <th scope="col" className="text-md font-medium  px-6 py-4 text-left">
-                                            Serial
-                                        </th>
-                                        <th scope="col" className="text-md font-medium  px-6 py-4 text-left">
-                                            Image
-                                        </th>
-                                        <th scope="col" className="text-md font-medium  px-6 py-4 text-left">
-                                            Product Name
-                                        </th>
-                                        <th scope="col" className="text-md font-medium  px-6 py-4 text-left">
-                                            Category
-                                        </th>
-                                        <th scope="col" className="text-md font-medium  px-6 py-4 text-left">
-                                            Supplier
-                                        </th>
-                                        <th scope="col" className="text-md font-medium  px-6 py-4 text-left">
-                                            Price
-                                        </th>
-                                        <th scope="col" className="text-md font-medium  px-6 py-4 text-left">
-                                            Available
-                                        </th>
-                                        <th scope="col" className="text-md font-medium  px-6 py-4 text-left">
-                                            Sold
-                                        </th>
-                                        <th scope="col" className="text-md font-medium  px-6 py-4 text-left">
-                                            Total Price
-                                        </th>
-                                        <th scope="col" className="text-md font-medium  px-6 py-4 text-left">
-                                            Action
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        products.map((product, index) => <ManageProduct key={index} product={product} index={index} />)
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="overflow-x-auto w-full">
+            <table class="table w-full">
+                <thead>
+                    <tr>
+                        <th>Serial</th>
+                        <th>Name</th>
+                        <th>In Stock</th>
+                        <th>Unit Price</th>
+                        <th>Total Price</th>
+                        <th>Sold</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        products.map((product, index) => <ManageProduct key={index} product={product} index={index} />)
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Job</th>
+                        <th>Favorite Color</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+
+            </table>
         </div>
     );
 };
