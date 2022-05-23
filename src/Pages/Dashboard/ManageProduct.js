@@ -6,7 +6,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Hooks/Firebase.Init';
 
 const Product = ({ index, product }) => {
-    const { _id, name, category, supplierName, img, description, price, stock, shipping } = product;
+    const { _id, name, category, supplierName, img, description, price, inStock, totalSold } = product;
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
 
@@ -42,7 +42,7 @@ const Product = ({ index, product }) => {
 
     const addMyItems = () => {
 
-        const item = { name, category, supplierName, img, description, price, stock, shipping, email };
+        const item = { name, category, supplierName, img, description, price, inStock, totalSold, email };
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-my-cart', {
@@ -83,13 +83,13 @@ const Product = ({ index, product }) => {
                 $ {price}
             </td>
             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                {stock}
+                {inStock}
             </td>
             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                {shipping}
+                {totalSold}
             </td>
             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                $ {stock * price}
+                $ {inStock * price}
             </td>
             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap flex lg:mt-7 mt-2">
                 <AiFillEdit onClick={() => navigate(`/inventory/${_id}`)} className='text-2xl text-indigo-500 mr-3' />
