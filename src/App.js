@@ -101,7 +101,6 @@ function App() {
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer logo={logo} />
-      <AcceptCookies />
       <ToastContainer />
     </div>
   );

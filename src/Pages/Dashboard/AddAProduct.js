@@ -40,12 +40,11 @@ const AddAProduct = () => {
     }
 
     return (
-        <div className='mx-10 mt-32 mb-20'>
-            <div className="block p-6 rounded-lg shadow-lg">
-                <h2 className='my-8 text-2xl text-gray-600'>Add Item To Inventory</h2>
-                <form onSubmit={addItem}>
-                    <div className="form-group mb-6">
-                        <input type="text" className="form-control block
+        <div className="card items-center justify-center">
+            <h2 className='my-8 text-2xl text-gray-600'>Add Item To Inventory</h2>
+            <form onSubmit={addItem}>
+                <div className="form-group mb-6 max-w-xl">
+                    <input type="text" className="form-control block
         w-full
         px-3
         py-1.5
@@ -59,10 +58,10 @@ const AddAProduct = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput125"
-                            placeholder="Product Name" name='productName' />
-                    </div>
-                    <div className="form-group mb-6">
-                        <input type="text" className="form-control block
+                        placeholder="Product Name" name='productName' />
+                </div>
+                <div className="form-group mb-6 max-w-xl">
+                    <input type="text" className="form-control block
         w-full
         px-3
         py-1.5
@@ -76,10 +75,10 @@ const AddAProduct = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput129"
-                            placeholder="Category" name='category' />
-                    </div>
-                    <div className="form-group mb-6">
-                        <input type="text" className="form-control block
+                        placeholder="Category" name='category' />
+                </div>
+                <div className="form-group mb-6 max-w-xl">
+                    <input type="text" className="form-control block
         w-full
         px-3
         py-1.5
@@ -93,10 +92,10 @@ const AddAProduct = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput126"
-                            placeholder="Image Link" name='imageLink' />
-                    </div>
-                    <div className="form-group mb-6">
-                        <input type="text" className="form-control block
+                        placeholder="Image Link" name='imageLink' />
+                </div>
+                <div className="form-group mb-6 max-w-xl">
+                    <input type="text" className="form-control block
         w-full
         px-3
         py-1.5
@@ -110,10 +109,10 @@ const AddAProduct = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput126"
-                            placeholder="Seller Name" name='sellerName' />
-                    </div>
-                    <div className="form-group mb-6">
-                        <input type="text" className="form-control block
+                        placeholder="Seller Name" name='sellerName' />
+                </div>
+                <div className="form-group mb-6 max-w-xl">
+                    <textarea type="text" className="form-control block
         w-full
         px-3
         py-1.5
@@ -127,25 +126,26 @@ const AddAProduct = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput126"
-                            placeholder="Description" name='description' />
-                    </div>
+                        placeholder="Description" name='description' />
+                </div>
 
-                    <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                        <div className="form-group mb-6">
-                            <input type="number" className="form-control block max-w-xs px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput124" aria-describedby="emailHelp124" placeholder="Unit Price" name='unitPrice' />
-                        </div>
-                        <div className="form-group mb-6">
-                            <input type="number" className="form-control block  max-w-xs px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput124" aria-describedby="emailHelp124" placeholder="Quantity" name='quantity' />
-                        </div>
-                        <div className="form-group mb-6">
-                            <input type="number" className="form-control block  max-w-xs px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput124" aria-describedby="emailHelp124" placeholder="Min Order" name='minOrder' />
-                        </div>
-                        <div className="form-group mb-6">
-                            <input type="number" className="form-control block  max-w-xs px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput124" aria-describedby="emailHelp124" placeholder="Max Order" name='maxOrder' />
-                        </div>
+                <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div className="form-group mb-6 max-w-xl">
+                        <input type="number" className="form-control block max-w-xs px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput124" aria-describedby="emailHelp124" placeholder="Unit Price" name='unitPrice' />
                     </div>
-                    <button type="submit" className="
-      w-full
+                    <div className="form-group mb-6 max-w-xl">
+                        <input type="number" className="form-control block  max-w-xs px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput124" aria-describedby="emailHelp124" placeholder="Quantity" name='quantity' />
+                    </div>
+                </div><div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div className="form-group mb-6 max-w-xl">
+                        <input type="number" className="form-control block  max-w-xs px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput124" aria-describedby="emailHelp124" placeholder="Min Order" name='minOrder' />
+                    </div>
+                    <div className="form-group mb-6 max-w-xl">
+                        <input type="number" className="form-control block  max-w-xs px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput124" aria-describedby="emailHelp124" placeholder="Max Order" name='maxOrder' />
+                    </div>
+                </div>
+                <button type="submit" className="
+      max-w-xl
       px-6
       py-2.5
       bg-indigo-600
@@ -162,8 +162,7 @@ const AddAProduct = () => {
       transition
       duration-150
       ease-in-out">Add New Item</button>
-                </form>
-            </div>
+            </form>
         </div>
     );
 };
