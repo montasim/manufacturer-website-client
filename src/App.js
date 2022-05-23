@@ -24,6 +24,8 @@ import ResetPassword from './Pages/Authentication/ResetPassword';
 import Signup from './Pages/Authentication/Signup';
 import Contact from './Pages/Contact/Contact';
 import RequireAuth from './Hooks/RequireAuth';
+import Users from './Pages/Dashboard/Users';
+import RequireAdmin from './Hooks/RequireAdmin';
 
 function App() {
   return (
@@ -42,14 +44,44 @@ function App() {
           </RequireAuth>
         } />
         <Route path='/product-details/:id' element={<Purchase />} />
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/my-orders' element={<MyOrders />} />
-        <Route path='/add-a-review' element={<AddAReview />} />
-        <Route path='/my-profile' element={<MyProfile />} />
-        <Route path='/manage-all-orders' element={<ManageAllOrders />} />
-        <Route path='/add-a-product' element={<AddAProduct />} />
-        <Route path='/make-admin' element={<MakeAdmin />} />
-        <Route path='/manage-products' element={<ManageProducts />} />
+
+
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="my-orders" element={<MyOrders />} />
+          <Route path="add-a-review" element={<AddAReview />} />
+          <Route path="my-profile" element={<MyProfile />} />
+          <Route path='manage-all-orders' element={
+            <RequireAdmin>
+              <ManageAllOrders />
+            </RequireAdmin>
+          } />
+          <Route path='manage-all-products' element={
+            <RequireAdmin>
+              <ManageProducts />
+            </RequireAdmin>
+          } />
+          <Route path='add-a-product' element={
+            <RequireAdmin>
+              <AddAProduct />
+            </RequireAdmin>
+          } />
+          <Route path='manage-all-users' element={
+            <RequireAdmin>
+              <Users />
+            </RequireAdmin>
+          } />
+          <Route path='add-user' element={
+            <RequireAdmin>
+              <AddAProduct />
+            </RequireAdmin>
+          } />
+          <Route path='make-admin' element={
+            <RequireAdmin>
+              <MakeAdmin />
+            </RequireAdmin>
+          } />
+        </Route>
+
         <Route path='/login' element={<Login />} />
         <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/signup' element={<Signup />} />

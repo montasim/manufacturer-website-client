@@ -105,17 +105,10 @@ const Navbar = ({ logo }) => {
                                 :
                                 <>
                                     <Link
-                                        to="/my-orders"
+                                        to="/dashboard"
                                         className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
                                     >
-                                        My Orders
-                                    </Link>
-
-                                    <Link
-                                        to="/my-profile"
-                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
-                                    >
-                                        My Profile
+                                        Dashboard
                                     </Link>
 
                                     <Link onClick={() => logout()}
