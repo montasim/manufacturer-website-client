@@ -1,44 +1,36 @@
-import React from 'react';
-import { useQuery } from 'react-query';
-import Loading from '../../Components/Loading';
+import React, { useEffect, useState } from 'react';
 import UserRow from './UserRow';
 
 const Users = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://doctors-portal-server-montasim.herokuapp.com/user', {
-        method: 'GET',
-        headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        }
-    }).then(res => res.json()));
+    const [users, setUsers] = useState([]);
 
-    if (isLoading) {
-        return <Loading />;
-    };
+    useEffect(() => {
+        fetch('https://tools-manufacturer-server.herokuapp.com/users')
+            .then(res => res.json())
+            .then(data => setUsers(data));
+    }, [users]);
 
     return (
-        <div>
-            <h2 className="text-2xl">All Users: {users.length}</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            users.map(user => <UserRow
-                                key={user._id}
-                                user={user}
-                                refetch={refetch}
-                            ></UserRow>)
-                        }
-                    </tbody>
-                </table>
-            </div>
+        <div class="overflow-x-auto w-full">
+            <table class="table w-full">
+                <thead>
+                    <tr>
+                        <th>Serial</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        users.map((user, index) => <UserRow
+                            key={user._id}
+                            user={user}
+                            index={index}
+                        ></UserRow>)
+                    }
+                </tbody>
+            </table>
         </div>
     );
 };

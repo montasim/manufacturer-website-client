@@ -9,10 +9,9 @@ import { Route, Routes } from 'react-router-dom';
 import About from './Pages/About/About';
 import Purchase from './Pages/Purchase/Purchase';
 import Dashboard from './Pages/Dashboard/Dashboard';
-import MyOrders from './Pages/Dashboard/MyOrders';
+import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
 import AddAReview from './Pages/Dashboard/AddAReview';
 import MyProfile from './Pages/Dashboard/MyProfile';
-import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
 import AddAProduct from './Pages/Dashboard/AddAProduct';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
@@ -26,6 +25,7 @@ import Contact from './Pages/Contact/Contact';
 import RequireAuth from './Hooks/RequireAuth';
 import Users from './Pages/Dashboard/Users';
 import RequireAdmin from './Hooks/RequireAdmin';
+import ManageAllOrders from './Pages/Dashboard/ManageAllOrders/ManageAllOrders';
 
 function App() {
   return (
@@ -51,9 +51,9 @@ function App() {
           </RequireAuth>
         }>
           <Route path="my-orders" element={<MyOrders />} />
-          <Route path="add-a-review" element={<AddAReview />} />
+          <Route path="add-review" element={<AddAReview />} />
           <Route path="my-profile" element={<MyProfile />} />
-          <Route path='manage-all-orders' element={
+          <Route path='all-orders' element={
             <RequireAdmin>
               <ManageAllOrders />
             </RequireAdmin>
@@ -86,6 +86,11 @@ function App() {
           <Route path='add-admin' element={
             <RequireAdmin>
               <MakeAdmin />
+            </RequireAdmin>
+          } />
+          <Route path='all-orders' element={
+            <RequireAdmin>
+              <ManageAllOrders />
             </RequireAdmin>
           } />
         </Route>

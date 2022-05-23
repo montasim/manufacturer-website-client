@@ -1,13 +1,7 @@
-import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { get } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import Loading from '../../Components/Loading';
-import auth from '../../Hooks/Firebase.Init';
-import ManageProduct from './ManageProduct';
+import MyOrder from './MyOrder';
 
-const ManageProducts = () => {
+const MyOrders = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -32,7 +26,7 @@ const ManageProducts = () => {
                 </thead>
                 <tbody>
                     {
-                        products.map((product, index) => <ManageProduct key={index} product={product} index={index} />)
+                        products.map((product, index) => <MyOrder key={index} product={product} index={index} />)
                     }
                 </tbody>
             </table>
@@ -40,4 +34,4 @@ const ManageProducts = () => {
     );
 };
 
-export default ManageProducts;
+export default MyOrders;

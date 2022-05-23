@@ -16,12 +16,12 @@ const Dashboard = () => {
     const [user] = useAuthState(auth);
     const [admin] = useAdmin(user);
     return (
-        <div class="drawer drawer-mobile">
+        <div class="drawer drawer-mobile mt-8">
             <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
                 <Outlet></Outlet>
             </div>
-            <div class="drawer-side">
+            <div class="drawer-side shadow-lg">
                 <label for="dashboard-sidebar" class="drawer-overlay"></label>
                 <ul class="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
                     <Link
@@ -110,7 +110,7 @@ const Dashboard = () => {
                         <img
                             className='object-cover w-10 h-10 rounded-full'
                             src={user?.photoURL}
-                            alt='Simon Lewis'
+                            alt={user?.displayName || user?.email}
                         />
 
                         <div className='ml-1.5'>
