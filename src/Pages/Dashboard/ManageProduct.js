@@ -54,10 +54,17 @@ const Product = ({ index, product }) => {
         })
             .then(res => res.json())
             .then(data => {
-                toast(
-                    <div className='flex'>
-                        <img className='w-20' src={img} alt="" />
-                        <p className='ml-4'>{name} added to my cart.</p>
+                toast.success(
+                    <div class="flex items-center space-x-1">
+                        <div class="avatar">
+                            <div class="mask mask-squircle w-12 h-12">
+                                <img src={img} alt={name + 'img'} />
+                            </div>
+                        </div>
+                        <div>
+                            <div class="font-semibold">{name}</div>
+                            <div class="text-sm opacity-50">Added to Cart</div>
+                        </div>
                     </div>
                 );
             });
@@ -77,13 +84,13 @@ const Product = ({ index, product }) => {
                         </div>
                     </div>
                     <div>
-                        <div class="font-bold">{name}</div>
+                        <div class="font-semibold">{name}</div>
                         <div class="text-sm opacity-50">{category}</div>
                     </div>
                 </div>
             </td>
             <td>{inStock}</td>
-            <td>{price}</td>
+            <td>${price}</td>
             <td>${inStock * price}</td>
             <td>{totalSold}</td>
             <td>
