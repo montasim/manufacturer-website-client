@@ -24,140 +24,56 @@ const Navbar = ({ logo }) => {
         signOut(auth);
     };
 
+    const navbarRoute = <>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/products'>Products</Link></li>
+        <li><Link to='/blogs'>Blogs</Link></li>
+        <li><Link to='/my-portfolio'>My Portfolio</Link></li>
+        {
+            !user ?
+                <>
+                </> :
+                <>
+                    <li><Link to='/dashboard'>Dashboard</Link></li>
+                    <li><Link onClick={() => logout()} to='/'>Logout</Link></li>
+                </>
+        }
+        <li><Link to='/search'> <BsSearch className='text-lg' /></Link></li>
+        <li><Link to='/cart'> <BsCartCheck className='text-xl' /></Link></li>
+        {
+            !user ?
+                <>
+                    <li><Link to='/login'> <FiUser className='text-xl' /></Link></li>
+                </> :
+                <>
+                </>
+        }
+    </>;
+
     return (
-        <header className="border-b border-gray-100">
-            <div
-                className="flex items-center justify-between h-16 mx-auto max-w-screen-2xl sm:px-6 lg:px-8"
-            >
-                <div className="flex items-center">
-                    <button type="button" className="p-2 sm:mr-4 lg:hidden">
-                        <svg
-                            className="w-6 h-6"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h16M4 18h16"
-                            />
-                        </svg>
-                    </button>
-
-                    <Link to='/' className="flex">
-                        <h5 className='font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-secondary to-primary'>JanTrik</h5>
-                    </Link>
+        <div class="navbar bg-base-100 lg:mx-10">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <label tabindex="0" class={`btn btn-ghost lg:hidden ${user ? '' : 'md:hidden sm:hidden'}`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </label>
+                    <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        {navbarRoute}
+                    </ul>
                 </div>
-
-                <div className="flex items-center justify-end flex-1">
-                    <nav
-                        className="hidden lg:uppercase lg:text-gray-800 lg:tracking-wide lg:font-bold lg:text-xs lg:space-x-4 lg:flex"
-                    >
-
-                        <Link
-                            to="/"
-                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
-                        >
-                            Home
-                        </Link>
-
-                        <Link
-                            to="/products"
-                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
-                        >
-                            Products
-                        </Link>
-
-                        <Link
-                            to="/blogs"
-                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
-                        >
-                            Blogs
-                        </Link>
-
-                        <Link
-                            to="/my-portfolio"
-                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
-                        >
-                            My Portfolio
-                        </Link>
-
-                        {
-                            !user ?
-                                <>
-                                    <Link
-                                        to="/login"
-                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
-                                    >
-                                        Login
-                                    </Link>
-                                </>
-                                :
-                                <>
-                                    <Link
-                                        to="/dashboard"
-                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
-                                    >
-                                        Dashboard
-                                    </Link>
-
-                                    <Link onClick={() => logout()}
-                                        to="/"
-                                        className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
-                                    >
-                                        Logout
-                                    </Link>
-                                </>
-                        }
-                    </nav>
-
-                    <div className="flex items-center ml-8">
-                        <div
-                            className="flex items-center border-gray-100 divide-x divide-gray-100 border-x"
-                        >
-                            <span>
-                                <Link
-                                    to="/search"
-                                    className="block p-5 border-b-4 border-transparent hover:border-secondary"
-                                >
-                                    <BsSearch className='text-lg' />
-
-                                    <span className="sr-only"> Search </span>
-                                </Link>
-                            </span>
-
-                            <span>
-                                <Link
-                                    to="/cart"
-                                    className="block p-5 border-b-4 border-transparent hover:border-secondary"
-                                >
-                                    <BsCartCheck className='text-xl' />
-
-                                    <span className="sr-only">Cart</span>
-                                </Link>
-                            </span>
-
-                            {
-                                !user &&
-                                <span>
-                                    <Link
-                                        to="/login"
-                                        className="block p-5 border-b-4 border-transparent hover:border-secondary"
-                                    >
-                                        <FiUser className='text-xl' />
-
-                                        <span className="sr-only"> Login </span>
-                                    </Link>
-                                </span>
-                            }
-                        </div>
-                    </div>
-                </div>
+                <Link to='/'><h5 className='font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-secondary to-primary'>JanTrik</h5></Link>
             </div>
-        </header>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal p-0">
+                    {navbarRoute}
+                </ul>
+            </div>
+            <div className="navbar-end">
+                <label tabIndex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
+            </div>
+        </div>
     );
 };
 
