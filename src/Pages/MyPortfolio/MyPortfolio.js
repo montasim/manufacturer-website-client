@@ -1,5 +1,6 @@
 import React from 'react';
 import AboutMe from './AboutMe';
+import Projects from './Projects';
 import Skills from './Skills';
 import Summary from './Summary';
 
@@ -9,6 +10,7 @@ const MyPortfolio = () => {
             <AboutMe />
             <Skills />
             <Summary />
+            <Projects />
         </div>
     );
 };
