@@ -49,12 +49,18 @@ const Cart = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2">
                     <div className="py-12 bg-gray-50 md:py-24">
                         <div className="max-w-lg px-4 mx-auto lg:px-8">
-                            <div className="mt-8">
-                                <div className='flex justify-between'>
-                                    <p className="text-2xl font-medium tracking-tight"></p>
-                                    <p className="text-xl tracking-tight">Total: {cart.length} Products</p>
+
+                            <div className="flex justify-between">
+                                <div class="flex items-center">
+                                    <img src={user?.photoURL} alt="" class="w-10 h-10 bg-blue-900 rounded-full"></img>
+
+                                    <h2 class="ml-4 text-sm font-medium">{user?.email}</h2>
                                 </div>
-                                <p className="mt-1 text-sm text-gray-500">Products you selected to buy</p>
+
+                                <div class="mt-8">
+                                    <p class="text-2xl font-medium tracking-tight">$99.99</p>
+                                    <p class="mt-1 text-sm text-gray-500">For the purchase of</p>
+                                </div>
                             </div>
 
                             <div className="mt-12">
