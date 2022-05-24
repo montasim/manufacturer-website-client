@@ -36,6 +36,7 @@ const AddReview = () => {
     return (
         <div>
             <form onSubmit={addReview} className='flex h-screen flex-col items-center justify-center'>
+                <h2 className='text-3xl mb-8'>Add Review</h2>
                 <div class="form-control">
                     <div class="input-group">
                         <select class="select select-bordered select-secondary" name='reviewRating'>
