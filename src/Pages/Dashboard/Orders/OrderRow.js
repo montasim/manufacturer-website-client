@@ -5,8 +5,8 @@ import { AiFillDelete, AiFillEdit, AiFillPlusSquare } from 'react-icons/ai';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../Hooks/Firebase.Init';
 
-const OrderRow = ({ index, product }) => {
-    const { _id, name, category, supplierName, img, description, price, inStock, totalSold } = product;
+const OrderRow = ({ index, order }) => {
+    const { _id, orderedUserEmail, orderedProducts, orderStatus } = order;
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
 
@@ -18,11 +18,11 @@ const OrderRow = ({ index, product }) => {
         });
     }
 
-    const itemDelete = _id => {
+    const deleteOrder = _id => {
         const confirm = window.confirm('Are You Sure?');
 
         if (confirm) {
-            const url = `https://tools-manufacturer-server.herokuapp.com/delete-product/${_id}`;
+            const url = `https://tools-manufacturer-server.herokuapp.com/delete-order/${_id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -31,44 +31,12 @@ const OrderRow = ({ index, product }) => {
                     if (data.deletedCount > 0) {
                         toast(
                             <div className='flex'>
-                                <img className='w-20' src={img} alt="" />
-                                <p className='ml-4'>{name} deleted from inventory.</p>
+                                <p className='ml-4'>{_id} deleted from inventory.</p>
                             </div>
                         );
                     }
                 })
         }
-    }
-
-    const addToCart = () => {
-
-        const item = { name, category, supplierName, img, description, price, inStock, totalSold, email };
-
-        // send data to server
-        fetch('https://tools-manufacturer-server.herokuapp.com/add-my-cart', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(item)
-        })
-            .then(res => res.json())
-            .then(data => {
-                toast.success(
-                    <div class="flex items-center space-x-1">
-                        <div class="avatar">
-                            <div class="mask mask-squircle w-12 h-12">
-                                <img src={img} alt={name + 'img'} />
-                            </div>
-                        </div>
-                        <div>
-                            <div class="font-semibold">{name}</div>
-                            <div class="text-sm opacity-50">Added to Cart</div>
-                        </div>
-                    </div>
-                );
-            });
-
     }
 
     return (
@@ -77,44 +45,15 @@ const OrderRow = ({ index, product }) => {
                 <label>{index + 1}</label>
             </th>
             <td>
-                <div class="flex items-center space-x-1">
-                    <div class="avatar">
-                        <div class="mask mask-squircle w-12 h-12">
-                            <img src={img} alt={name + 'img'} />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="font-semibold">{name}</div>
-                        <div class="text-sm opacity-50">{category}</div>
-                    </div>
-                </div>
+                <div class="font-semibold">{orderedUserEmail}</div>
             </td>
-            <td>{inStock}</td>
-            <td>${price}</td>
-            <td>${inStock * price}</td>
-            <td>{totalSold}</td>
+            <td>{orderedProducts.length}</td>
+            <td>
+                <div class="badge badge-primary text-white">{orderStatus}</div>
+            </td>
             <td>
                 <div class="flex items-center gap-1">
-                    <button
-                        class="z-10 block p-2 text-blue-700 transition-all bg-blue-100 border-2 border-white rounded-full active:bg-blue-50 hover:scale-110 focus:outline-none focus:ring"
-                        type="button"
-                    >
-                        <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                        </svg>
-                    </button>
-
-                    <button
-                        onClick={() => addToCart()}
-                        class="z-20 block p-2 text-green-700 transition-all bg-green-100 border-2 border-white rounded-full active:bg-green-50 hover:scale-110 focus:outline-none focus:ring"
-                        type="button"
-                    >
-                        <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                        </svg>
-                    </button>
-
-                    <button onClick={() => itemDelete(_id)}
+                    <button onClick={() => deleteOrder(_id)}
                         class="z-30 block p-2 text-red-700 transition-all bg-red-100 border-2 border-white rounded-full hover:scale-110 focus:outline-none focus:ring active:bg-red-50"
                         type="button"
                     >

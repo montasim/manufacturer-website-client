@@ -25,7 +25,7 @@ const Cart = () => {
         const orderedUserPhone = event?.target?.orderedUserPhone?.value;
         const orderCreatedTime = new Date();
 
-        const blogDetails = { orderedProducts, orderStatus, orderedUserName, orderDeliveryAddress, orderedUserEmail, orderedUserPhone, orderCreatedTime };
+        const orderDetails = { orderedProducts, orderStatus, orderedUserName, orderDeliveryAddress, orderedUserEmail, orderedUserPhone, orderCreatedTime };
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-order', {
@@ -33,7 +33,7 @@ const Cart = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(blogDetails)
+            body: JSON.stringify(orderDetails)
         })
             .then(res => res.json())
             .then(data => {

@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import OrderRow from './OrderRow';
 
 const Orders = () => {
-    const [products, setProducts] = useState([]);
+    const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch('https://tools-manufacturer-server.herokuapp.com/products')
+        fetch('https://tools-manufacturer-server.herokuapp.com/orders')
             .then(res => res.json())
-            .then(data => setProducts(data));
-    }, [products]);
+            .then(data => setOrders(data));
+    }, [orders]);
 
     return (
         <div class="overflow-x-auto w-full">
@@ -16,17 +16,15 @@ const Orders = () => {
                 <thead>
                     <tr>
                         <th>Serial</th>
-                        <th>Name</th>
-                        <th>In Stock</th>
-                        <th>Unit Price</th>
-                        <th>Total Price</th>
-                        <th>Sold</th>
+                        <th>Ordered By</th>
+                        <th>Total Product</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        products.map((product, index) => <OrderRow key={index} product={product} index={index} />)
+                        orders.map((order, index) => <OrderRow key={index} order={order} index={index} />)
                     }
                 </tbody>
             </table>
