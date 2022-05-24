@@ -1,25 +1,25 @@
 import React from 'react';
 
 const Review = ({ customerReview }) => {
-    const { name, image, review } = customerReview;
+    const { reviewerName, reviewerImg, reviewDescription, reviewCreatedAt } = customerReview;
 
     return (
         <div>
             <img
-                src={image}
-                alt={`${name}'s` + 'photo'}
+                src={reviewerImg}
+                alt={`${reviewerName}'s` + 'photo'}
                 className="object-cover w-24 h-24 mx-auto rounded-full shadow-xl"
             />
 
             <blockquote
                 className="flex flex-col justify-between p-12 -mt-6 text-center rounded-lg shadow-xl"
             >
-                <p className="text-lg font-bold text-gray-700">{name}</p>
+                <p className="text-lg font-bold text-gray-700">{reviewerName}</p>
                 <p className="mt-1 text-xs font-medium text-gray-500">
                     Digital Marketing at Studio
                 </p>
                 <p className="mt-4 text-sm text-gray-500">
-                    {review}
+                    {reviewDescription}
                 </p>
 
                 <div className="flex space-x-0.5 justify-center mt-8 text-secondary">
@@ -74,6 +74,8 @@ const Review = ({ customerReview }) => {
                         />
                     </svg>
                 </div>
+
+                <small className='mt-4'>{reviewCreatedAt?.slice(0, 10)}</small>
             </blockquote>
         </div>
     );

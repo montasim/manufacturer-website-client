@@ -120,6 +120,14 @@ const Dashboard = () => {
                         <GrUserAdmin />
                         <span className='ml-3 text-sm font-medium'> All Admins </span>
                     </Link>
+
+                    <Link
+                        to='/dashboard/all-reviews'
+                        className='flex items-center px-4 py-2 text-gray-700 rounded-lg'
+                    >
+                        <GrUserAdmin />
+                        <span className='ml-3 text-sm font-medium'> All Reviews </span>
+                    </Link>
                 </ul>
 
                 <div className='sticky inset-x-0 bottom-0 border-t border-gray-100'>

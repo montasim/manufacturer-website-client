@@ -29,6 +29,7 @@ import Admins from './Pages/Dashboard/Admins/Admins';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 import MyBlogs from './Pages/Dashboard/Blogs/MyBlogs';
 import AddBlog from './Pages/Dashboard/Blogs/AddBlog';
+import Reviews from './Pages/Dashboard/Reviews/Reviews';
 
 function App() {
   return (
@@ -96,6 +97,11 @@ function App() {
           <Route path='all-orders' element={
             <RequireAdmin>
               <ManageAllOrders />
+            </RequireAdmin>
+          } />
+          <Route path='all-reviews' element={
+            <RequireAdmin>
+              <Reviews />
             </RequireAdmin>
           } />
         </Route>
