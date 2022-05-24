@@ -28,10 +28,10 @@ const Products = () => {
                             </p>
 
                             <Link
-                                to='/collections/watches'
+                                to='/all-products'
                                 className='inline-block px-6 py-3 mt-6 text-sm text-white bg-gradient-to-r from-secondary to-primary'
                             >
-                                View the Range
+                                All Products
                             </Link>
                         </div>
                     </div>

@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import CartRow from './CartRow';
 
-const Purchase = () => {
+const Cart = () => {
+    const [cart, setCart] = useState([]);
+
+    useEffect(() => {
+        fetch('https://tools-manufacturer-server.herokuapp.com/cart')
+            .then(res => res.json())
+            .then(data => setCart(data));
+    }, [cart]);
+
     return (
         <section>
             <h1 className="sr-only">Checkout</h1>
@@ -23,38 +32,9 @@ const Purchase = () => {
                             <div className="mt-12">
                                 <div className="flow-root">
                                     <ul className="-my-4 divide-y divide-gray-200">
-                                        <li className="flex items-center justify-between py-4">
-                                            <div className="flex items-start">
-                                                <img
-                                                    className="flex-shrink-0 object-cover w-16 h-16 rounded-lg"
-                                                    src="https://images.unsplash.com/photo-1588099768531-a72d4a198538?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2xvdGhpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-                                                    alt=""
-                                                />
-
-                                                <div className="ml-4">
-                                                    <p className="text-sm">Vibrant Trainers</p>
-
-                                                    <dl className="mt-1 space-y-1 text-xs text-gray-500">
-                                                        <div>
-                                                            <dt className="inline">Color:</dt>
-                                                            <dd className="inline">Blue</dd>
-                                                        </div>
-
-                                                        <div>
-                                                            <dt className="inline">Size:</dt>
-                                                            <dd className="inline">UK 10</dd>
-                                                        </div>
-                                                    </dl>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p className="text-sm">
-                                                    $49.99
-                                                    <small className="text-gray-500">x1</small>
-                                                </p>
-                                            </div>
-                                        </li>
+                                        {
+                                            cart.map((cart, index) => <CartRow key={index} cart={cart} index={index} />)
+                                        }
 
                                         <li className="flex items-center justify-between py-4">
                                             <div className="flex items-start">
@@ -251,4 +231,4 @@ const Purchase = () => {
     );
 };
 
-export default Purchase;
+export default Cart;

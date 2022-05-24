@@ -45,7 +45,7 @@ const ProductRow = ({ index, product }) => {
         const item = { name, category, supplierName, img, description, price, inStock, totalSold, email };
 
         // send data to server
-        fetch('https://tools-manufacturer-server.herokuapp.com/add-my-cart', {
+        fetch('https://tools-manufacturer-server.herokuapp.com/add-cart', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

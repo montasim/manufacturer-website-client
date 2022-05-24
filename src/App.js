@@ -7,12 +7,11 @@ import AcceptCookies from './Components/AcceptCookies';
 import Home from './Pages/Home/Home';
 import { Route, Routes } from 'react-router-dom';
 import About from './Pages/About/About';
-import Purchase from './Pages/Purchase/Purchase';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
 import UserProfile from './Pages/Dashboard/Users/UserProfile';
 import AddAProduct from './Pages/Dashboard/Products/AddProduct';
-import Products from './Pages/Dashboard/Products/Products';
+import AllProducts from './Pages/Dashboard/Products/Products';
 import Blogs from './Pages/Blogs/Blogs';
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 import NotFound from './Pages/NotFound/NotFound';
@@ -32,6 +31,10 @@ import Reviews from './Pages/Dashboard/Reviews/Reviews';
 import AddReview from './Pages/Dashboard/Reviews/AddReview';
 import Categories from './Pages/Dashboard/Categories/Categories';
 import AddCategory from './Pages/Dashboard/Categories/AddCategory';
+import Cart from './Pages/Cart/Cart';
+import Products from './Pages/Products/Products';
+import ProductDetails from './Pages/ProductDetails/ProductDetails';
+import ProductRow from './Pages/Products/ProductRow';
 
 function App() {
   return (
@@ -44,12 +47,13 @@ function App() {
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/my-portfolio' element={<MyPortfolio />} />
-        <Route path='/purchase' element={
+        <Route path='/cart' element={
           <RequireAuth>
-            <Purchase />
+            <Cart />
           </RequireAuth>
         } />
-        <Route path='/product-details/:id' element={<Purchase />} />
+        <Route path='products' element={<ProductRow />} />
+        <Route path='product-details/:id' element={<ProductDetails />} />
 
         <Route path="/dashboard" element={
           <RequireAuth>
@@ -73,7 +77,7 @@ function App() {
           } />
           <Route path='all-products' element={
             <RequireAdmin>
-              <Products />
+              <AllProducts />
             </RequireAdmin>
           } />
           <Route path='add-category' element={
