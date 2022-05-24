@@ -47,9 +47,9 @@ const OrderRow = ({ index, order }) => {
             <td>
                 <div class="font-semibold">{orderedUserEmail}</div>
             </td>
-            <td>{orderedProducts.length}</td>
+            <td><div class="badge badge-secondary text-white">{orderStatus}</div></td>
             <td>
-                <div onClick={() => navigate('/pay-order')} class="badge badge-primary text-white">{orderStatus}</div>
+                <div class="badge badge-primary text-white">{'Pending'}</div>
             </td>
             <td>
                 <div class="flex items-center gap-1">
