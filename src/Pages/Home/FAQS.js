@@ -54,7 +54,7 @@ const FAQS = () => {
                     </summary>
 
                     <p className="mt-4 leading-relaxed text-gray-700">
-                        The POSDash Inventory module covers all processes involving management of your stocks and services. It includes creating and managing products, services and assets, product families, stock adjustements, stock takes, stock transfers, inventory writte-offs price lists, product availability and much more.
+                        The Jantrik website covers all your necessary products. It includes creating and managing products, services and assets, product families, stock adjustements, stock takes, stock transfers, inventory writte-offs price lists, product availability and much more.
                     </p>
                 </details>
 
@@ -98,7 +98,7 @@ const FAQS = () => {
                     </summary>
 
                     <p className="mt-4 leading-relaxed text-gray-700">
-                        Yes, POSDash allows you to view the availability of the products in the Product Availability Report. The Report shows the exact quantity of on hand, available, on order and allocated products.
+                        Yes, Jantrik allows you to view the availability of the products in the Product Availability Report. The Report shows the exact quantity of on hand, available, on order and allocated products.
                     </p>
                 </details>
 

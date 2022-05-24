@@ -24,7 +24,7 @@ const Products = () => {
                             </h2>
 
                             <p className='mt-4 text-sm text-gray-700 max-w-[45ch]'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, cupiditate mollitia saepe vitae libero nobis.
+                                We offers many products to choose from. Find your needs here.
                             </p>
 
                             <Link

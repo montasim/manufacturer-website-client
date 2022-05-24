@@ -11,7 +11,7 @@ const ContactUs = () => {
                 Contact
             </h2>
             <p className="text-center mb-12 text-gray-500">
-                POSDash offers various options for your inventory managements. Contact to get started with POSDash.
+                Jantrik offers various options for your needs. Contact to get started with Jantrik.
             </p>
             <section className="mb-32 text-gray-800">
 

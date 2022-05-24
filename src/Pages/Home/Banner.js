@@ -16,14 +16,14 @@ const Banner = () => {
             <div className='relative max-w-screen-xl px-4 py-32 mx-auto lg:h-screen lg:items-center lg:flex'>
                 <div className='max-w-xl text-center sm:text-left'>
                     <h1 className='text-3xl font-extrabold sm:text-5xl'>
-                        Let us find your
+                        Understand User Flow.
                         <strong className='font-extrabold text-primary sm:block'>
-                            Forever Home.
+                            Increase Performance.
                         </strong>
                     </h1>
 
                     <p className='max-w-lg mt-4 sm:leading-relaxed sm:text-xl'>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus numquam ea!
+                        Feel the key Performance. Optimized view, blazing fast performance
                     </p>
 
                     <div className='flex flex-wrap gap-4 mt-8 text-center'>

@@ -18,7 +18,7 @@ const Footer = ({ logo }) => {
                                 </h2>
 
                                 <p className='mt-6 text-gray-400'>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae nam molestias.
+                                    To learn about our latest offer subscribe to our newsletter.
                                 </p>
                             </div>
                         </div>

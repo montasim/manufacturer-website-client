@@ -25,7 +25,7 @@ const Reviews = () => {
                     </div>
 
                     <p className="max-w-lg mx-auto mt-4 text-gring-offset-warm-gray-500">
-                        POSData is a world class inventory management system. We provide live support to all of our user. Hear more from our honorable users.
+                        Jantrik is a world class tools manufacturer. We provide live support to all of our user. Hear more from our honorable users.
                     </p>
                 </div>
 
