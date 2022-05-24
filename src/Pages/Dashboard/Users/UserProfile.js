@@ -27,29 +27,37 @@ const UserProfile = () => {
         pError
     ] = useUpdateProfile(auth);
 
+    const updateUserProfile = (displayName, education, linkedin, photoURL) => {
+        const userDetails = { displayName, education, linkedin, photoURL };
+
+        // send data to server
+        fetch('https://tools-manufacturer-server.herokuapp.com/add-user', {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userDetails)
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success('User Data Added Successfully');
+            });
+    };
+
     const onSubmit = async (data) => {
         const displayName = data?.name;
+        const education = data?.education;
+        const linkedin = data?.linkedin;
         const photoURL = data?.photo;
 
         await updateProfile({ displayName, photoURL });
+        updateUserProfile(displayName, education, linkedin, photoURL);
         await updateEmail(data?.email);
-
-        toast.success(
-            <div>
-                <h5 className='text-xl'>Profile Updated</h5>
-
-                <p>Name: {displayName}</p>
-                <p>Email: {data?.email}</p>
-                <p>PhotoURL: {photoURL}</p>
-            </div>
-        );
     };
 
     if (loading || eUpdating || pUpdating) {
         return <Loading />;
     };
-
-    console.log(user)
 
     return (
         <div className='card items-center justify-center'>
@@ -86,29 +94,24 @@ const UserProfile = () => {
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Your Email</span>
+                            <span className="label-text">Educational Qualification</span>
                         </label>
                         <label className="input-group">
-                            <span>Email</span>
+                            <span>Education</span>
                             <input
-                                type='email'
-                                placeholder={user?.email}
+                                type='text'
+                                placeholder={user?.education || 'Educational qualification'}
                                 className='input input-bordered w-full max-w-xs'
-                                {...register('email', {
+                                {...register('education', {
                                     required: {
                                         value: true,
-                                        message: 'Email is Required'
-                                    },
-                                    pattern: {
-                                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                        message: 'Provide a valid Email'
+                                        message: 'Name is Required'
                                     }
                                 })}
                             />
                         </label>
                         <label className='label'>
-                            {errors?.email?.type === 'required' && <span className='label-text-alt text-red-500'>{errors?.email?.message}</span>}
-                            {errors?.email?.type === 'pattern' && <span className='label-text-alt text-red-500'>{errors?.email?.message}</span>}
+                            {errors?.education?.type === 'required' && <span className='label-text-alt text-red-500'>{errors?.education?.message}</span>}
                         </label>
                     </div>
 
@@ -132,6 +135,29 @@ const UserProfile = () => {
                         </label>
                         <label className='label'>
                             {errors?.photo?.type === 'required' && <span className='label-text-alt text-red-500'>{errors?.photo?.message}</span>}
+                        </label>
+                    </div>
+
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">LinkedIn Link</span>
+                        </label>
+                        <label className="input-group">
+                            <span>LinkedIn</span>
+                            <input
+                                type='text'
+                                placeholder={user?.linkedin || 'LinkedIn link'}
+                                className='input input-bordered w-full max-w-xs'
+                                {...register('linkedin', {
+                                    required: {
+                                        value: true,
+                                        message: 'LinkedIn is Required'
+                                    }
+                                })}
+                            />
+                        </label>
+                        <label className='label'>
+                            {errors?.linkedin?.type === 'required' && <span className='label-text-alt text-red-500'>{errors?.linkedin?.message}</span>}
                         </label>
                     </div>
 
