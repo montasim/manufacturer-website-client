@@ -1,10 +1,10 @@
 import React from 'react';
-import QNA from './QNA';
+import QNAS from './QNAS';
 
 const Blogs = () => {
     return (
         <div>
-            <QNA />
+            <QNAS />
         </div>
     );
 };

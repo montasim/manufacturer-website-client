@@ -11,9 +11,10 @@ const AddBlog = () => {
 
         const blogTitle = event?.target?.blogTitle?.value;
         const blogDescription = event?.target?.blogDescription?.value;
-        const createdBy = user?.email;
+        const blogCreatedBy = user?.email;
+        const blogCreatedTime = new Date();
 
-        const blogDetails = { blogTitle, blogDescription, createdBy };
+        const blogDetails = { blogTitle, blogDescription, blogCreatedBy, blogCreatedTime };
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-blog', {
