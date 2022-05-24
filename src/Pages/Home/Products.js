@@ -38,7 +38,7 @@ const Products = () => {
 
                     <div className='grid grid-cols-2 gap-4 lg:col-span-2 lg:grid-cols-3 lg:py-12'>
                         {
-                            products?.slice(0, 3).map((item, index) => <Product key={index} item={item} />)
+                            products?.slice(-3).map((item, index) => <Product key={index} item={item} />)
                         }
                     </div>
                 </div>
