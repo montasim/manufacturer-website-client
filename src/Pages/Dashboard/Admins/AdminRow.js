@@ -2,29 +2,25 @@ import React from 'react';
 import { toast } from 'react-toastify';
 
 const AdminRow = ({ user, index, refetch }) => {
-    const { name, userEmail, userCreationTime, userRole } = user;
+    const { _id, name, userEmail, userCreationTime, userRole } = user;
 
-    const makeAdmin = () => {
-        fetch(`https://doctors-portal-server-montasim.herokuapp.com/user/admin/${userEmail}`, {
-            method: 'PUT',
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => {
-                if (res.status === 403) {
-                    toast.error('Failed to Make an admin');
-                }
-                return res.json()
-            })
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                    refetch();
-                    toast.success(`Successfully made an admin`);
-                }
+    const deleteAdmin = _id => {
+        const confirm = window.confirm('Are You Sure?');
 
+        if (confirm) {
+            const url = `https://tools-manufacturer-server.herokuapp.com/delete-admin/${_id}`;
+            fetch(url, {
+                method: 'DELETE'
             })
-    }
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        toast.dismiss(`Deleted ${userEmail} from Admin`);
+                    };
+                });
+        };
+    };
+
     return (
         <tr className="hover">
             <th>
@@ -45,7 +41,7 @@ const AdminRow = ({ user, index, refetch }) => {
             </td>
             <td>{userRole}</td>
             <td>
-                <div className="flex items-center gap-1">
+                <div onClick={() => deleteAdmin(_id)} className="flex items-center gap-1">
                     <button
                         className="z-30 block p-2 text-red-700 transition-all bg-red-100 border-2 border-white rounded-full hover:scale-110 focus:outline-none focus:ring active:bg-red-50"
                         type="button"
