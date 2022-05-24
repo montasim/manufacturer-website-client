@@ -43,6 +43,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
+        <Route path='/products' element={<Products />} />
         <Route path='/about' element={<About />} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/contact' element={<Contact />} />
@@ -53,7 +54,7 @@ function App() {
           </RequireAuth>
         } />
         <Route path='products' element={<ProductRow />} />
-        <Route path='product-details/:id' element={<ProductDetails />} />
+        <Route path='product-details/:productId' element={<ProductDetails />} />
 
         <Route path="/dashboard" element={
           <RequireAuth>
