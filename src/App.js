@@ -13,7 +13,6 @@ import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
 import AddAReview from './Pages/Dashboard/AddAReview';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import AddAProduct from './Pages/Dashboard/AddAProduct';
-import MakeAdmin from './Pages/Dashboard/MakeAdmin';
 import ManageProducts from './Pages/Dashboard/ManageProducts/ManageProducts';
 import Blogs from './Pages/Blogs/Blogs';
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
@@ -27,6 +26,7 @@ import Users from './Pages/Dashboard/Users/Users';
 import RequireAdmin from './Hooks/RequireAdmin';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders/ManageAllOrders';
 import Admins from './Pages/Dashboard/Admins/Admins';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 
 function App() {
   return (
