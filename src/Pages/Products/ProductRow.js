@@ -8,7 +8,7 @@ import { AiFillHeart } from 'react-icons/ai';
 
 
 const ProductRow = ({ index, product }) => {
-    const { _id, name, category, supplierName, img, description, price, inStock, totalSold, minOrder, maxOrder } = product;
+    const { _id, productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, minOrder } = product;
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
 
@@ -22,7 +22,7 @@ const ProductRow = ({ index, product }) => {
 
     const addToCart = (_id) => {
 
-        const item = { name, category, supplierName, img, description, price, inStock, totalSold, email };
+        const item = { productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, email };
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-cart', {
@@ -38,11 +38,11 @@ const ProductRow = ({ index, product }) => {
                     <div class="flex items-center space-x-1">
                         <div class="avatar">
                             <div class="mask mask-squircle w-12 h-12">
-                                <img src={img} alt={name + 'img'} />
+                                <img src={productImg} alt={productName + 'img'} />
                             </div>
                         </div>
                         <div>
-                            <div class="font-semibold">{name}</div>
+                            <div class="font-semibold">{productName}</div>
                             <div class="text-sm opacity-50">Added to Cart</div>
                         </div>
                     </div>
@@ -55,15 +55,15 @@ const ProductRow = ({ index, product }) => {
             class="block p-4 rounded-lg shadow-lg shadow-indigo-100 border border-gray-400"
         >
             <img
-                alt="123 Wallaby Avenue, Park Road"
-                src={img}
-                class="object-cover w-full h-56 rounded-md"
+                alt={productName + 'image'}
+                src={productImg}
+                class="object-cover w-60 h-56 rounded-md"
             />
 
             <div class="mt-4">
                 <div>
-                    <p className="text-sm text-gray-400">${price}.00</p>
-                    <p className="font-medium">{name}</p>
+                    <p className="text-sm text-gray-400">${productPrice}.00</p>
+                    <p className="font-medium">{productName}</p>
                 </div>
 
                 <dl class="flex items-center mt-6 space-x-8 text-xs">
@@ -91,25 +91,6 @@ const ProductRow = ({ index, product }) => {
                             class="w-4 h-4 text-secondary"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                         >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                        </svg>
-
-                        <div class="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt class="text-gray-500">
-                                Max Order
-                            </dt>
-
-                            <dd class="font-medium">
-                                {maxOrder}
-                            </dd>
-                        </div>
-                    </div>
-
-                    <div class="sm:inline-flex sm:items-center sm:shrink-0">
-                        <svg
-                            class="w-4 h-4 text-secondary"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                        >
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                         </svg>
 
@@ -119,7 +100,7 @@ const ProductRow = ({ index, product }) => {
                             </dt>
 
                             <dd class="font-medium">
-                                {inStock}
+                                {productInStock}
                             </dd>
                         </div>
                     </div>

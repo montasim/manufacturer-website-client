@@ -22,7 +22,7 @@ const ProductDetails = () => {
             .then(data => setProduct(data));
     }, [product]);
 
-    const { category, name, description, supplierName, price, inStock, ratings, img } = product;
+    const { productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, minOrder } = product;
     const [user] = useAuthState(auth);
 
     let email;
@@ -35,7 +35,7 @@ const ProductDetails = () => {
 
     const addToCart = (_id) => {
 
-        const item = { name, category, supplierName, img, description, price, inStock, email };
+        const item = { productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, minOrder, email };
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-cart', {
@@ -51,11 +51,11 @@ const ProductDetails = () => {
                     <div class="flex items-center space-x-1">
                         <div class="avatar">
                             <div class="mask mask-squircle w-12 h-12">
-                                <img src={img} alt={name + 'img'} />
+                                <img src={productImg} alt={productName + 'img'} />
                             </div>
                         </div>
                         <div>
-                            <div class="font-semibold">{name}</div>
+                            <div class="font-semibold">{productName}</div>
                             <div class="text-sm opacity-50">Added to Cart</div>
                         </div>
                     </div>
@@ -66,51 +66,45 @@ const ProductDetails = () => {
     return (
         <div className='d-block mx-auto my-12 p-12'>
 
-            <h2 className="text-2xl font-bold">Details Of {name}</h2>
+            <h2 className="text-2xl font-bold">Details Of {productName}</h2>
 
             <div className="container mt-16 px-6 mx-auto">
                 <section className="text-gray-800 text-center md:text-left">
                     <div className="block rounded-lg shadow-lg bg-white">
                         <div className="flex flex-wrap items-center">
                             <div className="grow-0 shrink-0 basis-auto block lg:flex w-full lg:w-6/12 xl:w-4/12">
-                                <img src={img} alt="Trendy Pants and Shoes"
+                                <img src={productImg} alt="Trendy Pants and Shoes"
                                     className="w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg" />
                             </div>
                             <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 xl:w-8/12">
                                 <div className="px-6 py-12 md:px-12">
-                                    <h2 className="text-3xl font-bold pb-2">{name}</h2>
-                                    <h4 className='text-xl pb-2'> Supplier: {supplierName}</h4>
+                                    <h2 className="text-3xl font-bold pb-2">{productName}</h2>
+                                    <h4 className='text-xl pb-2'> Supplier: {productSellerName}</h4>
                                     <p className="text-gray-500 mb-6 pb-2">
-                                        {description}
+                                        {[productDescription]}
                                     </p>
                                     <div className="flex flex-wrap mb-6">
                                         <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
                                             <p className="flex items-center justify-center md:justify-start">
-                                                <MdOutlineBrandingWatermark className='mr-3' /> Category: {category}
+                                                <MdOutlineBrandingWatermark className='mr-3' /> Category: {productCategory}
                                             </p>
                                         </div>
                                         <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
                                             <p className="flex items-center justify-center md:justify-start">
                                                 <ImPriceTag className='mr-3' />
-                                                Unit Price: ${price}
+                                                Unit Price: ${productPrice}
                                             </p>
                                         </div>
                                         <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
                                             <p className="flex items-center justify-center md:justify-start">
                                                 <AiOutlineStock className='mr-3' />
-                                                In Stock: {inStock}
-                                            </p>
-                                        </div>
-                                        <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
-                                            <p className="flex items-center justify-center md:justify-start">
-                                                <FcRating className='mr-3' />
-                                                Ratings: 5 / {ratings}
+                                                In Stock: {productInStock}
                                             </p>
                                         </div>
                                         <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
                                             <p className="flex items-center justify-center md:justify-start">
                                                 <AiOutlineDollar className='mr-3' />
-                                                Total Price: {inStock * price}
+                                                Total Price: {productInStock * productPrice}
                                             </p>
                                         </div>
                                         <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">

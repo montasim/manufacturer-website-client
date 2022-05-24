@@ -12,7 +12,7 @@ const Products = () => {
 
     return (
         <div>
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8 place-items-center my-20">
+            <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-8 place-items-center my-20">
                 {
                     products.map((product, index) => <ProductRow key={index} product={product} index={index} />)
                 }

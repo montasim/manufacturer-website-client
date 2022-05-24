@@ -6,7 +6,7 @@ import MainButton from '../../Components/MainButton';
 import auth from '../../Hooks/Firebase.Init';
 
 const Product = ({ item }) => {
-    const { _id, name, category, supplierName, img, description, price, inStock, totalSold, minOrder, maxOrder } = item;
+    const { _id, productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, minOrder } = item;
     const [user] = useAuthState(auth);
 
     let email;
@@ -19,7 +19,7 @@ const Product = ({ item }) => {
 
     const addToCart = (_id) => {
 
-        const item = { name, category, supplierName, img, description, price, inStock, totalSold, email };
+        const item = { productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, minOrder, email };
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-cart', {
@@ -44,23 +44,23 @@ const Product = ({ item }) => {
                     loading='lazy'
                     alt='Simple Watch'
                     className='object-cover rounded'
-                    src={img}
+                    src={productImg}
                 />
             </div>
 
             <div className='mt-2 p-2'>
                 <div className='flex justify-between items-center mt-4'>
-                    <p className='text-sm text-gray-700'>${price}</p>
-                    <p className='text-sm text-gray-700'>Q {inStock}</p>
+                    <p className='text-sm text-gray-700'>${productPrice}</p>
+                    <p className='text-sm text-gray-700'>Q {productInStock}</p>
                 </div>
 
-                <h5 className='font-medium mt-2'>{name?.length > 25 ? name.slice(0, 25) + ' ...' : name}</h5>
+                <h5 className='font-medium mt-2'>{productName?.length > 25 ? productName.slice(0, 25) + ' ...' : productName}</h5>
 
-                <p className='mt-1 text-sm'>{supplierName}</p>
+                <p className='mt-1 text-sm'>{productName}</p>
 
-                <p className='mt-3'>{description?.length > 25 ? description.slice(0, 60) + ' ...' : description}</p>
+                <p className='mt-3'>{productDescription?.length > 25 ? productDescription.slice(0, 60) + ' ...' : productDescription}</p>
 
-                <p className='mt-1 text-sm text-gray-700'>Minimum Order: {10}</p>
+                <p className='mt-1 text-sm text-gray-700'>Minimum Order: {minOrder}</p>
 
                 <button onClick={() => addToCart(_id)} className='btn btn-sm btn-secondary text-white text-sm capitalize mt-5'>Buy Now</button>
             </div>

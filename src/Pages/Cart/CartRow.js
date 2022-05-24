@@ -1,8 +1,8 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const CartRow = ({ index, cart, minOrder, maxOrder, setOrderedQuantity }) => {
-    const { _id, name, supplierName, img, price, inStock } = cart;
+const CartRow = ({ index, cart }) => {
+    const { _id, productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, minOrder } = cart;
 
     const deleteFromCart = _id => {
         const confirm = window.confirm('Are You Sure?');
@@ -17,8 +17,8 @@ const CartRow = ({ index, cart, minOrder, maxOrder, setOrderedQuantity }) => {
                     if (data.deletedCount > 0) {
                         toast(
                             <div className='flex'>
-                                <img className='w-20' src={img} alt="" />
-                                <p className='ml-4'>{name} deleted from cart.</p>
+                                <img className='w-20' src={productImg} alt="" />
+                                <p className='ml-4'>{productName} deleted from cart.</p>
                             </div>
                         );
                     }
@@ -32,13 +32,13 @@ const CartRow = ({ index, cart, minOrder, maxOrder, setOrderedQuantity }) => {
             <div className="flex items-start">
                 <img
                     className="flex-shrink-0 object-cover w-32 h-32 rounded-lg"
-                    src={img}
+                    src={productImg}
                     alt=""
                 />
 
                 <div className="ml-4">
-                    <p className="text-sm">{name}</p>
-                    <p className='text-xs'>{supplierName}</p>
+                    <p className="text-sm">{productName}</p>
+                    <p className='text-xs'>{productSellerName}</p>
 
                     <dl className="mt-2 space-y-1 text-xs text-gray-500">
                         <div>
@@ -47,13 +47,8 @@ const CartRow = ({ index, cart, minOrder, maxOrder, setOrderedQuantity }) => {
                         </div>
 
                         <div>
-                            <dt className="inline">Max Order: </dt>
-                            <dd className="inline">{maxOrder}</dd>
-                        </div>
-
-                        <div>
                             <dt className="inline">In Stock: </dt>
-                            <dd className="inline">{inStock}</dd>
+                            <dd className="inline">{productInStock}</dd>
                         </div>
 
                         <div className='mt-4'>
@@ -65,7 +60,7 @@ const CartRow = ({ index, cart, minOrder, maxOrder, setOrderedQuantity }) => {
 
             <div>
                 <p className="text-sm">
-                    ${price}
+                    ${productPrice}
                     <small className="text-gray-500"> X {'orderedQuantity'}</small>
                 </p>
             </div>
