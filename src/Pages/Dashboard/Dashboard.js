@@ -34,11 +34,27 @@ const Dashboard = () => {
                     </Link>
 
                     <Link
+                        to='/dashboard/my-blogs'
+                        className='flex items-center px-4 py-2 text-gray-700  rounded-lg'
+                    >
+                        <HiOutlineShoppingBag />
+                        <span className='ml-3 text-sm font-medium'> My Blogs </span>
+                    </Link>
+
+                    <Link
                         to='/dashboard/add-review'
                         className='flex items-center px-4 py-2 text-gray-700  rounded-lg'
                     >
                         <MdOutlineRateReview />
                         <span className='ml-3 text-sm font-medium'> Add Review </span>
+                    </Link>
+
+                    <Link
+                        to='/dashboard/add-blog'
+                        className='flex items-center px-4 py-2 text-gray-700  rounded-lg'
+                    >
+                        <MdOutlineRateReview />
+                        <span className='ml-3 text-sm font-medium'> Add Blog </span>
                     </Link>
 
                     <Link

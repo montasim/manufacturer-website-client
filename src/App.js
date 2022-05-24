@@ -27,6 +27,8 @@ import RequireAdmin from './Hooks/RequireAdmin';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders/ManageAllOrders';
 import Admins from './Pages/Dashboard/Admins/Admins';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
+import MyBlogs from './Pages/Dashboard/Blogs/MyBlogs';
+import AddBlog from './Pages/Dashboard/Blogs/AddBlog';
 
 function App() {
   return (
@@ -52,7 +54,9 @@ function App() {
           </RequireAuth>
         }>
           <Route path="my-orders" element={<MyOrders />} />
+          <Route path="my-blogs" element={<MyBlogs />} />
           <Route path="add-review" element={<AddAReview />} />
+          <Route path="add-blog" element={<AddBlog />} />
           <Route path="my-profile" element={<MyProfile />} />
           <Route path='all-orders' element={
             <RequireAdmin>
