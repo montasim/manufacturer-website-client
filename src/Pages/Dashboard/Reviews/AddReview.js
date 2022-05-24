@@ -1,10 +1,10 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
-import auth from '../../Hooks/Firebase.Init';
-import defaultUserImage from '../../Assets/Images/defaultUserImage.png';
+import auth from '../../../Hooks/Firebase.Init';
+import defaultUserImage from '../../../Assets/Images/defaultUserImage.png';
 
-const AddAReview = () => {
+const AddReview = () => {
     const [user] = useAuthState(auth);
 
     const addReview = event => {
@@ -56,4 +56,4 @@ const AddAReview = () => {
     );
 };
 
-export default AddAReview;
+export default AddReview;

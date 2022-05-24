@@ -2,11 +2,14 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { RiCheckboxMultipleBlankLine } from 'react-icons/ri';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../Hooks/Firebase.Init';
 
 const AddAProduct = () => {
     const navigate = useNavigate();
+    const [user] = useAuthState(auth);
 
-    const addItem = event => {
+    const addProduct = event => {
         event.preventDefault();
 
         const name = event.target.productName.value;
@@ -16,8 +19,10 @@ const AddAProduct = () => {
         const description = event.target.description.value;
         const price = event.target.unitPrice.value;
         const stock = event.target.quantity.value;
+        const productAddedBy = user?.email;
+        const productAddedTime = new Date();
 
-        const item = { name, category, supplierName, img, description, price, stock };
+        const productDetails = { name, category, supplierName, img, description, price, stock, productAddedBy, productAddedTime };
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-product', {
@@ -25,7 +30,7 @@ const AddAProduct = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(item)
+            body: JSON.stringify(productDetails)
         })
             .then(res => res.json())
             .then(data => {
@@ -42,7 +47,7 @@ const AddAProduct = () => {
     return (
         <div className="card items-center justify-center">
             <h2 className='my-8 text-2xl text-gray-600'>Add Item To Inventory</h2>
-            <form onSubmit={addItem}>
+            <form onSubmit={addProduct}>
                 <div className="form-group mb-6 max-w-xl">
                     <input type="text" className="form-control block
         w-full

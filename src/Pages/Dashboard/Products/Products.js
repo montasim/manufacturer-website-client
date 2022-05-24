@@ -5,9 +5,9 @@ import { get } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../../../Components/Loading';
 import auth from '../../../Hooks/Firebase.Init';
-import ManageProduct from './ManageProduct';
+import ManageProduct from './ProductRow';
 
-const ManageProducts = () => {
+const Products = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -40,4 +40,4 @@ const ManageProducts = () => {
     );
 };
 
-export default ManageProducts;
+export default Products;

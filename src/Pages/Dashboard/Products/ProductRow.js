@@ -5,7 +5,7 @@ import { AiFillDelete, AiFillEdit, AiFillPlusSquare } from 'react-icons/ai';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../Hooks/Firebase.Init';
 
-const ManageAllOrder = ({ index, product }) => {
+const ProductRow = ({ index, product }) => {
     const { _id, name, category, supplierName, img, description, price, inStock, totalSold } = product;
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
@@ -128,4 +128,4 @@ const ManageAllOrder = ({ index, product }) => {
     );
 };
 
-export default ManageAllOrder;
+export default ProductRow;

@@ -10,10 +10,9 @@ import About from './Pages/About/About';
 import Purchase from './Pages/Purchase/Purchase';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
-import AddAReview from './Pages/Dashboard/AddAReview';
-import MyProfile from './Pages/Dashboard/MyProfile';
-import AddAProduct from './Pages/Dashboard/AddAProduct';
-import ManageProducts from './Pages/Dashboard/ManageProducts/ManageProducts';
+import UserProfile from './Pages/Dashboard/Users/UserProfile';
+import AddAProduct from './Pages/Dashboard/Products/AddProduct';
+import Products from './Pages/Dashboard/Products/Products';
 import Blogs from './Pages/Blogs/Blogs';
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 import NotFound from './Pages/NotFound/NotFound';
@@ -24,12 +23,13 @@ import Contact from './Pages/Contact/Contact';
 import RequireAuth from './Hooks/RequireAuth';
 import Users from './Pages/Dashboard/Users/Users';
 import RequireAdmin from './Hooks/RequireAdmin';
-import ManageAllOrders from './Pages/Dashboard/ManageAllOrders/ManageAllOrders';
+import Orders from './Pages/Dashboard/Orders/Orders';
 import Admins from './Pages/Dashboard/Admins/Admins';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 import MyBlogs from './Pages/Dashboard/Blogs/MyBlogs';
 import AddBlog from './Pages/Dashboard/Blogs/AddBlog';
 import Reviews from './Pages/Dashboard/Reviews/Reviews';
+import AddReview from './Pages/Dashboard/Reviews/AddReview';
 
 function App() {
   return (
@@ -56,17 +56,17 @@ function App() {
         }>
           <Route path="my-orders" element={<MyOrders />} />
           <Route path="my-blogs" element={<MyBlogs />} />
-          <Route path="add-review" element={<AddAReview />} />
+          <Route path="add-review" element={<AddReview />} />
           <Route path="add-blog" element={<AddBlog />} />
-          <Route path="my-profile" element={<MyProfile />} />
+          <Route path="my-profile" element={<UserProfile />} />
           <Route path='all-orders' element={
             <RequireAdmin>
-              <ManageAllOrders />
+              <Orders />
             </RequireAdmin>
           } />
           <Route path='all-products' element={
             <RequireAdmin>
-              <ManageProducts />
+              <Products />
             </RequireAdmin>
           } />
           <Route path='add-product' element={
@@ -96,7 +96,7 @@ function App() {
           } />
           <Route path='all-orders' element={
             <RequireAdmin>
-              <ManageAllOrders />
+              <Orders />
             </RequireAdmin>
           } />
           <Route path='all-reviews' element={

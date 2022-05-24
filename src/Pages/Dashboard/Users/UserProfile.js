@@ -3,10 +3,10 @@ import { useAuthState, useUpdateEmail, useUpdateProfile } from 'react-firebase-h
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import Loading from '../../Components/Loading';
-import auth from '../../Hooks/Firebase.Init';
+import Loading from '../../../Components/Loading';
+import auth from '../../../Hooks/Firebase.Init';
 
-const MyProfile = () => {
+const UserProfile = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const [
@@ -144,4 +144,4 @@ const MyProfile = () => {
     );
 };
 
-export default MyProfile;
+export default UserProfile;

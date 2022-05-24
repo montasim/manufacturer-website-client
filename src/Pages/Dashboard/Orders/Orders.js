@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import ManageAllOrder from './ManageAllOrder';
+import OrderRow from './OrderRow';
 
-const ManageAllOrders = () => {
+const Orders = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const ManageAllOrders = () => {
                 </thead>
                 <tbody>
                     {
-                        products.map((product, index) => <ManageAllOrder key={index} product={product} index={index} />)
+                        products.map((product, index) => <OrderRow key={index} product={product} index={index} />)
                     }
                 </tbody>
             </table>
@@ -34,4 +34,4 @@ const ManageAllOrders = () => {
     );
 };
 
-export default ManageAllOrders;
+export default Orders;
