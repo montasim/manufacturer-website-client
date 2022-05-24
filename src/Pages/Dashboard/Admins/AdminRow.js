@@ -1,11 +1,11 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const AdminRow = ({ user, refetch }) => {
-    const { email, role, index } = user;
+const AdminRow = ({ user, index, refetch }) => {
+    const { name, userEmail, userCreationTime, userRole } = user;
 
     const makeAdmin = () => {
-        fetch(`https://doctors-portal-server-montasim.herokuapp.com/user/admin/${email}`, {
+        fetch(`https://doctors-portal-server-montasim.herokuapp.com/user/admin/${userEmail}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -38,11 +38,12 @@ const AdminRow = ({ user, refetch }) => {
                         </div>
                     </div>
                     <div>
-                        <div className="font-semibold">Name</div>
-                        <div className="text-sm opacity-50">{role}</div>
+                        <div className="font-semibold">{name}</div>
+                        <div className="text-sm opacity-50">{userCreationTime}</div>
                     </div>
                 </div>
             </td>
+            <td>{userRole}</td>
             <td>
                 <div className="flex items-center gap-1">
                     <button
