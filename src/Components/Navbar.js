@@ -65,10 +65,10 @@ const Navbar = ({ logo }) => {
                         </Link>
 
                         <Link
-                            to="/about"
+                            to="/products"
                             className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
                         >
-                            About
+                            Products
                         </Link>
 
                         <Link
@@ -76,13 +76,6 @@ const Navbar = ({ logo }) => {
                             className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
                         >
                             Blogs
-                        </Link>
-
-                        <Link
-                            to="/contact"
-                            className="block h-16 leading-[4rem] border-b-4 border-transparent hover:text-secondary hover:border-current"
-                        >
-                            Contact
                         </Link>
 
                         <Link
