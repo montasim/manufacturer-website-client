@@ -30,6 +30,8 @@ import MyBlogs from './Pages/Dashboard/Blogs/MyBlogs';
 import AddBlog from './Pages/Dashboard/Blogs/AddBlog';
 import Reviews from './Pages/Dashboard/Reviews/Reviews';
 import AddReview from './Pages/Dashboard/Reviews/AddReview';
+import Categories from './Pages/Dashboard/Categories/Categories';
+import AddCategory from './Pages/Dashboard/Categories/AddCategory';
 
 function App() {
   return (
@@ -64,9 +66,19 @@ function App() {
               <Orders />
             </RequireAdmin>
           } />
+          <Route path='all-category' element={
+            <RequireAdmin>
+              <Categories />
+            </RequireAdmin>
+          } />
           <Route path='all-products' element={
             <RequireAdmin>
               <Products />
+            </RequireAdmin>
+          } />
+          <Route path='add-category' element={
+            <RequireAdmin>
+              <AddCategory />
             </RequireAdmin>
           } />
           <Route path='add-product' element={

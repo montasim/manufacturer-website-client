@@ -74,6 +74,22 @@ const Dashboard = () => {
                     </Link>
 
                     <Link
+                        to='/dashboard/add-category'
+                        className='flex items-center px-4 py-2 text-gray-700  rounded-lg'
+                    >
+                        <GoDiffAdded />
+                        <span className='ml-3 text-sm font-medium'> Add category </span>
+                    </Link>
+
+                    <Link
+                        to='/dashboard/all-category'
+                        className='flex items-center px-4 py-2 text-gray-700  rounded-lg'
+                    >
+                        <FaProductHunt />
+                        <span className='ml-3 text-sm font-medium'> All Category </span>
+                    </Link>
+
+                    <Link
                         to='/dashboard/add-product'
                         className='flex items-center px-4 py-2 text-gray-700  rounded-lg'
                     >
