@@ -42,8 +42,28 @@ const Signup = () => {
 
     const onSubmit = async (data) => {
         createUserWithEmailAndPassword(data?.email, data?.password);
+        addUser(data?.name, data?.email, 'user');
         await sendEmailVerification();
         toast(`Email verification sent to ${data?.email}`);
+    };
+
+    const addUser = (name, userEmail, userRole) => {
+        const userCreationTime = new Date();
+
+        const userDetails = { name, userEmail, userCreationTime, userRole };
+
+        // send data to server
+        fetch('https://tools-manufacturer-server.herokuapp.com/add-user', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userDetails)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(`${data} added`);
+            });
     };
 
     return (
