@@ -66,6 +66,10 @@ const Signup = () => {
             });
     };
 
+    if (gUser) {
+        addUser(gUser?.displayName, gUser?.user?.email, 'user');
+    };
+
     return (
         <div className='flex h-screen items-center justify-center my-16'>
             <div className='card w-96 bg-base-100 shadow-xl'>
