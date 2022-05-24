@@ -7,12 +7,19 @@ import CartRow from './CartRow';
 const Cart = () => {
     const [user] = useAuthState(auth);
     const [cart, setCart] = useState([]);
+    const [orderedQuantity, setorderedQuantity] = useState(0);
+    const minOrder = 3;
+    const maxOrder = 10;
 
     useEffect(() => {
         fetch('https://tools-manufacturer-server.herokuapp.com/cart')
             .then(res => res.json())
             .then(data => setCart(data));
     }, [cart]);
+
+    if (orderedQuantity > minOrder) {
+        toast('Can not order less than minimum order');
+    };
 
     const placeOrder = event => {
         event.preventDefault();
@@ -67,7 +74,7 @@ const Cart = () => {
                                 <div className="flow-root">
                                     <ul className="-my-4 divide-y divide-gray-200">
                                         {
-                                            cart.map((cart, index) => <CartRow key={index} cart={cart} index={index} />)
+                                            cart.map((cart, index) => <CartRow key={index} cart={cart} index={index} minOrder={minOrder} maxOrder={maxOrder} />)
                                         }
                                     </ul>
                                 </div>

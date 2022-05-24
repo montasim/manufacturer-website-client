@@ -1,8 +1,8 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const CartRow = ({ index, cart }) => {
-    const { _id, name, category, supplierName, img, price, minOrder, maxOrder, inStock, orderdQuantity } = cart;
+const CartRow = ({ index, cart, minOrder, maxOrder, setOrderedQuantity }) => {
+    const { _id, name, supplierName, img, price, inStock } = cart;
 
     const deleteFromCart = _id => {
         const confirm = window.confirm('Are You Sure?');
@@ -55,6 +55,10 @@ const CartRow = ({ index, cart }) => {
                             <dt className="inline">In Stock: </dt>
                             <dd className="inline">{inStock}</dd>
                         </div>
+
+                        <div className='mt-4'>
+                            <input id='orderdQuantity' type="number" placeholder="Quantity" class="input input-xs input-bordered input-secondary w-20" name='orderdQuantity' defaultValue={minOrder} required />
+                        </div>
                     </dl>
                 </div>
             </div>
@@ -62,7 +66,7 @@ const CartRow = ({ index, cart }) => {
             <div>
                 <p className="text-sm">
                     ${price}
-                    <small className="text-gray-500"> X {orderdQuantity}</small>
+                    <small className="text-gray-500"> X {'orderedQuantity'}</small>
                 </p>
             </div>
 
