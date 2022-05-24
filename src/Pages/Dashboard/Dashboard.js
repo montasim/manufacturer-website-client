@@ -11,6 +11,7 @@ import { GrUserAdmin } from 'react-icons/gr';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { MdOutlineRateReview } from 'react-icons/md';
 import { RiUserAddLine } from 'react-icons/ri';
+import defaultUserImage from '../../Assets/Images/defaultUserImage.png';
 
 const Dashboard = () => {
     const [user] = useAuthState(auth);
@@ -109,7 +110,7 @@ const Dashboard = () => {
                     <Link to='' className='flex items-center p-2 bg-white hover:bg-gray-50 shrink-0'>
                         <img
                             className='object-cover w-10 h-10 rounded-full'
-                            src={user?.photoURL}
+                            src={user?.photoURL || defaultUserImage}
                             alt={user?.displayName || user?.email}
                         />
 

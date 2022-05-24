@@ -1,5 +1,6 @@
 import React from 'react';
 import { toast } from 'react-toastify';
+import defaultUserImage from '../../../Assets/Images/defaultUserImage.png';
 
 const UserRow = ({ user, index, refetch }) => {
     const { _id, name, userEmail, userCreationTime, userRole } = user;
@@ -30,7 +31,7 @@ const UserRow = ({ user, index, refetch }) => {
                 <div className="flex items-center space-x-1">
                     <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                            <img src='' alt='' />
+                            <img src={defaultUserImage} alt='' />
                         </div>
                     </div>
                     <div>
