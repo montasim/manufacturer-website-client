@@ -19,7 +19,7 @@ const ProductRow = ({ index, product }) => {
         user.providerData.forEach((profile) => {
             email = profile?.email;
         });
-    }
+    };
 
     const addToCart = (_id) => {
 
@@ -49,7 +49,7 @@ const ProductRow = ({ index, product }) => {
                     </div>
                 );
             });
-    }
+    };
 
     return (
         <div
