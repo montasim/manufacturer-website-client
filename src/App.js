@@ -35,6 +35,7 @@ import Cart from './Pages/Cart/Cart';
 import Products from './Pages/Products/Products';
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import ProductRow from './Pages/Products/ProductRow';
+import PayOrder from './Pages/PayOrder/PayOrder';
 
 function App() {
   return (
@@ -51,6 +52,11 @@ function App() {
         <Route path='/cart' element={
           <RequireAuth>
             <Cart />
+          </RequireAuth>
+        } />
+        <Route path='/pay-order' element={
+          <RequireAuth>
+            <PayOrder />
           </RequireAuth>
         } />
         <Route path='products' element={<ProductRow />} />

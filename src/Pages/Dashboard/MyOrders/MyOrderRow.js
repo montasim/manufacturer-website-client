@@ -1,11 +1,10 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { AiFillDelete, AiFillEdit, AiFillPlusSquare } from 'react-icons/ai';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../Hooks/Firebase.Init';
 
-const OrderRow = ({ index, order }) => {
+const MyOrderRow = ({ index, order }) => {
     const { _id, orderedUserEmail, orderedProducts, orderStatus } = order;
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
@@ -67,4 +66,4 @@ const OrderRow = ({ index, order }) => {
     );
 };
 
-export default OrderRow;
+export default MyOrderRow;
