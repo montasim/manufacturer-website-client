@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import defaultUserImage from '../../../Assets/Images/defaultUserImage.png';
 
 const UserRow = ({ user, index, refetch }) => {
-    const { _id, name, userEmail, userCreationTime, userRole } = user;
+    const { _id, userEmail, userRole } = user;
 
     const deleteUser = _id => {
         const confirm = window.confirm('Are You Sure?');
@@ -35,8 +35,7 @@ const UserRow = ({ user, index, refetch }) => {
                         </div>
                     </div>
                     <div>
-                        <div className="font-semibold">{name}</div>
-                        <div className="text-sm opacity-50">{userCreationTime}</div>
+                        <div className="font-semibold">{userEmail}</div>
                     </div>
                 </div>
             </td>
