@@ -4,18 +4,64 @@ import { MdOutlineBrandingWatermark, MdOutlineLocalShipping } from 'react-icons/
 import { FcRating } from 'react-icons/fc';
 import { AiOutlineDollar, AiOutlineStock } from 'react-icons/ai';
 import { ImPriceTag } from 'react-icons/im';
+import { toast } from 'react-toastify';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Hooks/Firebase.Init';
 
 const ProductDetails = () => {
-    const [product, setProduct] = useState([]);
     const _id = useParams();
+    const [product, setProduct] = useState([]);
+    const navigate = useNavigate();
+    let location = useLocation();
+
+    <Navigate state={{ from: location }} replace />
 
     useEffect(() => {
-        fetch(`https://posdash-server.herokuapp.com/inventory/${_id?.id}`)
+        fetch(`https://tools-manufacturer-server.herokuapp.com/products/${_id?.id}`)
             .then(res => res.json())
             .then(data => setProduct(data));
     }, [product]);
 
-    const { category, name, description, supplierName, price, stock, ratings, img, shipping } = product;
+    const { category, name, description, supplierName, price, inStock, ratings, img } = product;
+    const [user] = useAuthState(auth);
+
+    let email;
+
+    if (user !== null) {
+        user.providerData.forEach((profile) => {
+            email = profile?.email;
+        });
+    };
+
+    const addToCart = (_id) => {
+
+        const item = { name, category, supplierName, img, description, price, inStock, email };
+
+        // send data to server
+        fetch('https://tools-manufacturer-server.herokuapp.com/add-cart', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(item)
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success(
+                    <div class="flex items-center space-x-1">
+                        <div class="avatar">
+                            <div class="mask mask-squircle w-12 h-12">
+                                <img src={img} alt={name + 'img'} />
+                            </div>
+                        </div>
+                        <div>
+                            <div class="font-semibold">{name}</div>
+                            <div class="text-sm opacity-50">Added to Cart</div>
+                        </div>
+                    </div>
+                );
+            });
+    };
 
     return (
         <div className='d-block mx-auto my-12 p-12'>
@@ -46,13 +92,13 @@ const ProductDetails = () => {
                                         <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
                                             <p className="flex items-center justify-center md:justify-start">
                                                 <ImPriceTag className='mr-3' />
-                                                Unit Price: {price}
+                                                Unit Price: ${price}
                                             </p>
                                         </div>
                                         <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
                                             <p className="flex items-center justify-center md:justify-start">
                                                 <AiOutlineStock className='mr-3' />
-                                                In Stock: {stock}
+                                                In Stock: {inStock}
                                             </p>
                                         </div>
                                         <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
@@ -64,19 +110,19 @@ const ProductDetails = () => {
                                         <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
                                             <p className="flex items-center justify-center md:justify-start">
                                                 <AiOutlineDollar className='mr-3' />
-                                                Total Price: {stock * price}
+                                                Total Price: {inStock * price}
                                             </p>
                                         </div>
                                         <div className="w-full lg:w-6/12 xl:w-4/12 mb-4">
                                             <p className="flex items-center justify-center md:justify-start">
                                                 <MdOutlineLocalShipping className='mr-3' />
-                                                Sold: {shipping}
+                                                Min Order: {3}
                                             </p>
                                         </div>
                                     </div>
-                                    <button type="button"
+                                    <button onClick={() => addToCart(_id)} type="button"
                                         className="inline-block px-7 py-3 bg-indigo-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md focus:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-                                        Delivered
+                                        Add to Cart
                                     </button>
                                 </div>
                             </div>

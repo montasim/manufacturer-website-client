@@ -59,8 +59,7 @@ function App() {
             <PayOrder />
           </RequireAuth>
         } />
-        <Route path='products' element={<ProductRow />} />
-        <Route path='product-details/:productId' element={<ProductDetails />} />
+        <Route path='products/:id' element={<ProductDetails />} />
 
         <Route path="/dashboard" element={
           <RequireAuth>

@@ -10,7 +10,6 @@ import { AiFillHeart } from 'react-icons/ai';
 const ProductRow = ({ index, product }) => {
     const { _id, name, category, supplierName, img, description, price, inStock, totalSold, minOrder, maxOrder } = product;
     const navigate = useNavigate();
-    const productId = useParams();
     const [user] = useAuthState(auth);
 
     let email;
@@ -127,7 +126,7 @@ const ProductRow = ({ index, product }) => {
                 </dl>
 
                 <div className="flex justify-between items-center mt-6">
-                    <button onClick={() => navigate(`product-details/${productId}`)} class="btn btn-secondary btn-sm text-white">Details</button>
+                    <button onClick={() => navigate(`/products/${_id}`)} class="btn btn-secondary btn-sm text-white">Details</button>
                     <BsCartCheck onClick={() => addToCart(_id)} className='text-2xl text-primary' />
                 </div>
             </div>
