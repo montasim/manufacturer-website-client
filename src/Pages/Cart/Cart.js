@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../Hooks/Firebase.Init';
 import CartRow from './CartRow';
+import axios from 'axios';
 
 const Cart = () => {
     const [user] = useAuthState(auth);
@@ -12,11 +13,15 @@ const Cart = () => {
     const maxOrder = 10;
 
     useEffect(() => {
-        fetch('https://tools-manufacturer-server.herokuapp.com/cart')
-            .then(res => res.json())
-            .then(data => setCart(data));
-    }, [cart]);
+        const getCart = async () => {
+            const email = user?.email;
+            const url = `https://tools-manufacturer-server.herokuapp.com/cart/email=${email}`;
+            const { data } = await axios.get(url);
 
+            setCart(data);
+        };
+        getCart();
+    }, [user]);
     if (orderedQuantity > minOrder) {
         toast('Can not order less than minimum order');
     };

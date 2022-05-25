@@ -1,14 +1,23 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
+import auth from '../../../Hooks/Firebase.Init';
 import MyOrderRow from './MyOrderRow';
+import axios from 'axios';
 
 const MyOrders = () => {
+    const [user] = useAuthState(auth);
     const [orders, setOrders] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('https://tools-manufacturer-server.herokuapp.com/orders')
-            .then(res => res.json())
-            .then(data => setOrders(data));
-    }, [orders]);
+        if (user) {
+            fetch(`https://tools-manufacturer-server.herokuapp.com/orders/email=${user?.email}`)
+                .then(res => res.json())
+                .then(data => setOrders(data));
+        };
+    }, [user]);
 
     return (
         <div class="overflow-x-auto w-full">
@@ -24,7 +33,7 @@ const MyOrders = () => {
                 </thead>
                 <tbody>
                     {
-                        orders.map((order, index) => <MyOrderRow key={index} order={order} index={index} />)
+                        orders?.map((order, index) => <MyOrderRow key={index} order={order} index={index} />)
                     }
                 </tbody>
             </table>
