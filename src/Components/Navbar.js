@@ -50,9 +50,12 @@ const Navbar = ({ logo }) => {
                     <li><Link to='/login'> <FiUser className='text-xl' /></Link></li>
                 </> :
                 <>
-                    <li className="flex py-[-4] bg-secondary rounded-3xl">
-                        <img className='w-6 h-6' src={user?.photoURL || user?.user?.photoURL || defaultUserImage} alt="" />
-                        <small>{user?.displayName || user?.user?.displayName || user?.email.split('@')[0]}</small>
+                    <li className="flex py-[-4] rounded-3xl">
+                        <span className="flex items-center">
+                            <img src={user?.photoURL || defaultUserImage} alt="" className="w-8 h-8 bg-blue-900 rounded-full"></img>
+
+                            <h2 className="text-sm font-medium">{user?.email.split('@')[0]}</h2>
+                        </span>
                     </li>
                 </>
         }
