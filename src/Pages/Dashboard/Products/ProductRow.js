@@ -94,7 +94,7 @@ const ProductRow = ({ index, product }) => {
             <td>${productInStock * productPrice}</td>
             <td>
                 <div className="flex items-center gap-1">
-                    <button
+                    <button onClick={() => navigate(`/products/${_id}`)}
                         className="z-10 block p-2 text-blue-700 transition-all bg-blue-100 border-2 border-white rounded-full active:bg-blue-50 hover:scale-110 focus:outline-none focus:ring"
                         type="button"
                     >
