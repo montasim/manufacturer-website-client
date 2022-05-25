@@ -1,21 +1,12 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import MainButton from '../../Components/MainButton';
 import auth from '../../Hooks/Firebase.Init';
 
 const Product = ({ item }) => {
     const { _id, productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, minOrder } = item;
     const [user] = useAuthState(auth);
-
-    let email;
-
-    if (user !== null) {
-        user.providerData.forEach((profile) => {
-            email = profile?.email;
-        });
-    };
+    const email = user?.email;
 
     const addToCart = (_id) => {
 
