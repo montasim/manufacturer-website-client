@@ -15,13 +15,13 @@ const Cart = () => {
     useEffect(() => {
         const getCart = async () => {
             const email = user?.email;
-            const url = `https://tools-manufacturer-server.herokuapp.com/cart/email=${email}`;
+            const url = `https://tools-manufacturer-server.herokuapp.com/cart`;
             const { data } = await axios.get(url);
 
             setCart(data);
         };
         getCart();
-    }, [user]);
+    }, [cart]);
     if (orderedQuantity > minOrder) {
         toast('Can not order less than minimum order');
     };
@@ -79,7 +79,7 @@ const Cart = () => {
                                 <div className="flow-root">
                                     <ul className="-my-4 divide-y divide-gray-200">
                                         {
-                                            cart.map((cart, index) => <CartRow key={index} cart={cart} index={index} minOrder={minOrder} maxOrder={maxOrder} />)
+                                            cart?.map((cart, index) => <CartRow key={index} cart={cart} index={index} minOrder={minOrder} maxOrder={maxOrder} />)
                                         }
                                     </ul>
                                 </div>
