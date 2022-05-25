@@ -5,7 +5,12 @@ const MakeAdmin = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch('https://tools-manufacturer-server.herokuapp.com/users')
+        fetch('https://tools-manufacturer-server.herokuapp.com/users', {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setUsers(data));
     }, [users]);

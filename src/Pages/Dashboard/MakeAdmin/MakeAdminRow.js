@@ -4,25 +4,28 @@ import { GrUserAdmin } from 'react-icons/gr';
 import defaultAdminImage from '../../../Assets/Images/defaultAdminImage.png';
 
 const MakeAdminRow = ({ user, index, refetch }) => {
-    const { _id, email, role } = user;
+    const { email, role } = user;
 
-    const makeAdmin = (email, role) => {
-        const adminCreationTime = new Date();
-
-        const userDetails = { email, adminCreationTime, role };
-
-        // send data to server
-        fetch(`https://tools-manufacturer-server.herokuapp.com/admin/`, {
-            method: 'POST',
+    const makeAdmin = () => {
+        fetch(`https://tools-manufacturer-server.herokuapp.com/users/admin/${email}`, {
+            method: 'PUT',
             headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(userDetails)
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
         })
-            .then(res => res.json())
+            .then(res => {
+                if (res.status === 403) {
+                    toast.error('Failed to Make an admin');
+                }
+                return res.json()
+            })
             .then(data => {
-                toast.success(`${email} is ADMIN from ${adminCreationTime}`);
-            });
+                if (data.modifiedCount > 0) {
+                    refetch();
+                    toast.success(`Successfully made an admin`);
+                }
+
+            })
     };
 
     return (
@@ -44,10 +47,7 @@ const MakeAdminRow = ({ user, index, refetch }) => {
             </td>
             <td>{role}</td>
             <td>
-                <div onClick={() => makeAdmin(email, 'admin')} className="badge badge-success gap-2">
-                    <GrUserAdmin />
-                    Make Admin
-                </div>
+                {role !== 'admin' && <button onClick={makeAdmin} class="btn btn-xs">Make Admin</button>}
             </td>
         </tr>
     );
