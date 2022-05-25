@@ -35,7 +35,7 @@ const Reviews = () => {
                     className="grid grid-cols-1 gap-8 mt-16 sm:grid-cols-2 lg:grid-cols-3 sm:gap-16"
                 >
                     {
-                        reviews?.map((review, index) => <Review key={index} customerReview={review} />)
+                        reviews?.slice(-6).map((review, index) => <Review key={index} customerReview={review} />)
                     }
                 </div>
             </div>
