@@ -43,29 +43,6 @@ const Login = () => {
         <Navigate to="/login" state={{ from: location }} replace />;
     };
 
-    const addUser = (name, userEmail, userRole) => {
-        const userCreationTime = new Date();
-
-        const userDetails = { name, userEmail, userCreationTime, userRole };
-
-        // send data to server
-        fetch('https://tools-manufacturer-server.herokuapp.com/add-user', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(userDetails)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(`${data} added`);
-            });
-    };
-
-    if (gUser) {
-        addUser(gUser?.displayName, gUser?.user?.email, 'user');
-    };
-
     return (
         <div className='flex h-screen items-center justify-center lg:my-8'>
             <div className='card w-96 bg-base-100 shadow-xl'>
