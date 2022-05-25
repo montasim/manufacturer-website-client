@@ -12,7 +12,7 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`https://tools-manufacturer-server.herokuapp.com/orders?user=${user.email}`, {
+            fetch(`https://tools-manufacturer-server.herokuapp.com/my-orders?user=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -32,7 +32,7 @@ const MyOrders = () => {
                     setMyOrders(data);
                 });
         }
-    }, [user])
+    }, [myOrders])
 
 
     return (

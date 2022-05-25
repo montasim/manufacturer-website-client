@@ -47,15 +47,14 @@ const Cart = () => {
     const placeOrder = event => {
         event.preventDefault();
 
-        const orderedProducts = cart;
         const orderStatus = 'DUE PAYMENT'
         const orderedUserName = event?.target?.orderedUserName?.value;
         const orderDeliveryAddress = event?.target?.orderDeliveryAddress?.value;
-        const orderedUserEmail = user?.email;
+        const email = user?.email;
         const orderedUserPhone = event?.target?.orderedUserPhone?.value;
         const orderCreatedTime = new Date();
 
-        const orderDetails = { orderedProducts, orderStatus, orderedUserName, orderDeliveryAddress, orderedUserEmail, orderedUserPhone, orderCreatedTime };
+        const orderDetails = { orderStatus, orderedUserName, orderDeliveryAddress, email, orderedUserPhone, orderCreatedTime };
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-order', {
