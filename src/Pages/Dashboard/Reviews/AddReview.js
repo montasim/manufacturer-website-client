@@ -37,21 +37,21 @@ const AddReview = () => {
         <div>
             <form onSubmit={addReview} className='flex h-screen flex-col items-center justify-center'>
                 <h2 className='text-3xl mb-8'>Add Review</h2>
-                <div class="form-control">
-                    <div class="input-group">
-                        <select class="select select-bordered select-secondary" name='reviewRating'>
+                <div className="form-control">
+                    <div className="input-group">
+                        <select className="select select-bordered select-secondary" name='reviewRating'>
                             <option>5</option>
                             <option>4</option>
                             <option>3</option>
                             <option>2</option>
                             <option>1</option>
                         </select>
-                        <button class="btn">Choose Review</button>
+                        <button className="btn">Choose Review</button>
                     </div>
                 </div>
-                <textarea class="textarea textarea-secondary w-full max-w-xl my-4" placeholder="Description" name='reviewDescription' required></textarea>
+                <textarea className="textarea textarea-secondary w-full max-w-xl my-4" placeholder="Description" name='reviewDescription' required></textarea>
 
-                <button type='submit' class="btn btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md max-w-xl text-white">Create Review</button>
+                <button type='submit' className="btn btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md max-w-xl text-white">Create Review</button>
             </form>
         </div>
     );

@@ -35,11 +35,11 @@ const AddBlog = () => {
         <div>
             <form onSubmit={addBlog} className='flex h-screen flex-col items-center justify-center'>
                 <h2 className='text-3xl mb-8'>Add Blog</h2>
-                <input type="text" placeholder="Title" class="input input-bordered input-secondary w-full max-w-xl" name='blogTitle' required />
+                <input type="text" placeholder="Title" className="input input-bordered input-secondary w-full max-w-xl" name='blogTitle' required />
 
-                <textarea class="textarea textarea-secondary w-full max-w-xl my-4" placeholder="Description" name='blogDescription' required></textarea>
+                <textarea className="textarea textarea-secondary w-full max-w-xl my-4" placeholder="Description" name='blogDescription' required></textarea>
 
-                <button type='submit' class="btn btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md max-w-xl text-white">Create Blog</button>
+                <button type='submit' className="btn btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md max-w-xl text-white">Create Blog</button>
             </form>
         </div>
     );

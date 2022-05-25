@@ -44,7 +44,7 @@ const MakeAdminRow = ({ user, index, refetch }) => {
             </td>
             <td>{userRole}</td>
             <td>
-                <div onClick={() => makeAdmin(name, userEmail, 'admin')} class="badge badge-success gap-2">
+                <div onClick={() => makeAdmin(name, userEmail, 'admin')} className="badge badge-success gap-2">
                     <GrUserAdmin />
                     Make Admin
                 </div>

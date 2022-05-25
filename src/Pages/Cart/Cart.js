@@ -63,15 +63,15 @@ const Cart = () => {
                         <div className="max-w-lg px-4 mx-auto lg:px-8">
 
                             <div className="flex justify-between">
-                                <div class="flex items-center">
-                                    <img src={user?.photoURL} alt="" class="w-10 h-10 bg-blue-900 rounded-full"></img>
+                                <div className="flex items-center">
+                                    <img src={user?.photoURL} alt="" className="w-10 h-10 bg-blue-900 rounded-full"></img>
 
-                                    <h2 class="ml-4 text-sm font-medium">{user?.email}</h2>
+                                    <h2 className="ml-4 text-sm font-medium">{user?.email}</h2>
                                 </div>
 
-                                <div class="mt-8">
-                                    <p class="text-2xl font-medium tracking-tight">$99.99</p>
-                                    <p class="mt-1 text-sm text-gray-500">For the purchase of</p>
+                                <div className="mt-8">
+                                    <p className="text-2xl font-medium tracking-tight">$99.99</p>
+                                    <p className="mt-1 text-sm text-gray-500">For the purchase of</p>
                                 </div>
                             </div>
 
@@ -92,39 +92,39 @@ const Cart = () => {
                             <form onSubmit={placeOrder} className="grid grid-cols-6 gap-4">
 
                                 <div className="col-span-6">
-                                    <label className="block mb-1 text-sm text-gray-600" for="orderedUserName">
+                                    <label className="block mb-1 text-sm text-gray-600" htmlFor="orderedUserName">
                                         Name
                                     </label>
 
-                                    <input type="text" placeholder="Name" class="input input-bordered input-secondary w-full max-w-xl" name='orderedUserName' required />
+                                    <input type="text" placeholder="Name" className="input input-bordered input-secondary w-full max-w-xl" name='orderedUserName' required />
                                 </div>
 
                                 <div className="col-span-6">
-                                    <label className="block mb-1 text-sm text-gray-600" for="address">
+                                    <label className="block mb-1 text-sm text-gray-600" htmlFor="address">
                                         Delivery Address
                                     </label>
 
-                                    <input type="text" placeholder="Delivery Address" class="input input-bordered input-secondary w-full max-w-xl" name='orderDeliveryAddress' required />
+                                    <input type="text" placeholder="Delivery Address" className="input input-bordered input-secondary w-full max-w-xl" name='orderDeliveryAddress' required />
                                 </div>
 
                                 <div className="col-span-6">
-                                    <label className="block mb-1 text-sm text-gray-600" for="name">
+                                    <label className="block mb-1 text-sm text-gray-600" htmlFor="name">
                                         Email
                                     </label>
 
-                                    <input type="text" value={user?.email} class="input input-bordered input-secondary w-full max-w-xl" name='blogTitle' required />
+                                    <input type="text" value={user?.email} className="input input-bordered input-secondary w-full max-w-xl" name='blogTitle' required />
                                 </div>
 
                                 <div className="col-span-6">
-                                    <label className="block mb-1 text-sm text-gray-600" for="phone">
+                                    <label className="block mb-1 text-sm text-gray-600" htmlFor="phone">
                                         Phone
                                     </label>
 
-                                    <input type="text" placeholder="Title" class="input input-bordered input-secondary w-full max-w-xl" name='orderedUserPhone' required />
+                                    <input type="text" placeholder="Title" className="input input-bordered input-secondary w-full max-w-xl" name='orderedUserPhone' required />
                                 </div>
 
                                 <div className="col-span-6">
-                                    <button type='submit' class="btn btn-secondary w-full text-white">Continue Checkout</button>
+                                    <button type='submit' className="btn btn-secondary w-full text-white">Continue Checkout</button>
                                 </div>
                             </form>
                         </div>

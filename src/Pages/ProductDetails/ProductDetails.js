@@ -48,15 +48,15 @@ const ProductDetails = () => {
             .then(res => res.json())
             .then(data => {
                 toast.success(
-                    <div class="flex items-center space-x-1">
-                        <div class="avatar">
-                            <div class="mask mask-squircle w-12 h-12">
+                    <div className="flex items-center space-x-1">
+                        <div className="avatar">
+                            <div className="mask mask-squircle w-12 h-12">
                                 <img src={productImg} alt={productName + 'img'} />
                             </div>
                         </div>
                         <div>
-                            <div class="font-semibold">{productName}</div>
-                            <div class="text-sm opacity-50">Added to Cart</div>
+                            <div className="font-semibold">{productName}</div>
+                            <div className="text-sm opacity-50">Added to Cart</div>
                         </div>
                     </div>
                 );
