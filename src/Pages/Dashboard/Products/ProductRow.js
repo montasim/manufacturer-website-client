@@ -24,7 +24,6 @@ const ProductRow = ({ index, product }) => {
         if (confirm) {
             const url = `https://tools-manufacturer-server.herokuapp.com/delete-product/${_id}`;
             fetch(url, {
-                mode: 'no-cors',
                 method: 'DELETE'
             })
                 .then(res => res.json())
