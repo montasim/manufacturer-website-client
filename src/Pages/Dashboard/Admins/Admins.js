@@ -5,7 +5,7 @@ const Admins = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch('https://tools-manufacturer-server.herokuapp.com/admins')
+        fetch('https://tools-manufacturer-server.herokuapp.com/users')
             .then(res => res.json())
             .then(data => setUsers(data));
     }, [users]);

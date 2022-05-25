@@ -1,18 +1,18 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 import { GrUserAdmin } from 'react-icons/gr';
+import defaultAdminImage from '../../../Assets/Images/defaultAdminImage.png';
 
 const MakeAdminRow = ({ user, index, refetch }) => {
-    const { name, userEmail, userCreationTime, userRole } = user;
+    const { _id, email, role } = user;
 
-    const makeAdmin = (name, userEmail, userRole) => {
+    const makeAdmin = (email, role) => {
         const adminCreationTime = new Date();
 
-        const userDetails = { name, userEmail, adminCreationTime, userRole };
+        const userDetails = { email, adminCreationTime, role };
 
         // send data to server
-        fetch('https://tools-manufacturer-server.herokuapp.com/add-admin', {
-            mode: 'no-cors',
+        fetch(`https://tools-manufacturer-server.herokuapp.com/admin/`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -21,7 +21,7 @@ const MakeAdminRow = ({ user, index, refetch }) => {
         })
             .then(res => res.json())
             .then(data => {
-                toast.success(`${userEmail} is ADMIN from ${adminCreationTime}`);
+                toast.success(`${email} is ADMIN from ${adminCreationTime}`);
             });
     };
 
@@ -34,18 +34,17 @@ const MakeAdminRow = ({ user, index, refetch }) => {
                 <div className="flex items-center space-x-1">
                     <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                            <img src='' alt='' />
+                            <img src={defaultAdminImage} alt='' />
                         </div>
                     </div>
                     <div>
-                        <div className="font-semibold">{name}</div>
-                        <div className="text-sm opacity-50">{userCreationTime}</div>
+                        <div className="font-semibold">{email}</div>
                     </div>
                 </div>
             </td>
-            <td>{userRole}</td>
+            <td>{role}</td>
             <td>
-                <div onClick={() => makeAdmin(name, userEmail, 'admin')} className="badge badge-success gap-2">
+                <div onClick={() => makeAdmin(email, 'admin')} className="badge badge-success gap-2">
                     <GrUserAdmin />
                     Make Admin
                 </div>

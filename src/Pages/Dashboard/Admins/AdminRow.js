@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import defaultAdminImage from '../../../Assets/Images/defaultAdminImage.png';
 
 const AdminRow = ({ user, index, refetch }) => {
-    const { _id, name, userEmail, userCreationTime, userRole } = user;
+    const { _id, email, role } = user;
 
     const deleteAdmin = _id => {
         const confirm = window.confirm('Are You Sure?');
@@ -16,7 +16,7 @@ const AdminRow = ({ user, index, refetch }) => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        toast.dismiss(`Deleted ${userEmail} from Admin`);
+                        toast.dismiss(`Deleted ${email} from Admin`);
                     };
                 });
         };
@@ -35,12 +35,11 @@ const AdminRow = ({ user, index, refetch }) => {
                         </div>
                     </div>
                     <div>
-                        <div className="font-semibold">{name}</div>
-                        <div className="text-sm opacity-50">{userCreationTime}</div>
+                        <div className="font-semibold">{email}</div>
                     </div>
                 </div>
             </td>
-            <td>{userRole}</td>
+            <td>{role}</td>
             <td>
                 <div onClick={() => deleteAdmin(_id)} className="flex items-center gap-1">
                     <button
