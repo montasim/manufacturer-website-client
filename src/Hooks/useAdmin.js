@@ -6,21 +6,22 @@ const useAdmin = user => {
     useEffect(() => {
         const email = user?.email;
         if (email) {
-            fetch(`https://doctors-portal-server-montasim.herokuapp.com/admin/${email}`, {
+            fetch(`https://tools-manufacturer-server.herokuapp.com/admin/${email}`, {
                 method: 'GET',
                 headers: {
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
                 .then(res => res.json())
                 .then(data => {
                     setAdmin(data.admin);
                     setAdminLoading(false);
-                })
-        }
-    }, [user])
+                });
+        };
+    }, [user]);
 
-    return [admin, adminLoading]
-}
+    return [admin, adminLoading];
+};
 
 export default useAdmin;
