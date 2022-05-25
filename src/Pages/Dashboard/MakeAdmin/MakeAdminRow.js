@@ -12,6 +12,7 @@ const MakeAdminRow = ({ user, index, refetch }) => {
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-admin', {
+            mode: 'no-cors',
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

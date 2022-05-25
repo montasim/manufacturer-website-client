@@ -26,6 +26,7 @@ const AddAProduct = () => {
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-product', {
+            mode: 'no-cors',
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

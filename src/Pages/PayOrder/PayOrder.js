@@ -13,6 +13,7 @@ const PayOrder = () => {
     const url = `https://secret-dusk-46242.herokuapp.com/booking/${id}`;
 
     const { data: appointment, isLoading } = useQuery(['booking', id], () => fetch(url, {
+        mode: 'no-cors',
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`

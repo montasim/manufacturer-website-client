@@ -24,6 +24,7 @@ const OrderRow = ({ index, order }) => {
         if (confirm) {
             const url = `https://tools-manufacturer-server.herokuapp.com/delete-order/${_id}`;
             fetch(url, {
+                mode: 'no-cors',
                 method: 'DELETE'
             })
                 .then(res => res.json())

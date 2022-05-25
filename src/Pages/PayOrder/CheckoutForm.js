@@ -14,6 +14,7 @@ const CheckoutForm = ({ appointment }) => {
 
     useEffect(() => {
         fetch('https://secret-dusk-46242.herokuapp.com/create-payment-intent', {
+            mode: 'no-cors',
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -81,6 +82,7 @@ const CheckoutForm = ({ appointment }) => {
                 transactionId: paymentIntent.id
             }
             fetch(`https://secret-dusk-46242.herokuapp.com/booking/${_id}`, {
+                mode: 'no-cors',
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

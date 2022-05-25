@@ -18,6 +18,7 @@ const AddBlog = () => {
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-blog', {
+            mode: 'no-cors',
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

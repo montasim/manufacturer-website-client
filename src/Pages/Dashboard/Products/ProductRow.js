@@ -24,6 +24,7 @@ const ProductRow = ({ index, product }) => {
         if (confirm) {
             const url = `https://tools-manufacturer-server.herokuapp.com/delete-product/${_id}`;
             fetch(url, {
+                mode: 'no-cors',
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -46,6 +47,7 @@ const ProductRow = ({ index, product }) => {
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-cart', {
+            mode: 'no-cors',
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

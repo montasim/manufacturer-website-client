@@ -11,6 +11,7 @@ const UserRow = ({ user, index, refetch }) => {
         if (confirm) {
             const url = `https://tools-manufacturer-server.herokuapp.com/delete-user/${_id}`;
             fetch(url, {
+                mode: 'no-cors',
                 method: 'DELETE'
             })
                 .then(res => res.json())

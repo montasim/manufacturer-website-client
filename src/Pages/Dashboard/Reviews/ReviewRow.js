@@ -11,6 +11,7 @@ const ReviewRow = ({ review, index, refetch }) => {
         if (confirm) {
             const url = `https://tools-manufacturer-server.herokuapp.com/delete-review/${_id}`;
             fetch(url, {
+                mode: 'no-cors',
                 method: 'DELETE'
             })
                 .then(res => res.json())

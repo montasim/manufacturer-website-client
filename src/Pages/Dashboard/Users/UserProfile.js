@@ -32,6 +32,7 @@ const UserProfile = () => {
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-user', {
+            mode: 'no-cors',
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
