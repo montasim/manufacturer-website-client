@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../Hooks/Firebase.Init';
 import Loading from './Loading';
+import defaultUserImage from '../Assets/Images/defaultUserImage.png';
 
 const Navbar = ({ logo }) => {
     const [user, loading, error] = useAuthState(auth);
@@ -49,12 +50,16 @@ const Navbar = ({ logo }) => {
                     <li><Link to='/login'> <FiUser className='text-xl' /></Link></li>
                 </> :
                 <>
+                    <li className="flex py-[-4] bg-secondary rounded-3xl">
+                        <img className='w-6 h-6' src={user?.photoURL || user?.user?.photoURL || defaultUserImage} alt="" />
+                        <small>{user?.displayName || user?.user?.displayName || user?.email.split('@')[0]}</small>
+                    </li>
                 </>
         }
     </>;
 
     return (
-        <div class="navbar bg-base-100 lg:mx-10">
+        <div class="navbar bg-base-100 lg:mx-10 sm:mx-6">
             <div class="navbar-start">
                 <div class="dropdown">
                     <label tabindex="0" class={`btn btn-ghost lg:hidden ${user ? '' : 'md:hidden sm:hidden'}`}>
