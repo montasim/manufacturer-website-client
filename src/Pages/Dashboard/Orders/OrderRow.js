@@ -49,7 +49,12 @@ const OrderRow = ({ index, order }) => {
             </td>
             <td><div className="badge badge-secondary text-white">{orderStatus}</div></td>
             <td>
-                <div className="badge badge-primary text-white">{'Pending'}</div>
+                <label class="input input-xs">
+                    <select className="select select-bordered select-secondary" name='shipStatus'>
+                        <option>Pending</option>
+                        <option>Shipped</option>
+                    </select>
+                </label>
             </td>
             <td>
                 <div className="flex items-center gap-1">
