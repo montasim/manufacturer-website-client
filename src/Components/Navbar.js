@@ -21,7 +21,10 @@ const Navbar = ({ logo }) => {
 
     const logout = () => {
         toast(`See You Soon ${user?.displayName || user?.email.split('@')[0]}`);
+
         signOut(auth);
+
+        localStorage.removeItem('accessToken');
     };
 
     const navbarRoute = <>
