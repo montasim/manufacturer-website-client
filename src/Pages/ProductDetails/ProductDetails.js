@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useLocation, useParams } from 'react-router-dom';
 import { MdOutlineBrandingWatermark, MdOutlineLocalShipping } from 'react-icons/md';
-import { FcRating } from 'react-icons/fc';
 import { AiOutlineDollar, AiOutlineStock } from 'react-icons/ai';
 import { ImPriceTag } from 'react-icons/im';
 import { toast } from 'react-toastify';
@@ -11,7 +10,6 @@ import auth from '../../Hooks/Firebase.Init';
 const ProductDetails = () => {
     const _id = useParams();
     const [product, setProduct] = useState([]);
-    const navigate = useNavigate();
     let location = useLocation();
 
     <Navigate state={{ from: location }} replace />
@@ -24,14 +22,7 @@ const ProductDetails = () => {
 
     const { productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, minOrder } = product;
     const [user] = useAuthState(auth);
-
-    let email;
-
-    if (user !== null) {
-        user.providerData.forEach((profile) => {
-            email = profile?.email;
-        });
-    };
+    const email = user?.email;
 
     const addToCart = (_id) => {
 

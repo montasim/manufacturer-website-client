@@ -7,16 +7,6 @@ import auth from '../../../Hooks/Firebase.Init';
 
 const CategoryRow = ({ index, category }) => {
     const { _id, categoryName, categoryImg, categoryDescription, categoryCreatedBy, categoryCreatedTime } = category;
-    const navigate = useNavigate();
-    const [user] = useAuthState(auth);
-
-    let email;
-
-    if (user !== null) {
-        user.providerData.forEach((profile) => {
-            email = profile?.email;
-        });
-    }
 
     const itemDelete = _id => {
         const confirm = window.confirm('Are You Sure?');

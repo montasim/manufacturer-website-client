@@ -1,14 +1,13 @@
 import React from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loading from '../../Components/Loading';
 import auth from '../../Hooks/Firebase.Init';
 import useToken from '../../Hooks/useToken';
 
 const Login = () => {
-    const navigate = useNavigate();
     let location = useLocation();
 
     const [

@@ -1,21 +1,10 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import auth from '../../../Hooks/Firebase.Init';
 
 const MyOrderRow = ({ index, order }) => {
     const { _id, orderCreatedTime, orderedProducts, orderStatus } = order;
     const navigate = useNavigate();
-    const [user] = useAuthState(auth);
-
-    let email;
-
-    if (user !== null) {
-        user.providerData.forEach((profile) => {
-            email = profile?.email;
-        });
-    }
 
     const deleteOrder = _id => {
         const confirm = window.confirm('Are You Sure?');

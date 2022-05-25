@@ -9,17 +9,14 @@ import { CgUserAdd } from 'react-icons/cg';
 import { FaProductHunt } from 'react-icons/fa';
 import { FiSettings, FiUsers } from 'react-icons/fi';
 import { GoDiffAdded } from 'react-icons/go';
-import { GrUserAdmin } from 'react-icons/gr';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { MdOutlineRateReview, MdAddComment } from 'react-icons/md';
-import { RiUserAddLine, RiAdminLine } from 'react-icons/ri';
+import { RiAdminLine } from 'react-icons/ri';
 import { SiMicrodotblog } from 'react-icons/si';
-import defaultUserImage from '../../Assets/Images/defaultUserImage.png';
 
 const Dashboard = () => {
     const [user] = useAuthState(auth);
     const [admin] = useAdmin(user);
-    const todayDate = new Date();
 
     return (
         <div className="drawer drawer-mobile">

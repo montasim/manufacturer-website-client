@@ -1,24 +1,16 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../Hooks/Firebase.Init';
 import { BsCartCheck } from 'react-icons/bs';
-import { AiFillHeart } from 'react-icons/ai';
 
 
 const ProductRow = ({ index, product }) => {
     const { _id, productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, minOrder } = product;
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
-
-    let email;
-
-    if (user !== null) {
-        user.providerData.forEach((profile) => {
-            email = profile?.email;
-        });
-    };
+    const email = user?.email;
 
     const addToCart = (_id) => {
 
