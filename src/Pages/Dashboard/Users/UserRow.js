@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import defaultUserImage from '../../../Assets/Images/defaultUserImage.png';
 
 const UserRow = ({ user, index, refetch }) => {
-    const { _id, userEmail, userRole } = user;
+    const { _id, email, role } = user;
 
     const deleteUser = _id => {
         const confirm = window.confirm('Are You Sure?');
@@ -11,13 +11,12 @@ const UserRow = ({ user, index, refetch }) => {
         if (confirm) {
             const url = `https://tools-manufacturer-server.herokuapp.com/delete-user/${_id}`;
             fetch(url, {
-                mode: 'no-cors',
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        toast.dismiss(`Deleted ${userEmail} from User`);
+                        toast.dismiss(`Deleted ${email} from User`);
                     };
                 });
         };
@@ -36,11 +35,11 @@ const UserRow = ({ user, index, refetch }) => {
                         </div>
                     </div>
                     <div>
-                        <div className="font-semibold">{userEmail}</div>
+                        <div className="font-semibold">{email}</div>
                     </div>
                 </div>
             </td>
-            <td>{userRole}</td>
+            <td>{role}</td>
             <td>
                 <div onClick={() => deleteUser(_id)} className="flex items-center gap-1">
                     <button
