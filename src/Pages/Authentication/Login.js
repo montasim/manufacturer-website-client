@@ -5,6 +5,7 @@ import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loading from '../../Components/Loading';
 import auth from '../../Hooks/Firebase.Init';
+import useToken from '../../Hooks/useToken';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -24,6 +25,9 @@ const Login = () => {
         gError
     ] = useSignInWithGoogle(auth);
 
+
+    const [token] = useToken(eUser || gUser);
+
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const onSubmit = data => {
@@ -34,7 +38,7 @@ const Login = () => {
         return <Loading />;
     };
 
-    if (eUser || gUser) {
+    if (token) {
         toast.success(`Welcome ${eUser?.user?.displayName || eUser?.user?.email.split('@')[0] || gUser?.user?.displayName} `);
         <Navigate to="/login" state={{ from: location }} replace />;
     };
