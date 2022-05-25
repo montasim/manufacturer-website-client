@@ -5,6 +5,7 @@ import Loading from '../../Components/Loading';
 import { toast } from 'react-toastify';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../Hooks/Firebase.Init';
+import useToken from '../../Hooks/useToken';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -30,11 +31,13 @@ const Signup = () => {
         gError
     ] = useSignInWithGoogle(auth);
 
+    const [token] = useToken(eUser || gUser);
+
     if (eLoading || gLoading || vSending) {
         return <Loading />;
     };
 
-    if (eUser || gUser) {
+    if (token) {
         toast.success(`Welcome ${eUser?.displayName || eUser?.email || gUser?.user?.displayName} `);
 
         navigate('/');
@@ -42,32 +45,8 @@ const Signup = () => {
 
     const onSubmit = async (data) => {
         createUserWithEmailAndPassword(data?.email, data?.password);
-        addUser(data?.name, data?.email, 'user');
         await sendEmailVerification();
         toast(`Email verification sent to ${data?.email}`);
-    };
-
-    const addUser = (name, userEmail, userRole) => {
-        const userCreationTime = new Date();
-
-        const userDetails = { name, userEmail, userCreationTime, userRole };
-
-        // send data to server
-        fetch('https://tools-manufacturer-server.herokuapp.com/add-user', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(userDetails)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(`${data} added`);
-            });
-    };
-
-    if (gUser) {
-        addUser(gUser?.displayName, gUser?.user?.email, 'user');
     };
 
     return (
