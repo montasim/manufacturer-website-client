@@ -64,9 +64,6 @@ const UserProfile = () => {
         <div className='card items-center justify-center'>
             <div className='card-body'>
                 <h3 className='text-4xl font-bold leading-6 text-secondary mb-4'>Update Your Profile</h3>
-                <p className='mt-1 text-md text-gray-600'>
-                    This information will be used to login so be careful what you share.
-                </p>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
 
