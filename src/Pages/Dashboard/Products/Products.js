@@ -26,7 +26,6 @@ const Products = () => {
                         <th>In Stock</th>
                         <th>Unit Price</th>
                         <th>Total Price</th>
-                        <th>Sold</th>
                         <th>Action</th>
                     </tr>
                 </thead>

@@ -6,7 +6,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../Hooks/Firebase.Init';
 
 const ProductRow = ({ index, product }) => {
-    const { _id, name, category, supplierName, img, description, price, inStock, totalSold } = product;
+    const { _id, productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, minOrder } = product;
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
 
@@ -32,8 +32,8 @@ const ProductRow = ({ index, product }) => {
                     if (data.deletedCount > 0) {
                         toast(
                             <div className='flex'>
-                                <img className='w-20' src={img} alt="" />
-                                <p className='ml-4'>{name} deleted from inventory.</p>
+                                <img className='w-20' src={productImg} alt="" />
+                                <p className='ml-4'>{productName} deleted from inventory.</p>
                             </div>
                         );
                     }
@@ -43,7 +43,7 @@ const ProductRow = ({ index, product }) => {
 
     const addToCart = () => {
 
-        const item = { name, category, supplierName, img, description, price, inStock, totalSold, email };
+        const item = { productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, minOrder, email };
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-cart', {
@@ -60,11 +60,11 @@ const ProductRow = ({ index, product }) => {
                     <div className="flex items-center space-x-1">
                         <div className="avatar">
                             <div className="mask mask-squircle w-12 h-12">
-                                <img src={img} alt={name + 'img'} />
+                                <img src={productImg} alt={productName + 'img'} />
                             </div>
                         </div>
                         <div>
-                            <div className="font-semibold">{name}</div>
+                            <div className="font-semibold">{productName}</div>
                             <div className="text-sm opacity-50">Added to Cart</div>
                         </div>
                     </div>
@@ -82,19 +82,18 @@ const ProductRow = ({ index, product }) => {
                 <div className="flex items-center space-x-1">
                     <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                            <img src={img} alt={name + 'img'} />
+                            <img src={productImg} alt={productName + 'img'} />
                         </div>
                     </div>
                     <div>
-                        <div className="font-semibold">{name}</div>
-                        <div className="text-sm opacity-50">{category}</div>
+                        <div className="font-semibold">{productName}</div>
+                        <div className="text-sm opacity-50">{productCategory}</div>
                     </div>
                 </div>
             </td>
-            <td>{inStock}</td>
-            <td>${price}</td>
-            <td>${inStock * price}</td>
-            <td>{totalSold}</td>
+            <td>{productInStock}</td>
+            <td>${productPrice}</td>
+            <td>${productInStock * productPrice}</td>
             <td>
                 <div className="flex items-center gap-1">
                     <button
