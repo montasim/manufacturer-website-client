@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import auth from '../../../Hooks/Firebase.Init';
 
 const MyOrderRow = ({ index, order }) => {
-    const { _id, orderedUserEmail, orderedProducts, orderStatus } = order;
+    const { _id, orderCreatedTime, orderedProducts, orderStatus } = order;
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
 
@@ -45,7 +45,7 @@ const MyOrderRow = ({ index, order }) => {
                 <label>{index + 1}</label>
             </th>
             <td>
-                <div className="font-semibold">{orderedUserEmail}</div>
+                <div className="font-semibold">{orderCreatedTime}</div>
             </td>
             <td>{orderedProducts.length}</td>
             <td>

@@ -4,20 +4,36 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../Hooks/Firebase.Init';
 import MyOrderRow from './MyOrderRow';
-import axios from 'axios';
 
 const MyOrders = () => {
     const [user] = useAuthState(auth);
-    const [orders, setOrders] = useState([]);
+    const [myOrders, setMyOrders] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         if (user) {
-            fetch(`https://tools-manufacturer-server.herokuapp.com/orders/email=${user?.email}`)
-                .then(res => res.json())
-                .then(data => setOrders(data));
-        };
-    }, [user]);
+            fetch(`https://tools-manufacturer-server.herokuapp.com/orders?user=${user.email}`, {
+                method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => {
+                    console.log('res', res);
+                    if (res.status === 401 || res.status === 403) {
+                        signOut(auth);
+                        localStorage.removeItem('accessToken');
+                        navigate('/');
+                    }
+                    return res.json()
+                })
+                .then(data => {
+
+                    setMyOrders(data);
+                });
+        }
+    }, [user])
+
 
     return (
         <div className="overflow-x-auto w-full">
@@ -25,7 +41,7 @@ const MyOrders = () => {
                 <thead>
                     <tr>
                         <th>Serial</th>
-                        <th>Ordered By</th>
+                        <th>Ordered Time</th>
                         <th>Total Product</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -33,7 +49,7 @@ const MyOrders = () => {
                 </thead>
                 <tbody>
                     {
-                        orders?.map((order, index) => <MyOrderRow key={index} order={order} index={index} />)
+                        myOrders?.map((order, index) => <MyOrderRow key={index} order={order} index={index} />)
                     }
                 </tbody>
             </table>

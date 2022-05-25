@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 import auth from '../../Hooks/Firebase.Init';
 import CartRow from './CartRow';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 
 const Cart = () => {
     const [user] = useAuthState(auth);
@@ -11,17 +13,33 @@ const Cart = () => {
     const [orderedQuantity, setorderedQuantity] = useState(0);
     const minOrder = 3;
     const maxOrder = 10;
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const getCart = async () => {
-            const email = user?.email;
-            const url = `https://tools-manufacturer-server.herokuapp.com/cart`;
-            const { data } = await axios.get(url);
+        if (user) {
+            fetch(`https://tools-manufacturer-server.herokuapp.com/cart?user=${user.email}`, {
+                method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => {
+                    console.log('res', res);
+                    if (res.status === 401 || res.status === 403) {
+                        signOut(auth);
+                        localStorage.removeItem('accessToken');
+                        navigate('/');
+                    }
+                    return res.json()
+                })
+                .then(data => {
 
-            setCart(data);
-        };
-        getCart();
-    }, [cart]);
+                    setCart(data);
+                });
+        }
+    }, [cart])
+
+
     if (orderedQuantity > minOrder) {
         toast('Can not order less than minimum order');
     };
