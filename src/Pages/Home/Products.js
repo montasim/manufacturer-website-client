@@ -20,11 +20,11 @@ const Products = () => {
                     <div className='flex items-center p-8 bg-gray-100 rounded'>
                         <div className='mx-auto text-center lg:text-left'>
                             <h2 className='text-4xl font-bold text-secondary'>
-                                Products
+                                Our Products
                             </h2>
 
                             <p className='mt-4 text-sm text-gray-700 max-w-[45ch]'>
-                                We offers many products to choose from. Find your needs here.
+                                Diagnostics, Inspection & Locating, Pressing, Drain Cleaning, Threading & Pipe Fabrication, Wrenches & Tubing Tools, Utility & Electricians Tools, General Purpose & Hand Tools, Wet/Dry Vacs, Power Tools
                             </p>
 
                             <Link
