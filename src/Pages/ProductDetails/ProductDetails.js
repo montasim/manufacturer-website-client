@@ -106,7 +106,7 @@ const ProductDetails = () => {
                                         </div>
                                     </div>
                                     <button onClick={() => addToCart(_id)} type="button"
-                                        className="inline-block px-7 py-3 bg-indigo-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md focus:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                                        className="inline-block px-7 py-3 bg-secondary text-white font-medium text-sm leading-snug uppercase rounded shadow-md focus:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
                                         Add to Cart
                                     </button>
                                 </div>
