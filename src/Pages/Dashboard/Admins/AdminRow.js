@@ -9,14 +9,14 @@ const AdminRow = ({ user, index, refetch }) => {
         const confirm = window.confirm('Are You Sure?');
 
         if (confirm) {
-            const url = `https://tools-manufacturer-server.herokuapp.com/delete-admin/${_id}`;
+            const url = `https://tools-manufacturer-server.herokuapp.com/delete-user/${_id}`;
             fetch(url, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        toast.dismiss(`Deleted ${email} from Admin`);
+                        toast.dismiss(`Deleted ${email} from User`);
                     };
                 });
         };
