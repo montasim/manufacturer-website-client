@@ -6,23 +6,23 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../Hooks/Firebase.Init';
 
 const AddAProduct = () => {
-    const navigate = useNavigate();
     const [user] = useAuthState(auth);
+    const productAddedToDBAt = new Date();
 
     const addProduct = event => {
         event.preventDefault();
 
-        const name = event.target.productName.value;
-        const category = event.target.category.value;
-        const supplierName = event.target.sellerName.value;
-        const img = event.target.imageLink.value;
-        const description = event.target.description.value;
-        const price = event.target.unitPrice.value;
-        const stock = event.target.quantity.value;
+        const productName = event?.target?.productName?.value;
+        const productCategory = event?.target?.productCategory?.value;
+        const productSellerName = event?.target?.productSellerName?.value;
+        const productImg = event?.target?.productImg?.value;
+        const productDescription = event?.target?.productDescription?.value;
+        const productPrice = event?.target?.productPrice?.value;
+        const productInStock = event?.target?.productInStock?.value;
+        const minOrder = event?.target?.minOrder?.value;
         const productAddedBy = user?.email;
-        const productAddedTime = new Date();
 
-        const productDetails = { name, category, supplierName, img, description, price, stock, productAddedBy, productAddedTime };
+        const productDetails = { productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, minOrder, productAddedBy, productAddedToDBAt };
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-product', {
@@ -36,137 +36,39 @@ const AddAProduct = () => {
             .then(data => {
                 toast(
                     <div className='flex'>
-                        <img className='w-20' src={img} alt="" />
-                        <p className='ml-4'>{name} added to inventory.</p>
+                        <img className='w-20' src={productImg} alt="" />
+                        <p className='ml-4'>{productName} added to inventory.</p>
                     </div>
                 );
             });
-
     }
 
     return (
-        <div className="card items-center justify-center">
-            <h2 className='my-8 text-2xl text-gray-600'>Add Item To Inventory</h2>
-            <form onSubmit={addProduct}>
-                <div className="form-group mb-6 max-w-xl">
-                    <input type="text" className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput125"
-                        placeholder="Product Name" name='productName' />
-                </div>
-                <div className="form-group mb-6 max-w-xl">
-                    <input type="text" className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput129"
-                        placeholder="Category" name='category' />
-                </div>
-                <div className="form-group mb-6 max-w-xl">
-                    <input type="text" className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput126"
-                        placeholder="Image Link" name='imageLink' />
-                </div>
-                <div className="form-group mb-6 max-w-xl">
-                    <input type="text" className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput126"
-                        placeholder="Seller Name" name='sellerName' />
-                </div>
-                <div className="form-group mb-6 max-w-xl">
-                    <textarea type="text" className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput126"
-                        placeholder="Description" name='description' />
+        <div>
+            <form onSubmit={addProduct} className='flex h-screen flex-col items-center justify-center'>
+                <h2 className='text-2xl text-bold mb-4'>Add A Product Here</h2>
+
+                <input type="text" placeholder="Product Name" className="input input-bordered input-secondary w-full max-w-xl" name='productName' required />
+
+                <input type="number" placeholder="Product Price" className="input input-bordered input-secondary w-full max-w-xl mt-4" name='productPrice' required />
+
+                <div className='flex justify-between my-4'>
+                    <input type="text" placeholder="Product Category" className="input input-bordered input-secondary w-full max-w-xl mr-4" name='productCategory' required />
+
+                    <input type="text" placeholder="Product Seller Name" className="input input-bordered input-secondary w-full max-w-xl" name='productSellerName' required />
                 </div>
 
-                <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div className="form-group mb-6 max-w-xl">
-                        <input type="number" className="form-control block max-w-xs px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput124" aria-describedby="emailHelp124" placeholder="Unit Price" name='unitPrice' />
-                    </div>
-                    <div className="form-group mb-6 max-w-xl">
-                        <input type="number" className="form-control block  max-w-xs px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput124" aria-describedby="emailHelp124" placeholder="Quantity" name='quantity' />
-                    </div>
-                </div><div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div className="form-group mb-6 max-w-xl">
-                        <input type="number" className="form-control block  max-w-xs px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput124" aria-describedby="emailHelp124" placeholder="Min Order" name='minOrder' />
-                    </div>
-                    <div className="form-group mb-6 max-w-xl">
-                        <input type="number" className="form-control block  max-w-xs px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-600 focus:outline-none" id="exampleInput124" aria-describedby="emailHelp124" placeholder="Max Order" name='maxOrder' />
-                    </div>
+                <div className='flex justify-between'>
+                    <input type="number" placeholder="Product Stock" className="input input-bordered input-secondary w-full max-w-xl mr-4" name='productInStock' required />
+
+                    <input type="number" placeholder="Min Order" className="input input-bordered input-secondary w-full max-w-xl" name='minOrder' required />
                 </div>
-                <button type="submit" className="
-      max-w-xl
-      px-6
-      py-2.5
-      bg-indigo-600
-      text-white
-      font-medium
-      text-xs
-      leading-tight
-      uppercase
-      rounded
-      shadow-md
-      hover:bg-indigo-700 hover:shadow-lg
-      focus:bg-indigo-700 focus:shadow-lg focus:outline-none focus:ring-0
-      active:bg-indigo-800 active:shadow-lg
-      transition
-      duration-150
-      ease-in-out">Add New Item</button>
+
+                <input type="text" placeholder="Product Image" className="input input-bordered input-secondary w-full max-w-xl my-4" name='productImg' required />
+
+                <textarea className="textarea textarea-secondary w-full max-w-xl" placeholder="Product Description" name='productDescription' required></textarea>
+
+                <button type='submit' className="btn btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-md max-w-xl text-white mt-4">Add product</button>
             </form>
         </div>
     );
