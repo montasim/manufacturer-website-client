@@ -20,7 +20,7 @@ const WhyChooseUs = () => {
                         <h2 className="text-3xl font-bold sm:text-4xl flex items-center"><MdOutlineFeaturedPlayList className='mr-3' /> <span className='text-secondary mr-3'>Jantrik </span> Features</h2>
 
                         <p className="mt-4 text-gray-600">
-                            We offer modern, clean and customizable features for your needs. No matter how much products you have or how many clients you want to provide service we are here for you. POSDash provides scalable services for your needs.
+                            Limited Lifetime Warranty, Professional Tool Specialists - Onsite tool demos, Software Updates, Product Registration
                         </p>
 
                         <a
