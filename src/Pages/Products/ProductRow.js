@@ -15,7 +15,7 @@ const ProductRow = ({ index, product }) => {
 
     const addToCart = (_id) => {
 
-        const item = { productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, orderedQuantity, email };
+        const item = { productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, orderedQuantity, minOrder, email };
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-cart', {

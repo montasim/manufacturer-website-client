@@ -6,15 +6,15 @@ const CartRow = ({ index, cart }) => {
 
     const [userOrderedQuantity, setUserOrderedQuantity] = useState(orderedQuantity);
 
-    console.log(`you have updated your query to ${userOrderedQuantity}`);
+    useEffect(() => {
+        if (userOrderedQuantity < minOrder) {
+            toast.error('Ordered quantity is less than min order');
+        };
 
-    if (userOrderedQuantity < minOrder) {
-        toast.error('Ordered quantity is less than min order');
-    };
-
-    if (userOrderedQuantity > productInStock) {
-        toast.error('Ordered quantity can not be more than stock');
-    };
+        if (userOrderedQuantity > productInStock) {
+            toast.error('Ordered quantity can not be more than stock');
+        };
+    }, [userOrderedQuantity]);
 
     const deleteFromCart = _id => {
         const confirm = window.confirm('Are You Sure?');
@@ -54,7 +54,7 @@ const CartRow = ({ index, cart }) => {
                     <dl className="mt-2 space-y-1 text-xs text-gray-500">
                         <div>
                             <dt className="inline">Min Order: </dt>
-                            <dd className="inline">{userOrderedQuantity}</dd>
+                            <dd className="inline">{minOrder}</dd>
                         </div>
 
                         <div>

@@ -10,7 +10,6 @@ import { signOut } from 'firebase/auth';
 const Cart = () => {
     const [user] = useAuthState(auth);
     const [cart, setCart] = useState([]);
-    const [orderedQuantity, setorderedQuantity] = useState(0);
     const minOrder = 3;
     const maxOrder = 10;
     const navigate = useNavigate();
@@ -33,16 +32,10 @@ const Cart = () => {
                     return res.json()
                 })
                 .then(data => {
-
                     setCart(data);
                 });
         }
-    }, [cart])
-
-
-    if (orderedQuantity > minOrder) {
-        toast('Can not order less than minimum order');
-    };
+    }, [cart]);
 
     const placeOrder = event => {
         event.preventDefault();
@@ -68,7 +61,6 @@ const Cart = () => {
             .then(data => {
                 toast.success('Order Placed Successfully. Pay to continue.');
             });
-
     };
 
     return (
