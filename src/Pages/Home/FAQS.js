@@ -17,7 +17,7 @@ const FAQS = () => {
                 <details className="p-6 group" open>
                     <summary className="flex items-center justify-between cursor-pointer">
                         <h5 className="text-lg font-medium text-gray-900">
-                            What does Inventory Module include?
+                            Trust Your Tools with Genuine RIDGID Parts
                         </h5>
 
                         <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
@@ -61,7 +61,7 @@ const FAQS = () => {
                 <details className="p-6 group">
                     <summary className="flex items-center justify-between cursor-pointer">
                         <h5 className="text-lg font-medium text-gray-900">
-                            Can I see the real time update on my inventory?
+                            Look for and insist on Genuine RIDGID Replacement Parts.
                         </h5>
 
                         <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
@@ -98,7 +98,7 @@ const FAQS = () => {
                     </summary>
 
                     <p className="mt-4 leading-relaxed text-gray-700">
-                        Yes, Jantrik allows you to view the availability of the products in the Product Availability Report. The Report shows the exact quantity of on hand, available, on order and allocated products.
+                        It is your best assurance of performance, efficiency and long service life. Using this site, you have 24/7 access to Genuine RIDGID Replacement Parts.
                     </p>
                 </details>
 
