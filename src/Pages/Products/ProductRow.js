@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../Hooks/Firebase.Init';
 import { BsCartCheck } from 'react-icons/bs';
+import { MdOutlineDeliveryDining, MdBookmarkBorder } from 'react-icons/md';
 
 
 const ProductRow = ({ index, product }) => {
@@ -61,12 +62,7 @@ const ProductRow = ({ index, product }) => {
 
                 <dl className="flex items-center mt-6 space-x-8 text-xs">
                     <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                        <svg
-                            className="w-4 h-4 text-secondary"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-                        </svg>
+                        <MdBookmarkBorder className='text-2xl text-secondary' />
 
                         <div className="sm:ml-3 mt-1.5 sm:mt-0">
                             <dt className="text-gray-500">
@@ -80,12 +76,7 @@ const ProductRow = ({ index, product }) => {
                     </div>
 
                     <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                        <svg
-                            className="w-4 h-4 text-secondary"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                        </svg>
+                        <MdOutlineDeliveryDining className='text-2xl text-secondary' />
 
                         <div className="sm:ml-3 mt-1.5 sm:mt-0">
                             <dt className="text-gray-500">
