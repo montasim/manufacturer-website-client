@@ -11,10 +11,11 @@ const ProductRow = ({ index, product }) => {
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
     const email = user?.email;
+    const orderedQuantity = minOrder;
 
     const addToCart = (_id) => {
 
-        const item = { productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, email };
+        const item = { productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, orderedQuantity, email };
 
         // send data to server
         fetch('https://tools-manufacturer-server.herokuapp.com/add-cart', {

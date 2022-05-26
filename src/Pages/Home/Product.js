@@ -9,20 +9,23 @@ const Product = ({ item }) => {
     const email = user?.email;
 
     const addToCart = (_id) => {
+        const orderedQuantity = minOrder;
 
-        const item = { productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, minOrder, email };
+        if (orderedQuantity <= productInStock) {
+            const item = { productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, orderedQuantity, minOrder, email };
 
-        // send data to server
-        fetch('https://tools-manufacturer-server.herokuapp.com/add-cart', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(item)
-        })
-            .then(res => res.json())
-            .then(data => {
-            });
+            // send data to server
+            fetch('https://tools-manufacturer-server.herokuapp.com/add-cart', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(item)
+            })
+                .then(res => res.json())
+                .then(data => {
+                });
+        };
     };
 
     return (

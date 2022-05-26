@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 const CartRow = ({ index, cart }) => {
-    const { _id, productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, minOrder } = cart;
+    const { _id, productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, orderedQuantity, minOrder } = cart;
+
+    const [userOrderedQuantity, setUserOrderedQuantity] = useState(orderedQuantity);
+
+    console.log(`you have updated your query to ${userOrderedQuantity}`);
+
+    if (userOrderedQuantity < minOrder) {
+        toast.error('Ordered quantity is less than min order');
+    };
+
+    if (userOrderedQuantity > productInStock) {
+        toast.error('Ordered quantity can not be more than stock');
+    };
 
     const deleteFromCart = _id => {
         const confirm = window.confirm('Are You Sure?');
@@ -21,11 +33,10 @@ const CartRow = ({ index, cart }) => {
                                 <p className='ml-4'>{productName} deleted from cart.</p>
                             </div>
                         );
-                    }
-                })
-        }
+                    };
+                });
+        };
     };
-
 
     return (
         <li className="flex items-center justify-between py-4">
@@ -43,7 +54,7 @@ const CartRow = ({ index, cart }) => {
                     <dl className="mt-2 space-y-1 text-xs text-gray-500">
                         <div>
                             <dt className="inline">Min Order: </dt>
-                            <dd className="inline">{minOrder}</dd>
+                            <dd className="inline">{userOrderedQuantity}</dd>
                         </div>
 
                         <div>
@@ -51,9 +62,9 @@ const CartRow = ({ index, cart }) => {
                             <dd className="inline">{productInStock}</dd>
                         </div>
 
-                        <div className='mt-4'>
-                            <input id='orderdQuantity' type="number" placeholder="Quantity" className="input input-xs input-bordered input-secondary w-20" name='orderdQuantity' defaultValue={minOrder} required />
-                        </div>
+                        <form className='mt-4'>
+                            <input onChange={e => setUserOrderedQuantity(e.target.value)} type="number" value={userOrderedQuantity} className="input input-xs input-bordered input-secondary w-20" defaultValue={minOrder} required />
+                        </form>
                     </dl>
                 </div>
             </div>
@@ -61,7 +72,7 @@ const CartRow = ({ index, cart }) => {
             <div>
                 <p className="text-sm">
                     ${productPrice}
-                    <small className="text-gray-500"> X {'orderedQuantity'}</small>
+                    <small className="text-gray-500"> X {userOrderedQuantity}</small>
                 </p>
             </div>
 

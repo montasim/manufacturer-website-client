@@ -129,7 +129,7 @@ const Cart = () => {
                                         Email
                                     </label>
 
-                                    <input type="text" value={user?.email} className="input input-bordered input-secondary w-full max-w-xl" name='blogTitle' required />
+                                    <input type="text" defaultValue={user?.email} className="input input-bordered input-secondary w-full max-w-xl" name='blogTitle' required />
                                 </div>
 
                                 <div className="col-span-6">
