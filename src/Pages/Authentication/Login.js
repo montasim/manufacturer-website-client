@@ -1,14 +1,16 @@
 import React from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link, Navigate, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loading from '../../Components/Loading';
 import auth from '../../Hooks/Firebase.Init';
 import useToken from '../../Hooks/useToken';
 
 const Login = () => {
-    let location = useLocation();
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const [
         signInWithEmailAndPassword,
@@ -39,7 +41,8 @@ const Login = () => {
 
     if (token) {
         toast.success(`Welcome ${eUser?.user?.displayName || eUser?.user?.email.split('@')[0] || gUser?.user?.displayName} `);
-        <Navigate to="/login" state={{ from: location }} replace />;
+
+        navigate(from, { replace: true });
     };
 
     return (
