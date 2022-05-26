@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const CartRow = ({ index, cart }) => {
     const { _id, productName, productCategory, productSellerName, productImg, productDescription, productPrice, productInStock, orderedQuantity, minOrder } = cart;
@@ -16,26 +18,45 @@ const CartRow = ({ index, cart }) => {
         };
     }, [userOrderedQuantity]);
 
-    const deleteFromCart = _id => {
-        const confirm = window.confirm('Are You Sure?');
+    const options = {
+        title: 'Are You Sure Want To Delete',
+        buttons: [
+            {
+                label: 'Yes',
+                onClick: () => deleteFromCart(_id)
+            },
+            {
+                label: 'No',
+                onClick: () => ''
+            }
+        ],
+        closeOnEscape: true,
+        closeOnClickOutside: true,
+        keyCodeForClose: [8, 32],
+        willUnmount: () => { },
+        afterClose: () => { },
+        onClickOutside: () => { },
+        onKeypress: () => { },
+        onKeypressEscape: () => { },
+        overlayClassName: "overlay-custom-class-name"
+    };
 
-        if (confirm) {
-            const url = `https://tools-manufacturer-server.herokuapp.com/delete-cart/${_id}`;
-            fetch(url, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        toast(
-                            <div className='flex'>
-                                <img className='w-20' src={productImg} alt="" />
-                                <p className='ml-4'>{productName} deleted from cart.</p>
-                            </div>
-                        );
-                    };
-                });
-        };
+    const deleteFromCart = _id => {
+        const url = `https://tools-manufacturer-server.herokuapp.com/delete-cart/${_id}`;
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    toast(
+                        <div className='flex'>
+                            <img className='w-20' src={productImg} alt="" />
+                            <p className='ml-4'>{productName} deleted from cart.</p>
+                        </div>
+                    );
+                };
+            });
     };
 
     return (
@@ -76,7 +97,7 @@ const CartRow = ({ index, cart }) => {
                 </p>
             </div>
 
-            <button onClick={() => deleteFromCart(_id)}
+            <button onClick={() => confirmAlert(options)}
                 className="z-30 block p-2 text-red-700 transition-all bg-red-100 border-2 border-white rounded-full hover:scale-110 focus:outline-none focus:ring active:bg-red-50"
                 type="button"
             >

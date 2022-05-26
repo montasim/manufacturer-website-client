@@ -4,31 +4,52 @@ import { toast } from 'react-toastify';
 import { AiFillDelete, AiFillEdit, AiFillPlusSquare } from 'react-icons/ai';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../Hooks/Firebase.Init';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const CategoryRow = ({ index, category }) => {
     const { _id, categoryName, categoryImg, categoryDescription, categoryCreatedBy, categoryCreatedTime } = category;
 
-    const itemDelete = _id => {
-        const confirm = window.confirm('Are You Sure?');
+    const options = {
+        title: 'Are You Sure Want To Delete',
+        buttons: [
+            {
+                label: 'Yes',
+                onClick: () => categoryDelete(_id)
+            },
+            {
+                label: 'No',
+                onClick: () => ''
+            }
+        ],
+        closeOnEscape: true,
+        closeOnClickOutside: true,
+        keyCodeForClose: [8, 32],
+        willUnmount: () => { },
+        afterClose: () => { },
+        onClickOutside: () => { },
+        onKeypress: () => { },
+        onKeypressEscape: () => { },
+        overlayClassName: "overlay-custom-class-name"
+    };
 
-        if (confirm) {
-            const url = `https://tools-manufacturer-server.herokuapp.com/delete-category/${_id}`;
-            fetch(url, {
-                method: 'DELETE'
+    const categoryDelete = _id => {
+        const url = `https://tools-manufacturer-server.herokuapp.com/delete-category/${_id}`;
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    toast(
+                        <div className='flex'>
+                            <img className='w-20' src={categoryImg} alt="" />
+                            <p className='ml-4'>{categoryName} deleted from inventory.</p>
+                        </div>
+                    );
+                }
             })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        toast(
-                            <div className='flex'>
-                                <img className='w-20' src={categoryImg} alt="" />
-                                <p className='ml-4'>{categoryName} deleted from inventory.</p>
-                            </div>
-                        );
-                    }
-                })
-        }
-    }
+    };
 
     return (
         <tr className="hover">
@@ -60,7 +81,7 @@ const CategoryRow = ({ index, category }) => {
                         </svg>
                     </button>
 
-                    <button onClick={() => itemDelete(_id)}
+                    <button onClick={() => confirmAlert(options)}
                         className="z-30 block p-2 text-red-700 transition-all bg-red-100 border-2 border-white rounded-full hover:scale-110 focus:outline-none focus:ring active:bg-red-50"
                         type="button"
                     >

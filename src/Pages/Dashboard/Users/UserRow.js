@@ -1,25 +1,46 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 import defaultUserImage from '../../../Assets/Images/defaultUserImage.png';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const UserRow = ({ user, index, refetch }) => {
     const { _id, email, role } = user;
 
-    const deleteUser = _id => {
-        const confirm = window.confirm('Are You Sure?');
+    const options = {
+        title: 'Are You Sure Want To Delete',
+        buttons: [
+            {
+                label: 'Yes',
+                onClick: () => deleteUser(_id)
+            },
+            {
+                label: 'No',
+                onClick: () => ''
+            }
+        ],
+        closeOnEscape: true,
+        closeOnClickOutside: true,
+        keyCodeForClose: [8, 32],
+        willUnmount: () => { },
+        afterClose: () => { },
+        onClickOutside: () => { },
+        onKeypress: () => { },
+        onKeypressEscape: () => { },
+        overlayClassName: "overlay-custom-class-name"
+    };
 
-        if (confirm) {
-            const url = `https://tools-manufacturer-server.herokuapp.com/delete-user/${_id}`;
-            fetch(url, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        toast.dismiss(`Deleted ${email} from User`);
-                    };
-                });
-        };
+    const deleteUser = _id => {
+        const url = `https://tools-manufacturer-server.herokuapp.com/delete-user/${_id}`;
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    toast.dismiss(`Deleted ${email} from User`);
+                };
+            });
     };
 
     return (
@@ -43,7 +64,7 @@ const UserRow = ({ user, index, refetch }) => {
                         </div>
                     </td>
                     <td>
-                        <div onClick={() => deleteUser(_id)} className="flex items-center gap-1">
+                        <div onClick={() => confirmAlert(options)} className="flex items-center gap-1">
                             <button
                                 className="z-30 block p-2 text-red-700 transition-all bg-red-100 border-2 border-white rounded-full hover:scale-110 focus:outline-none focus:ring active:bg-red-50"
                                 type="button"
