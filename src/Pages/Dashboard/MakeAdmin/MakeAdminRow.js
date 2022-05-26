@@ -30,25 +30,30 @@ const MakeAdminRow = ({ user, index, refetch }) => {
 
     return (
         <tr className="hover">
-            <th>
-                <label>{index + 1}</label>
-            </th>
-            <td>
-                <div className="flex items-center space-x-1">
-                    <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
-                            <img src={defaultAdminImage} alt='' />
+            {
+                role !== 'admin' &&
+                <>
+                    <th>
+                        <label>{index + 1}</label>
+                    </th>
+                    <td>
+                        <div className="flex items-center space-x-1">
+                            <div className="avatar">
+                                <div className="mask mask-squircle w-12 h-12">
+                                    <img src={defaultAdminImage} alt='' />
+                                </div>
+                            </div>
+                            <div>
+                                <div className="font-semibold">{email}</div>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div className="font-semibold">{email}</div>
-                    </div>
-                </div>
-            </td>
-            <td>{role}</td>
-            <td>
-                {role !== 'admin' && <button onClick={makeAdmin} class="btn btn-xs">Make Admin</button>}
-            </td>
+                    </td>
+                    <td>{role}</td>
+                    <td>
+                        {role !== 'admin' && <button onClick={makeAdmin} class="btn btn-xs">Make Admin</button>}
+                    </td>
+                </>
+            }
         </tr>
     );
 };
