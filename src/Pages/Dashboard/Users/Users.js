@@ -22,7 +22,6 @@ const Users = () => {
                     <tr>
                         <th>Serial</th>
                         <th>Name</th>
-                        <th>Role</th>
                         <th>Action</th>
                     </tr>
                 </thead>
