@@ -1,26 +1,30 @@
-# Jantrik - [Tools Manufacturer Website](https://tools-manufacturer-server.herokuapp.com/)
+# Jantrik - Tools Manufacturer Website (Full-Stack)
 
-### Client Side Link: https://jantrik-b5cde.web.app
+### Website Link: https://jantrik-b5cde.web.app/
 
-### Server Side Link: https://tools-manufacturer-server.herokuapp.com/
+### Client Side Code: https://github.com/montasim/manufacturer-website-client
+
+### Server Side Code: [https://tools-manufacturer-server.herokuapp.com/](https://github.com/montasim/manufacturer-website-server)
 
 ## Description
 
-POSDash is a tools manufacturer website. Here user can create an account with email and password. User can also use social media like Google to login. After creating the account user is redirected to the page from where he was taken to login page. User can place order, they can add blogs and reviews. User can delete product from cart. User can update their profile.
+Jantril is a tools manufacturer website. Here user can create an account with email and password. User can also use social media like Google to login. After creating the account user is redirected to the page from where he was taken to login page. User can place order, they can add blogs and reviews. User can delete product from cart. User can update their profile.
 
 ## Features and Functionality
 
-- Can add products
-- Place order
-- Cart
-- Can add product to cart
-- Stripe payment system
-- Admin can add product.
-- Register with email and password
-- Social media login (Google)
-- Email verification
-- Reset password
-- Display user image when login with social media
+1. Authentication (Firebase, JWT)
+2. Email verification
+3. Reset password
+4. Display user image when login with social media
+5. User profile
+6. Manage products (CRUD operations)
+7. Dashboard
+8. Admin panel
+9. Can add products
+10. Place order
+11. Cart
+12. Can add product to cart
+13. Admin can add product.
 
 ## Used Technology
 
@@ -43,3 +47,8 @@ POSDash is a tools manufacturer website. Here user can create an account with em
 4. React Toastify
 5. JWT
 6. AXIOS
+
+### Hosting
+
+1. Client-side hosting: Firebase
+2. Server-side hosting: Heroku
