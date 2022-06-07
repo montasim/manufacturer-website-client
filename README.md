@@ -4,7 +4,7 @@
 
 ### Client Side Code: https://github.com/montasim/manufacturer-website-client
 
-### Server Side Code: [https://tools-manufacturer-server.herokuapp.com/](https://github.com/montasim/manufacturer-website-server)
+### Server Side Code: https://github.com/montasim/manufacturer-website-server
 
 ## Description
 
